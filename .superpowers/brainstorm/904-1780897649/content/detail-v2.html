@@ -1,0 +1,262 @@
+<h2>Detail Page v2 — Mind Map Architecture + Projects Page</h2>
+<p class="subtitle">Mind map for tech stack. Terminal-matrix for project listing.</p>
+
+<!-- ====== DETAIL PAGE: Architecture as Mind Map ====== -->
+<div class="section">
+  <h3>Project Detail — Architecture as Mind Map</h3>
+  <div class="mockup">
+    <div class="mockup-body" style="background:#090c10;padding:60px 80px;">
+
+      <p style="color:#8b949e;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin:0 0 40px;">Architecture</p>
+
+      <!-- Mind Map -->
+      <div style="display:flex;align-items:center;justify-content:center;position:relative;">
+
+        <!-- Central node -->
+        <div style="background:rgba(88,166,255,0.08);border:2px solid rgba(88,166,255,0.3);border-radius:50%;width:120px;height:120px;display:flex;align-items:center;justify-content:center;text-align:center;z-index:2;flex-shrink:0;">
+          <span style="color:#58a6ff;font-size:15px;font-weight:600;">CoBoard</span>
+        </div>
+
+        <!-- Left branches -->
+        <div style="display:flex;flex-direction:column;gap:28px;margin-right:40px;align-items:flex-end;">
+          <!-- Branch: UI Layer -->
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="text-align:right;">
+              <p style="color:#58a6ff;font-size:12px;font-weight:500;margin:0 0 4px;">UI Layer</p>
+              <div style="display:flex;gap:6px;">
+                <span style="color:#8b949e;font-size:10px;background:rgba(88,166,255,0.06);padding:2px 8px;border-radius:10px;">React 18</span>
+                <span style="color:#8b949e;font-size:10px;background:rgba(88,166,255,0.06);padding:2px 8px;border-radius:10px;">Tailwind</span>
+              </div>
+            </div>
+            <div style="width:40px;height:1px;background:rgba(88,166,255,0.15);"></div>
+            <div style="width:6px;height:6px;background:#58a6ff;border-radius:50%;"></div>
+          </div>
+          <!-- Branch: State -->
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="text-align:right;">
+              <p style="color:#a78bfa;font-size:12px;font-weight:500;margin:0 0 4px;">State</p>
+              <div style="display:flex;gap:6px;">
+                <span style="color:#8b949e;font-size:10px;background:rgba(167,139,250,0.06);padding:2px 8px;border-radius:10px;">Zustand</span>
+                <span style="color:#8b949e;font-size:10px;background:rgba(167,139,250,0.06);padding:2px 8px;border-radius:10px;">localStorage</span>
+              </div>
+            </div>
+            <div style="width:40px;height:1px;background:rgba(167,139,250,0.15);"></div>
+            <div style="width:6px;height:6px;background:#a78bfa;border-radius:50%;"></div>
+          </div>
+          <!-- Branch: Routing -->
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="text-align:right;">
+              <p style="color:#ff6b35;font-size:12px;font-weight:500;margin:0 0 4px;">Routing</p>
+              <div style="display:flex;gap:6px;">
+                <span style="color:#8b949e;font-size:10px;background:rgba(255,107,53,0.06);padding:2px 8px;border-radius:10px;">React Router v6</span>
+              </div>
+            </div>
+            <div style="width:40px;height:1px;background:rgba(255,107,53,0.15);"></div>
+            <div style="width:6px;height:6px;background:#ff6b35;border-radius:50%;"></div>
+          </div>
+        </div>
+
+        <!-- Right branches -->
+        <div style="display:flex;flex-direction:column;gap:28px;margin-left:40px;">
+          <!-- Branch: Animation -->
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:6px;height:6px;background:#7ee787;border-radius:50%;"></div>
+            <div style="width:40px;height:1px;background:rgba(126,231,135,0.15);"></div>
+            <div>
+              <p style="color:#7ee787;font-size:12px;font-weight:500;margin:0 0 4px;">Animation</p>
+              <div style="display:flex;gap:6px;">
+                <span style="color:#8b949e;font-size:10px;background:rgba(126,231,135,0.06);padding:2px 8px;border-radius:10px;">Framer Motion</span>
+                <span style="color:#8b949e;font-size:10px;background:rgba(126,231,135,0.06);padding:2px 8px;border-radius:10px;">@react-spring</span>
+              </div>
+            </div>
+          </div>
+          <!-- Branch: Interaction -->
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:6px;height:6px;background:#ffa657;border-radius:50%;"></div>
+            <div style="width:40px;height:1px;background:rgba(255,166,87,0.15);"></div>
+            <div>
+              <p style="color:#ffa657;font-size:12px;font-weight:500;margin:0 0 4px;">Interaction</p>
+              <div style="display:flex;gap:6px;">
+                <span style="color:#8b949e;font-size:10px;background:rgba(255,166,87,0.06);padding:2px 8px;border-radius:10px;">@dnd-kit</span>
+                <span style="color:#8b949e;font-size:10px;background:rgba(255,166,87,0.06);padding:2px 8px;border-radius:10px;">Lucide Icons</span>
+              </div>
+            </div>
+          </div>
+          <!-- Branch: Deploy -->
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:6px;height:6px;background:#c9d1d9;border-radius:50%;"></div>
+            <div style="width:40px;height:1px;background:rgba(201,209,217,0.15);"></div>
+            <div>
+              <p style="color:#c9d1d9;font-size:12px;font-weight:500;margin:0 0 4px;">Deploy</p>
+              <div style="display:flex;gap:6px;">
+                <span style="color:#8b949e;font-size:10px;background:rgba(201,209,217,0.06);padding:2px 8px;border-radius:10px;">Netlify</span>
+                <span style="color:#8b949e;font-size:10px;background:rgba(201,209,217,0.06);padding:2px 8px;border-radius:10px;">Vite</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="color:#484f58;font-size:11px;text-align:center;margin-top:32px;">Each node hovers to reveal details. Branch colors match the tech spectrum.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PROJECTS PAGE: Terminal Tree ====== -->
+<div class="section" style="margin-top:32px;">
+  <h3>Projects Page — Structured, Non-Grid</h3>
+  <p class="subtitle">A visual hierarchy inspired by file trees and data flows. Not a grid.</p>
+
+  <div class="mockup">
+    <div class="mockup-header">/projects — Category tree with terminal aesthetic</div>
+    <div class="mockup-body" style="background:#090c10;padding:60px 80px;">
+
+      <!-- Header -->
+      <p style="color:#8b949e;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin:0 0 12px;">Project Index</p>
+      <p style="color:#c9d1d9;font-size:40px;font-weight:300;margin:0 0 8px;letter-spacing:-1px;">What I've built</p>
+      <p style="color:#484f58;font-size:13px;font-family:monospace;margin:0 0 60px;">~ $ tree projects/ --by-category</p>
+
+      <!-- Category: Frontend -->
+      <div style="margin-bottom:48px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:8px;height:8px;background:#58a6ff;border-radius:2px;"></div>
+          <span style="color:#58a6ff;font-family:monospace;font-size:13px;font-weight:500;">frontend/</span>
+          <span style="color:#21262d;font-size:11px;">5 projects</span>
+        </div>
+        <div style="padding-left:24px;border-left:1px solid rgba(88,166,255,0.1);display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="color:#484f58;font-family:monospace;font-size:12px;">├─</span>
+            <span style="color:#c9d1d9;font-size:15px;font-weight:500;">CoBoard</span>
+            <span style="color:#484f58;font-size:12px;">Kanban collaboration · React · TS · dnd-kit · Motion</span>
+            <span style="color:#58a6ff;font-size:11px;">Live →</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="color:#484f58;font-family:monospace;font-size:12px;">├─</span>
+            <span style="color:#c9d1d9;font-size:15px;font-weight:500;">AiWaifu</span>
+            <span style="color:#484f58;font-size:12px;">AI anime chat · React · Capacitor · SSE streaming</span>
+            <span style="color:#58a6ff;font-size:11px;">Live →</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="color:#484f58;font-family:monospace;font-size:12px;">├─</span>
+            <span style="color:#c9d1d9;font-size:15px;font-weight:500;">ccMonitor</span>
+            <span style="color:#484f58;font-size:12px;">Claude Code desktop companion · C# WPF · DeepSeek API</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="color:#484f58;font-family:monospace;font-size:12px;">├─</span>
+            <span style="color:#c9d1d9;font-size:15px;font-weight:500;">CrossBorderWorkflow</span>
+            <span style="color:#484f58;font-size:12px;">E-commerce management · Electron · React · Ant Design</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="color:#484f58;font-family:monospace;font-size:12px;">└─</span>
+            <span style="color:#c9d1d9;font-size:15px;font-weight:500;">RussiaBlock</span>
+            <span style="color:#484f58;font-size:12px;">Desktop Tetris · Electron · Canvas · electron-builder</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Backend -->
+      <div style="margin-bottom:48px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:8px;height:8px;background:#7ee787;border-radius:2px;"></div>
+          <span style="color:#7ee787;font-family:monospace;font-size:13px;font-weight:500;">backend/</span>
+          <span style="color:#21262d;font-size:11px;">3 projects</span>
+        </div>
+        <div style="padding-left:24px;border-left:1px solid rgba(126,231,135,0.1);display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="color:#484f58;font-family:monospace;font-size:12px;">├─</span>
+            <span style="color:#c9d1d9;font-size:15px;font-weight:500;">AsynSMS</span>
+            <span style="color:#484f58;font-size:12px;">Enterprise SMS · Spring Boot · RabbitMQ · 48/48 tests</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="color:#484f58;font-family:monospace;font-size:12px;">├─</span>
+            <span style="color:#c9d1d9;font-size:15px;font-weight:500;">FinancialSystem</span>
+            <span style="color:#484f58;font-size:12px;">A-share trading simulation · Python · akshare · 3 strategies</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="color:#484f58;font-family:monospace;font-size:12px;">└─</span>
+            <span style="color:#c9d1d9;font-size:15px;font-weight:500;">ContentPlatform</span>
+            <span style="color:#484f58;font-size:12px;">AI content operation · Multi-platform · Claude-driven</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: CLI/MCP -->
+      <div style="margin-bottom:48px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:8px;height:8px;background:#a78bfa;border-radius:2px;"></div>
+          <span style="color:#a78bfa;font-family:monospace;font-size:13px;font-weight:500;">cli-mcp/</span>
+          <span style="color:#21262d;font-size:11px;">2 projects</span>
+        </div>
+        <div style="padding-left:24px;border-left:1px solid rgba(167,139,250,0.1);display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="color:#484f58;font-family:monospace;font-size:12px;">├─</span>
+            <span style="color:#c9d1d9;font-size:15px;font-weight:500;">MCPX</span>
+            <span style="color:#484f58;font-size:12px;">MCP framework · TypeScript · 60% less code · MIT</span>
+            <span style="color:#a78bfa;font-size:11px;">GitHub →</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="color:#484f58;font-family:monospace;font-size:12px;">└─</span>
+            <span style="color:#c9d1d9;font-size:15px;font-weight:500;">VibeView</span>
+            <span style="color:#484f58;font-size:12px;">Claude visual output · Go · 9 MCP tools · ~2500 LOC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Mobile + Embedded (shorter) -->
+      <div style="display:flex;gap:80px;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+            <div style="width:8px;height:8px;background:#ff6b35;border-radius:2px;"></div>
+            <span style="color:#ff6b35;font-family:monospace;font-size:13px;font-weight:500;">mobile/</span>
+            <span style="color:#21262d;font-size:11px;">3 projects</span>
+          </div>
+          <div style="padding-left:24px;border-left:1px solid rgba(255,107,53,0.1);display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:baseline;gap:10px;">
+              <span style="color:#484f58;font-family:monospace;font-size:12px;">├─</span>
+              <span style="color:#c9d1d9;font-size:15px;font-weight:500;">ExpenseTracker</span>
+            </div>
+            <div style="display:flex;align-items:baseline;gap:10px;">
+              <span style="color:#484f58;font-family:monospace;font-size:12px;">├─</span>
+              <span style="color:#c9d1d9;font-size:15px;font-weight:500;">WeatherReport</span>
+            </div>
+            <div style="display:flex;align-items:baseline;gap:10px;">
+              <span style="color:#484f58;font-family:monospace;font-size:12px;">└─</span>
+              <span style="color:#c9d1d9;font-size:15px;font-weight:500;">MusicPlayer</span>
+            </div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+            <div style="width:8px;height:8px;background:#ffa657;border-radius:2px;"></div>
+            <span style="color:#ffa657;font-family:monospace;font-size:13px;font-weight:500;">embedded/</span>
+            <span style="color:#21262d;font-size:11px;">2 projects</span>
+          </div>
+          <div style="padding-left:24px;border-left:1px solid rgba(255,166,87,0.1);display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:baseline;gap:10px;">
+              <span style="color:#484f58;font-family:monospace;font-size:12px;">├─</span>
+              <span style="color:#c9d1d9;font-size:15px;font-weight:500;">TinyRobot</span>
+            </div>
+            <div style="display:flex;align-items:baseline;gap:10px;">
+              <span style="color:#484f58;font-family:monospace;font-size:12px;">└─</span>
+              <span style="color:#c9d1d9;font-size:15px;font-weight:500;">TrafficLight</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px;">
+  <h3>Design Summary</h3>
+  <table style="width:100%;color:#c9d1d9;font-size:13px;">
+    <tr style="border-bottom:1px solid #21262d;">
+      <td style="padding:10px 16px;color:#8b949e;width:140px;">Detail — Architecture</td>
+      <td style="padding:10px 16px;">思维导图：中心节点（项目名）→ 分支（架构层）→ 子节点（具体技术）。分类颜色区分。每条分支可 hover 展开详情</td>
+    </tr>
+    <tr>
+      <td style="padding:10px 16px;color:#8b949e;">Projects List</td>
+      <td style="padding:10px 16px;">文件树结构：<code style="background:#161b22;padding:1px 6px;border-radius:3px;">category/</code> 为目录名，每个项目是目录下的文件，带 ├─ └─ 树形线。左侧彩色竖线区分分类。零卡片，纯结构化呈现</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,87 @@
+<h2>3 Homepage Layouts — Terminal + Skills + Projects</h2>
+<p class="subtitle">Same ingredients, different compositions. The terminal hero is the anchor; how it flows into skills and projects varies.</p>
+
+<div class="cards">
+  <div class="card" data-choice="layout-a" onclick="toggleSelect(this)" style="background:#0d1117;color:#c9d1d9;border:1px solid #30363d;">
+    <div class="card-body">
+      <h3 style="color:#58a6ff;">A. Terminal-First, Scroll-Down</h3>
+      <div style="background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:12px;margin:8px 0;font-family:monospace;font-size:13px;">
+        <span style="color:#58a6ff;">~/portfolio</span> <span style="color:#fff;">$</span> whoami<br>
+        <span style="color:#7ee787;">> Jamie | Full-Stack Developer</span><br>
+        <span style="color:#8b949e;"># 3s typewriter animation</span><br>
+        <span style="color:#58a6ff;">~/portfolio</span> <span style="color:#fff;">$</span> ls skills/<br>
+        <span style="color:#7ee787;">> React TypeScript Go Python Java...</span><br>
+        <span style="color:#58a6ff;">~/portfolio</span> <span style="color:#fff;">$</span> <span style="color:#ffa198;animation:blink 1s infinite;">█</span>
+      </div>
+      <p style="color:#8b949e;margin-top:8px;">
+        <span style="color:#58a6ff;">→</span> Terminal 占 40% 视口，是 Hero<br>
+        <span style="color:#58a6ff;">→</span> 向下滚动进入 Bento Grid：技能云 + 4 精选项目卡片<br>
+        <span style="color:#58a6ff;">→</span> 终端打字完成后自动缩小为顶部状态栏<br>
+        <span style="color:#8b949e;">→ 传统滚动节奏，面试官熟悉</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="layout-b" onclick="toggleSelect(this)" style="background:#0d1117;color:#c9d1d9;border:1px solid #30363d;">
+    <div class="card-body">
+      <h3 style="color:#a78bfa;">B. Split Screen — Terminal + Bento Side-by-Side</h3>
+      <div style="display:flex;gap:8px;margin:8px 0;">
+        <div style="flex:1;background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:10px;font-family:monospace;font-size:11px;">
+          <span style="color:#8b949e;">$ whoami<br>$ cat skills.json<br>$ ls projects/</span>
+        </div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+          <div style="background:rgba(88,166,255,0.1);border:1px solid rgba(88,166,255,0.3);border-radius:6px;padding:8px;font-size:10px;color:#58a6ff;">React</div>
+          <div style="background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.3);border-radius:6px;padding:8px;font-size:10px;color:#a78bfa;">Go</div>
+          <div style="background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.3);border-radius:6px;padding:8px;font-size:10px;color:#ff6b35;">Python</div>
+          <div style="background:rgba(126,231,135,0.1);border:1px solid rgba(126,231,135,0.3);border-radius:6px;padding:8px;font-size:10px;color:#7ee787;">Java</div>
+        </div>
+      </div>
+      <p style="color:#8b949e;margin-top:8px;">
+        <span style="color:#a78bfa;">→</span> 左：终端持续交互（可输入命令）<br>
+        <span style="color:#a78bfa;">→</span> 右：Bento Grid 技能标签 + 项目卡片<br>
+        <span style="color:#a78bfa;">→</span> 一屏展示全部信息，无需滚动<br>
+        <span style="color:#8b949e;">→ 信息密度高，视觉冲击强</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="layout-c" onclick="toggleSelect(this)" style="background:#0d1117;color:#c9d1d9;border:1px solid #30363d;">
+    <div class="card-body">
+      <h3 style="color:#ff6b35;">C. Layers — Terminal Overlay on Bento Background</h3>
+      <div style="position:relative;background:rgba(13,17,23,0.9);border-radius:8px;padding:12px;margin:8px 0;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;opacity:0.3;position:absolute;top:8px;left:8px;right:8px;bottom:8px;">
+          <div style="background:#58a6ff;border-radius:6px;min-height:30px;"></div>
+          <div style="background:#a78bfa;border-radius:6px;min-height:30px;"></div>
+          <div style="background:#ff6b35;border-radius:6px;min-height:30px;"></div>
+        </div>
+        <div style="position:relative;z-index:1;background:rgba(0,0,0,0.85);border:1px solid #58a6ff;border-radius:6px;padding:8px;font-family:monospace;font-size:12px;backdrop-filter:blur(8px);">
+          <span style="color:#58a6ff;">$</span> <span style="color:#fff;">whoami</span><br>
+          <span style="color:#7ee787;">Jamie | Vibecoding since 2025</span>
+        </div>
+      </div>
+      <p style="color:#8b949e;margin-top:8px;">
+        <span style="color:#ff6b35;">→</span> Bento Grid 作为背景层（玻璃模糊）<br>
+        <span style="color:#ff6b35;">→</span> 终端窗口漂浮在背景之上<br>
+        <span style="color:#ff6b35;">→</span> 打字完成后，终端最小化，背景 Bento 清晰显示<br>
+        <span style="color:#8b949e;">→ 叙事性强，像科幻电影 UI</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>My Recommendation: A (Terminal-First, Scroll-Down)</h3>
+  <div class="pros-cons">
+    <div class="pros"><h4>Pros</h4><ul>
+      <li>传统滚动节奏，招聘方最熟悉</li>
+      <li>Terminal 聚焦注意力，然后自然导向内容</li>
+      <li>移动端适配最简单</li>
+      <li>打字动画可以轻松实现</li>
+    </ul></div>
+    <div class="cons"><h4>Cons</h4><ul>
+      <li>不如 B/C 视觉新奇</li>
+      <li>需要滚动才能看到全部内容</li>
+    </ul></div>
+  </div>
+  <p style="margin-top:12px;color:#8b949e;">A 最稳健且实用——求职站的第一目的是清晰传达信息，A 的叙事节奏最好。B 和 C 可以作为未来迭代加分项。</p>
+</div>

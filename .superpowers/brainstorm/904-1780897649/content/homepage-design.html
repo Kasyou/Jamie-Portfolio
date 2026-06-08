@@ -1,0 +1,123 @@
+<h2>Homepage Design — Layout C: Layered Terminal</h2>
+<p class="subtitle">3 phases: Terminal Boot → Skills Reveal → Full Bento Grid</p>
+
+<div class="section">
+  <h3>Phase 1: Terminal Boot (0-3s)</h3>
+  <div class="mockup">
+    <div class="mockup-header">Terminal Overlay — Auto-typing sequence</div>
+    <div class="mockup-body">
+      <div style="background:#090c10;border:1px solid #58a6ff;border-radius:12px;padding:24px;max-width:600px;margin:0 auto;box-shadow:0 0 40px rgba(88,166,255,0.1);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #21262d;">
+          <div style="width:12px;height:12px;background:#ff5f56;border-radius:50%;"></div>
+          <div style="width:12px;height:12px;background:#ffbd2e;border-radius:50%;"></div>
+          <div style="width:12px;height:12px;background:#27c93f;border-radius:50%;"></div>
+          <span style="color:#8b949e;font-size:12px;margin-left:8px;">jamie@portfolio ~ </span>
+        </div>
+        <p style="font-family:monospace;font-size:13px;color:#8b949e;margin:0 0 4px;"><span style="color:#58a6ff;">~/portfolio</span> $ <span style="color:#c9d1d9;">whoami</span></p>
+        <p style="font-family:monospace;font-size:13px;color:#7ee787;margin:0 0 16px;">Jamie | Full-Stack Developer & Vibecoder</p>
+        <p style="font-family:monospace;font-size:13px;color:#8b949e;margin:0 0 4px;"><span style="color:#58a6ff;">~/portfolio</span> $ <span style="color:#c9d1d9;">cat skills.json</span></p>
+        <p style="font-family:monospace;font-size:13px;color:#7ee787;margin:0 0 16px;">{{"frontend": ["React","TypeScript","Tailwind"], "backend": ["Spring Boot","Python","Go"], ...}}</p>
+        <p style="font-family:monospace;font-size:13px;color:#8b949e;margin:0 0 4px;"><span style="color:#58a6ff;">~/portfolio</span> $ <span style="color:#c9d1d9;">ls projects/ --categorized</span></p>
+        <p style="font-family:monospace;font-size:13px;color:#7ee787;margin:0;">frontend/ backend/ cli-mcp/ mobile/ embedded/</p>
+        <p style="font-family:monospace;font-size:13px;color:#c9d1d9;margin:8px 0 0;"><span style="color:#ffa198;animation:blink 1s infinite;">█</span></p>
+      </div>
+    </div>
+  </div>
+  <p style="color:#8b949e;text-align:center;">背景：Bento Grid 模糊不可见 | 终端居中浮动 | 打字机动画逐行输出</p>
+</div>
+
+<div class="section">
+  <h3>Phase 2: Terminal Minimize → Skills Reveal (3-4s)</h3>
+  <div class="mockup">
+    <div class="mockup-header">Terminal shrinks to top-left mini-bar; background Bento fades in</div>
+    <div class="mockup-body">
+      <div style="background:#090c10;border-radius:12px;padding:16px;position:relative;overflow:hidden;min-height:300px;">
+        <!-- Blurred Bento background revealing -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;opacity:0.6;">
+          <div style="background:rgba(88,166,255,0.08);border:1px solid rgba(88,166,255,0.2);border-radius:10px;padding:20px;text-align:center;">
+            <p style="color:#58a6ff;font-size:20px;font-weight:700;margin:0;">5</p>
+            <p style="color:#8b949e;font-size:11px;margin:4px 0 0;">Frontend</p>
+          </div>
+          <div style="background:rgba(126,231,135,0.08);border:1px solid rgba(126,231,135,0.2);border-radius:10px;padding:20px;text-align:center;">
+            <p style="color:#7ee787;font-size:20px;font-weight:700;margin:0;">3</p>
+            <p style="color:#8b949e;font-size:11px;margin:4px 0 0;">Backend</p>
+          </div>
+          <div style="background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.2);border-radius:10px;padding:20px;text-align:center;">
+            <p style="color:#a78bfa;font-size:20px;font-weight:700;margin:0;">2</p>
+            <p style="color:#8b949e;font-size:11px;margin:4px 0 0;">CLI/MCP</p>
+          </div>
+          <div style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.2);border-radius:10px;padding:20px;text-align:center;">
+            <p style="color:#ff6b35;font-size:20px;font-weight:700;margin:0;">2</p>
+            <p style="color:#8b949e;font-size:11px;margin:4px 0 0;">Mobile</p>
+          </div>
+        </div>
+        <!-- Mini terminal bar -->
+        <div style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.9);border:1px solid #30363d;border-radius:8px;padding:6px 12px;font-family:monospace;font-size:11px;color:#58a6ff;">
+          ~/portfolio $ <span style="color:#ffa198;">█</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p style="color:#8b949e;text-align:center;">终端缩小为左上角迷你状态栏 | Bento Grid 从模糊渐变清晰 | 分类统计数字弹入</p>
+</div>
+
+<div class="section">
+  <h3>Phase 3: Full Bento Grid (4s+)</h3>
+  <div class="mockup">
+    <div class="mockup-header">Complete homepage — scroll to see more</div>
+    <div class="mockup-body">
+      <div style="background:#090c10;border-radius:12px;padding:16px;">
+        <!-- Mini terminal stays -->
+        <div style="background:rgba(0,0,0,0.9);border:1px solid #30363d;border-radius:8px;padding:8px 16px;font-family:monospace;font-size:11px;color:#8b949e;margin-bottom:16px;display:inline-block;">
+          <span style="color:#58a6ff;">~/portfolio</span> $ <span style="color:#ffa198;">█</span> <span style="color:#8b949e;">type 'help' or click a card</span>
+        </div>
+        <!-- Stats row -->
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px;">
+          <div style="background:rgba(88,166,255,0.06);border:1px solid rgba(88,166,255,0.15);border-radius:8px;padding:12px;text-align:center;"><p style="color:#58a6ff;font-size:22px;font-weight:700;margin:0;">5</p><p style="color:#8b949e;font-size:10px;margin:2px 0 0;">Frontend</p></div>
+          <div style="background:rgba(126,231,135,0.06);border:1px solid rgba(126,231,135,0.15);border-radius:8px;padding:12px;text-align:center;"><p style="color:#7ee787;font-size:22px;font-weight:700;margin:0;">3</p><p style="color:#8b949e;font-size:10px;margin:2px 0 0;">Backend</p></div>
+          <div style="background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.15);border-radius:8px;padding:12px;text-align:center;"><p style="color:#a78bfa;font-size:22px;font-weight:700;margin:0;">2</p><p style="color:#8b949e;font-size:10px;margin:2px 0 0;">CLI/MCP</p></div>
+          <div style="background:rgba(255,107,53,0.06);border:1px solid rgba(255,107,53,0.15);border-radius:8px;padding:12px;text-align:center;"><p style="color:#ff6b35;font-size:22px;font-weight:700;margin:0;">2</p><p style="color:#8b949e;font-size:10px;margin:2px 0 0;">Mobile</p></div>
+          <div style="background:rgba(255,166,87,0.06);border:1px solid rgba(255,166,87,0.15);border-radius:8px;padding:12px;text-align:center;"><p style="color:#ffa657;font-size:22px;font-weight:700;margin:0;">2</p><p style="color:#8b949e;font-size:10px;margin:2px 0 0;">Embedded</p></div>
+        </div>
+        <!-- Skill cloud -->
+        <div style="background:rgba(13,17,23,0.6);border:1px solid #21262d;border-radius:10px;padding:16px;margin-bottom:16px;">
+          <p style="color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px;">Tech Stack</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <span style="background:rgba(88,166,255,0.12);color:#58a6ff;border:1px solid rgba(88,166,255,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">React</span>
+            <span style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">TypeScript</span>
+            <span style="background:rgba(88,166,255,0.12);color:#58a6ff;border:1px solid rgba(88,166,255,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">Tailwind CSS</span>
+            <span style="background:rgba(126,231,135,0.12);color:#7ee787;border:1px solid rgba(126,231,135,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">Spring Boot</span>
+            <span style="background:rgba(126,231,135,0.12);color:#7ee787;border:1px solid rgba(126,231,135,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">Go</span>
+            <span style="background:rgba(126,231,135,0.12);color:#7ee787;border:1px solid rgba(126,231,135,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">Python</span>
+            <span style="background:rgba(255,107,53,0.12);color:#ff6b35;border:1px solid rgba(255,107,53,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">React Native</span>
+            <span style="background:rgba(255,166,87,0.12);color:#ffa657;border:1px solid rgba(255,166,87,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">C/C++</span>
+            <span style="background:rgba(88,166,255,0.12);color:#58a6ff;border:1px solid rgba(88,166,255,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">Electron</span>
+            <span style="background:rgba(167,139,250,0.12);color:#a78bfa;border:1px solid rgba(167,139,250,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">MCP SDK</span>
+            <span style="background:rgba(126,231,135,0.12);color:#7ee787;border:1px solid rgba(126,231,135,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">RabbitMQ</span>
+            <span style="background:rgba(126,231,135,0.12);color:#7ee787;border:1px solid rgba(126,231,135,0.25);border-radius:6px;padding:4px 10px;font-size:12px;">Redis</span>
+          </div>
+        </div>
+        <!-- Featured projects -->
+        <p style="color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px;">Featured Projects</p>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;">
+          <div style="background:rgba(13,17,23,0.8);border:1px solid #21262d;border-radius:10px;padding:16px;cursor:pointer;">
+            <div style="display:flex;justify-content:space-between;align-items:start;"><p style="color:#c9d1d9;font-weight:600;margin:0;">CoBoard</p><span style="background:rgba(88,166,255,0.15);color:#58a6ff;font-size:10px;padding:2px 8px;border-radius:4px;">Frontend</span></div>
+            <p style="color:#8b949e;font-size:12px;margin:8px 0 0;">Kanban协作看板 — React 18 + dnd-kit + Framer Motion · 34 TSX · Netlify Live</p>
+          </div>
+          <div style="background:rgba(13,17,23,0.8);border:1px solid #21262d;border-radius:10px;padding:16px;cursor:pointer;">
+            <div style="display:flex;justify-content:space-between;align-items:start;"><p style="color:#c9d1d9;font-weight:600;margin:0;">MCPX</p><span style="background:rgba(167,139,250,0.15);color:#a78bfa;font-size:10px;padding:2px 8px;border-radius:4px;">CLI/MCP</span></div>
+            <p style="color:#8b949e;font-size:12px;margin:8px 0 0;">"Next.js for MCP" — TypeScript框架 · 60% less code · 111-core line</p>
+          </div>
+          <div style="background:rgba(13,17,23,0.8);border:1px solid #21262d;border-radius:10px;padding:16px;cursor:pointer;">
+            <div style="display:flex;justify-content:space-between;align-items:start;"><p style="color:#c9d1d9;font-weight:600;margin:0;">TinyRobot</p><span style="background:rgba(255,166,87,0.15);color:#ffa657;font-size:10px;padding:2px 8px;border-radius:4px;">Embedded</span></div>
+            <p style="color:#8b949e;font-size:12px;margin:8px 0 0;">ESP32-S3桌面机器人 — 4 modes · Dual-core RTOS · $11 BOM</p>
+          </div>
+          <div style="background:rgba(13,17,23,0.8);border:1px solid #21262d;border-radius:10px;padding:16px;cursor:pointer;">
+            <div style="display:flex;justify-content:space-between;align-items:start;"><p style="color:#c9d1d9;font-weight:600;margin:0;">AsynSMS</p><span style="background:rgba(126,231,135,0.15);color:#7ee787;font-size:10px;padding:2px 8px;border-radius:4px;">Backend</span></div>
+            <p style="color:#8b949e;font-size:12px;margin:8px 0 0;">企业短信系统 — Spring Boot + RabbitMQ · 48/48 tests · Docker</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

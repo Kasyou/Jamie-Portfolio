@@ -1,0 +1,167 @@
+<h2>Projects Page — Visual Directions</h2>
+<p class="subtitle">Tech aesthetics. Not a GitHub clone.</p>
+
+<div class="cards">
+  <!-- Direction A -->
+  <div class="card" data-choice="dir-a" onclick="toggleSelect(this)" style="background:#090c10;border:1px solid #30363d;">
+    <div class="card-body">
+      <h3 style="color:#a78bfa;">A. Bento Glass Grid</h3>
+      <div style="background:linear-gradient(135deg,#0a0a0f 0%,#0d1117 50%,#0a0f14 100%);border-radius:16px;padding:32px;position:relative;overflow:hidden;">
+        <!-- Animated bg particles (simulated) -->
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 20%,rgba(88,166,255,0.04) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(167,139,250,0.04) 0%,transparent 50%);"></div>
+        <!-- Cards -->
+        <div style="position:relative;display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:12px;">
+          <!-- Large featured card -->
+          <div style="grid-row:span 2;background:rgba(13,17,23,0.7);backdrop-filter:blur(12px);border:1px solid rgba(88,166,255,0.2);border-radius:16px;padding:28px;">
+            <span style="background:rgba(88,166,255,0.12);color:#58a6ff;font-size:10px;padding:2px 8px;border-radius:4px;">Featured</span>
+            <p style="color:#fff;font-size:24px;font-weight:500;margin:16px 0 8px;">CoBoard</p>
+            <p style="color:#8b949e;font-size:12px;margin:0 0 20px;line-height:1.5;">Drag-drop Kanban with 4-tier permissions, Framer Motion animations, cross-department collaboration.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span style="color:#58a6ff;font-size:10px;background:rgba(88,166,255,0.08);padding:2px 8px;border-radius:4px;">React</span>
+              <span style="color:#58a6ff;font-size:10px;background:rgba(88,166,255,0.08);padding:2px 8px;border-radius:4px;">TS</span>
+              <span style="color:#58a6ff;font-size:10px;background:rgba(88,166,255,0.08);padding:2px 8px;border-radius:4px;">dnd-kit</span>
+            </div>
+            <!-- Mini preview -->
+            <div style="margin-top:20px;background:rgba(88,166,255,0.04);border-radius:8px;padding:8px 12px;font-family:monospace;font-size:10px;color:#484f58;">
+              $ npx create-vite co-board --template react-ts<br>
+              $ npm run dev → localhost:5173
+            </div>
+          </div>
+          <!-- Small cards -->
+          <div style="background:rgba(13,17,23,0.6);backdrop-filter:blur(8px);border:1px solid rgba(126,231,135,0.15);border-radius:14px;padding:20px;">
+            <span style="background:rgba(126,231,135,0.1);color:#7ee787;font-size:9px;padding:2px 6px;border-radius:4px;">Backend</span>
+            <p style="color:#c9d1d9;font-size:16px;font-weight:500;margin:10px 0 4px;">AsynSMS</p>
+            <p style="color:#8b949e;font-size:10px;margin:0;">48/48 tests · Docker</p>
+          </div>
+          <div style="background:rgba(13,17,23,0.6);backdrop-filter:blur(8px);border:1px solid rgba(255,166,87,0.15);border-radius:14px;padding:20px;">
+            <span style="background:rgba(255,166,87,0.1);color:#ffa657;font-size:9px;padding:2px 6px;border-radius:4px;">Embedded</span>
+            <p style="color:#c9d1d9;font-size:16px;font-weight:500;margin:10px 0 4px;">TinyRobot</p>
+            <p style="color:#8b949e;font-size:10px;margin:0;">$11 BOM · 4 modes</p>
+          </div>
+          <div style="background:rgba(13,17,23,0.6);backdrop-filter:blur(8px);border:1px solid rgba(167,139,250,0.15);border-radius:14px;padding:20px;">
+            <span style="background:rgba(167,139,250,0.1);color:#a78bfa;font-size:9px;padding:2px 6px;border-radius:4px;">CLI/MCP</span>
+            <p style="color:#c9d1d9;font-size:16px;font-weight:500;margin:10px 0 4px;">MCPX</p>
+            <p style="color:#8b949e;font-size:10px;margin:0;">111-line core</p>
+          </div>
+          <div style="background:rgba(13,17,23,0.6);backdrop-filter:blur(8px);border:1px solid rgba(255,107,53,0.15);border-radius:14px;padding:20px;">
+            <span style="background:rgba(255,107,53,0.1);color:#ff6b35;font-size:9px;padding:2px 6px;border-radius:4px;">Mobile</span>
+            <p style="color:#c9d1d9;font-size:16px;font-weight:500;margin:10px 0 4px;">ExpenseTracker</p>
+            <p style="color:#8b949e;font-size:10px;margin:0;">3.6K LOC · SQLite</p>
+          </div>
+        </div>
+      </div>
+      <p style="color:#8b949e;margin-top:12px;">
+        <span style="color:#a78bfa;">→</span> 毛玻璃卡片 + 不规则 Bento 网格<br>
+        <span style="color:#a78bfa;">→</span> 背景动态光晕渐变<br>
+        <span style="color:#a78bfa;">→</span> 精选项目占大格，其余小格排列<br>
+        <span style="color:#a78bfa;">→</span> 每个卡片有代码/Tech装饰
+      </p>
+    </div>
+  </div>
+
+  <!-- Direction B -->
+  <div class="card" data-choice="dir-b" onclick="toggleSelect(this)" style="background:#090c10;border:1px solid #30363d;">
+    <div class="card-body">
+      <h3 style="color:#58a6ff;">B. Tech Constellation</h3>
+      <div style="background:#090c10;border-radius:16px;padding:40px;position:relative;overflow:hidden;min-height:360px;">
+        <!-- Central glow -->
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:200px;background:radial-gradient(circle,rgba(88,166,255,0.06) 0%,transparent 70%);border-radius:50%;"></div>
+        <!-- Connecting lines (simulated) -->
+        <div style="position:absolute;top:50%;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(88,166,255,0.08),transparent);"></div>
+        <!-- Orbiting cards -->
+        <div style="position:relative;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:40px;min-height:300px;">
+          <div style="background:rgba(0,0,0,0.8);border:1px solid rgba(88,166,255,0.25);border-radius:50%;width:100px;height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 20px rgba(88,166,255,0.08);">
+            <span style="color:#58a6ff;font-size:20px;font-weight:600;">CoBoard</span>
+            <span style="color:#484f58;font-size:9px;">Frontend</span>
+          </div>
+          <div style="background:rgba(0,0,0,0.8);border:1px solid rgba(126,231,135,0.25);border-radius:50%;width:90px;height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 20px rgba(126,231,135,0.08);">
+            <span style="color:#7ee787;font-size:16px;font-weight:600;">AsynSMS</span>
+            <span style="color:#484f58;font-size:9px;">Backend</span>
+          </div>
+          <div style="background:rgba(0,0,0,0.8);border:1px solid rgba(167,139,250,0.25);border-radius:50%;width:110px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 24px rgba(167,139,250,0.1);">
+            <span style="color:#a78bfa;font-size:22px;font-weight:600;">MCPX</span>
+            <span style="color:#484f58;font-size:9px;">CLI/MCP</span>
+          </div>
+          <div style="background:rgba(0,0,0,0.8);border:1px solid rgba(255,166,87,0.25);border-radius:50%;width:85px;height:85px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 16px rgba(255,166,87,0.08);">
+            <span style="color:#ffa657;font-size:15px;font-weight:600;">Robot</span>
+            <span style="color:#484f58;font-size:9px;">Embedded</span>
+          </div>
+          <div style="background:rgba(0,0,0,0.8);border:1px solid rgba(255,107,53,0.25);border-radius:50%;width:80px;height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 14px rgba(255,107,53,0.06);">
+            <span style="color:#ff6b35;font-size:14px;font-weight:600;">Tracker</span>
+            <span style="color:#484f58;font-size:9px;">Mobile</span>
+          </div>
+        </div>
+      </div>
+      <p style="color:#8b949e;margin-top:12px;">
+        <span style="color:#58a6ff;">→</span> 项目如星座中的星球，大小表示重要度<br>
+        <span style="color:#58a6ff;">→</span> 连接线表现技术关联<br>
+        <span style="color:#58a6ff;">→</span> Hover 时星球放大 + 发光 + 轨道信息弹出<br>
+        <span style="color:#58a6ff;">→</span> 分类颜色区分轨道
+      </p>
+    </div>
+  </div>
+
+  <!-- Direction C -->
+  <div class="card" data-choice="dir-c" onclick="toggleSelect(this)" style="background:#090c10;border:1px solid #30363d;">
+    <div class="card-body">
+      <h3 style="color:#7ee787;">C. Terminal Matrix Wall</h3>
+      <div style="background:#090c10;border-radius:16px;padding:32px;overflow:hidden;position:relative;">
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;font-family:monospace;font-size:10px;color:rgba(72,79,88,0.3);line-height:1.6;pointer-events:none;overflow:hidden;">
+          <p style="margin:0;">01001010 01100001 01101101 01101001 01100101 00001010 01110010 01100101 01100001 01100011 01110100 00001010 01100111 01101111 00001010 01110000 01111001 01110100 01101000 01101111 01101110</p>
+          <p style="margin:0;color:rgba(88,166,255,0.2);">const projects = ['CoBoard','AsynSMS','MCPX','TinyRobot','AiWaifu']</p>
+          <p style="margin:0;">$ docker compose up -d && npm run build && cargo build --release</p>
+          <p style="margin:0;color:rgba(126,231,135,0.15);">[OK] 48/48 tests passed | [OK] build succeeded | [OK] deploy live</p>
+        </div>
+        <!-- Main cards over matrix bg -->
+        <div style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+          <div style="background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);border:1px solid rgba(88,166,255,0.25);border-radius:12px;padding:24px;grid-column:span 2;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+              <span style="color:#58a6ff;font-family:monospace;font-size:11px;">$ cat frontend/featured.json</span>
+            </div>
+            <p style="color:#fff;font-size:22px;font-weight:500;margin:0 0 6px;">CoBoard</p>
+            <p style="color:#8b949e;font-size:12px;margin:0;">Drag-drop Kanban · 4-tier permissions · 34 TSX files · Netlify live</p>
+          </div>
+          <div style="background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);border:1px solid rgba(167,139,250,0.2);border-radius:12px;padding:24px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+              <span style="color:#a78bfa;font-family:monospace;font-size:10px;">$ npm i mcpx</span>
+            </div>
+            <p style="color:#fff;font-size:16px;font-weight:500;margin:0 0 4px;">MCPX</p>
+            <p style="color:#8b949e;font-size:11px;margin:0;">111-line core</p>
+          </div>
+          <div style="background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);border:1px solid rgba(126,231,135,0.2);border-radius:12px;padding:24px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+              <span style="color:#7ee787;font-family:monospace;font-size:10px;">$ gradle test</span>
+            </div>
+            <p style="color:#fff;font-size:16px;font-weight:500;margin:0 0 4px;">AsynSMS</p>
+            <p style="color:#8b949e;font-size:11px;margin:0;">48/48 PASS</p>
+          </div>
+          <div style="background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);border:1px solid rgba(255,166,87,0.2);border-radius:12px;padding:24px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+              <span style="color:#ffa657;font-family:monospace;font-size:10px;">$ platformio run</span>
+            </div>
+            <p style="color:#fff;font-size:16px;font-weight:500;margin:0 0 4px;">TinyRobot</p>
+            <p style="color:#8b949e;font-size:11px;margin:0;">ESP32-S3</p>
+          </div>
+          <div style="background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);border:1px solid rgba(255,107,53,0.2);border-radius:12px;padding:24px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+              <span style="color:#ff6b35;font-family:monospace;font-size:10px;">$ npx cap sync</span>
+            </div>
+            <p style="color:#fff;font-size:16px;font-weight:500;margin:0 0 4px;">AiWaifu</p>
+            <p style="color:#8b949e;font-size:11px;margin:0;">Web + APK</p>
+          </div>
+        </div>
+      </div>
+      <p style="color:#8b949e;margin-top:12px;">
+        <span style="color:#7ee787;">→</span> 二进制/代码片段作为背景纹理层<br>
+        <span style="color:#7ee787;">→</span> 毛玻璃卡片浮在代码矩阵之上<br>
+        <span style="color:#7ee787;">→</span> 每张卡片顶部有终端命令装饰<br>
+        <span style="color:#7ee787;">→</span> 技术感极强，暗合"vibecoding"主题
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px;">
+  <h3>My Pick: C (Terminal Matrix) + A (Bento Layout)</h3>
+  <p class="subtitle">Matrix代码背景 + Bento不规则网格 + 毛玻璃卡片——技术感和美感都到位</p>
+</div>

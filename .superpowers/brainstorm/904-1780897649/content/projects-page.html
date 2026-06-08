@@ -1,0 +1,154 @@
+<h2>Projects List Page</h2>
+<p class="subtitle">Filter by category. Hover to preview. Click to dive deep.</p>
+
+<div class="mockup">
+  <div class="mockup-header">/projects — Full page layout</div>
+  <div class="mockup-body" style="background:#090c10;">
+
+    <!-- Nav -->
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 60px;border-bottom:1px solid rgba(255,255,255,0.04);">
+      <span style="color:#c9d1d9;font-weight:600;font-size:14px;">Jamie</span>
+      <div style="display:flex;gap:32px;">
+        <span style="color:#8b949e;font-size:13px;">Home</span>
+        <span style="color:#c9d1d9;font-size:13px;border-bottom:1px solid #58a6ff;padding-bottom:4px;">Projects</span>
+        <span style="color:#8b949e;font-size:13px;">About</span>
+      </div>
+    </div>
+
+    <!-- Page Header -->
+    <div style="padding:80px 60px 40px;">
+      <p style="color:#8b949e;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin:0 0 12px;">All Projects</p>
+      <p style="color:#c9d1d9;font-size:48px;font-weight:300;margin:0 0 12px;letter-spacing:-1px;">15 things I've built</p>
+      <p style="color:#8b949e;font-size:15px;margin:0;">From React dashboards to ESP32 firmware. Each project has a story.</p>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div style="padding:0 60px 40px;display:flex;gap:8px;">
+      <span style="background:rgba(88,166,255,0.1);color:#58a6ff;border:1px solid rgba(88,166,255,0.3);font-size:12px;padding:8px 16px;border-radius:20px;">All</span>
+      <span style="background:transparent;color:#8b949e;border:1px solid #21262d;font-size:12px;padding:8px 16px;border-radius:20px;">Frontend · 5</span>
+      <span style="background:transparent;color:#8b949e;border:1px solid #21262d;font-size:12px;padding:8px 16px;border-radius:20px;">Backend · 3</span>
+      <span style="background:transparent;color:#8b949e;border:1px solid #21262d;font-size:12px;padding:8px 16px;border-radius:20px;">CLI/MCP · 2</span>
+      <span style="background:transparent;color:#8b949e;border:1px solid #21262d;font-size:12px;padding:8px 16px;border-radius:20px;">Mobile · 2</span>
+      <span style="background:transparent;color:#8b949e;border:1px solid #21262d;font-size:12px;padding:8px 16px;border-radius:20px;">Embedded · 2</span>
+    </div>
+
+    <!-- Project Cards Grid (Full variant) -->
+    <div style="padding:0 60px 80px;display:flex;flex-direction:column;gap:12px;">
+
+      <!-- Row 1 -->
+      <div style="background:#0d1117;border:1px solid #21262d;border-radius:16px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <span style="background:rgba(88,166,255,0.1);color:#58a6ff;font-size:10px;padding:2px 8px;border-radius:4px;">Frontend</span>
+            <span style="color:#484f58;font-size:10px;">Netlify Live</span>
+          </div>
+          <p style="color:#c9d1d9;font-size:18px;font-weight:500;margin:0 0 6px;">CoBoard — Kanban Collaboration Tool</p>
+          <p style="color:#8b949e;font-size:12px;margin:0;max-width:500px;">Cross-department transparent Kanban with 4-tier permissions, drag-drop, Framer Motion landing page.</p>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <p style="color:#484f58;font-size:10px;letter-spacing:1px;margin:0;">STACK</p>
+          <p style="color:#8b949e;font-size:11px;margin:4px 0 0;">React · TS · Tailwind · dnd-kit</p>
+          <p style="color:#484f58;font-size:10px;letter-spacing:1px;margin:12px 0 0;">SCALE</p>
+          <p style="color:#c9d1d9;font-size:11px;margin:4px 0 0;">34 files · 1 week</p>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div style="background:#0d1117;border:1px solid #21262d;border-radius:16px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <span style="background:rgba(126,231,135,0.1);color:#7ee787;font-size:10px;padding:2px 8px;border-radius:4px;">Backend</span>
+            <span style="color:#484f58;font-size:10px;">Docker Compose</span>
+          </div>
+          <p style="color:#c9d1d9;font-size:18px;font-weight:500;margin:0 0 6px;">AsynSMS — Enterprise SMS Dispatch</p>
+          <p style="color:#8b949e;font-size:12px;margin:0;max-width:500px;">Triple-guarantee message reliability with RabbitMQ DLQ, Redis token bucket rate limiting. 48/48 tests.</p>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <p style="color:#484f58;font-size:10px;letter-spacing:1px;margin:0;">STACK</p>
+          <p style="color:#8b949e;font-size:11px;margin:4px 0 0;">Spring Boot · RabbitMQ · Redis</p>
+          <p style="color:#484f58;font-size:10px;letter-spacing:1px;margin:12px 0 0;">SCALE</p>
+          <p style="color:#c9d1d9;font-size:11px;margin:4px 0 0;">44 files · 3K LOC</p>
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div style="background:#0d1117;border:1px solid #21262d;border-radius:16px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <span style="background:rgba(167,139,250,0.1);color:#a78bfa;font-size:10px;padding:2px 8px;border-radius:4px;">CLI/MCP</span>
+            <span style="color:#484f58;font-size:10px;">MIT · GitHub</span>
+          </div>
+          <p style="color:#c9d1d9;font-size:18px;font-weight:500;margin:0 0 6px;">MCPX — "Next.js for MCP" Framework</p>
+          <p style="color:#8b949e;font-size:12px;margin:0;max-width:500px;">60% less boilerplate. 111-line core. 4 demo servers. CLI scaffolding + hot reload.</p>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <p style="color:#484f58;font-size:10px;letter-spacing:1px;margin:0;">STACK</p>
+          <p style="color:#8b949e;font-size:11px;margin:4px 0 0;">TypeScript · MCP SDK · Zod</p>
+          <p style="color:#484f58;font-size:10px;letter-spacing:1px;margin:12px 0 0;">SCALE</p>
+          <p style="color:#c9d1d9;font-size:11px;margin:4px 0 0;">~300 lines · npm package</p>
+        </div>
+      </div>
+
+      <!-- Row 4 -->
+      <div style="background:#0d1117;border:1px solid #21262d;border-radius:16px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <span style="background:rgba(255,107,53,0.1);color:#ff6b35;font-size:10px;padding:2px 8px;border-radius:4px;">Mobile</span>
+            <span style="color:#484f58;font-size:10px;">Netlify + APK</span>
+          </div>
+          <p style="color:#c9d1d9;font-size:18px;font-weight:500;margin:0 0 6px;">AiWaifu — Anime AI Chat App</p>
+          <p style="color:#8b949e;font-size:12px;margin:0;max-width:500px;">Streaming SSE chat with anime characters. Web + Android APK. Multimodal image input.</p>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <p style="color:#484f58;font-size:10px;letter-spacing:1px;margin:0;">STACK</p>
+          <p style="color:#8b949e;font-size:11px;margin:4px 0 0;">React · Capacitor · Zustand</p>
+          <p style="color:#484f58;font-size:10px;letter-spacing:1px;margin:12px 0 0;">SCALE</p>
+          <p style="color:#c9d1d9;font-size:11px;margin:4px 0 0;">22 files · Live Demo</p>
+        </div>
+      </div>
+
+      <!-- Row 5 -->
+      <div style="background:#0d1117;border:1px solid #21262d;border-radius:16px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <span style="background:rgba(255,166,87,0.1);color:#ffa657;font-size:10px;padding:2px 8px;border-radius:4px;">Embedded</span>
+            <span style="color:#484f58;font-size:10px;">3D Model Online</span>
+          </div>
+          <p style="color:#c9d1d9;font-size:18px;font-weight:500;margin:0 0 6px;">TinyRobot — $11 Desktop Companion</p>
+          <p style="color:#8b949e;font-size:12px;margin:0;max-width:500px;">ESP32-S3 cube robot with gravity sensing, 4 modes, custom TCP protocol, interactive 3D model.</p>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <p style="color:#484f58;font-size:10px;letter-spacing:1px;margin:0;">STACK</p>
+          <p style="color:#8b949e;font-size:11px;margin:4px 0 0;">C++ · ESP32-S3 · FreeRTOS</p>
+          <p style="color:#484f58;font-size:10px;letter-spacing:1px;margin:12px 0 0;">SCALE</p>
+          <p style="color:#c9d1d9;font-size:11px;margin:4px 0 0;">17 files · Custom PCB</p>
+        </div>
+      </div>
+
+      <p style="color:#21262d;text-align:center;margin-top:32px;">+ 10 more projects in all categories</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:24px;">
+  <h3>Page Design Summary</h3>
+  <table style="width:100%;color:#c9d1d9;font-size:13px;">
+    <tr style="border-bottom:1px solid #21262d;">
+      <td style="padding:10px 16px;color:#8b949e;">Header</td>
+      <td style="padding:10px 16px;">"15 things I've built" + 一句话描述</td>
+    </tr>
+    <tr style="border-bottom:1px solid #21262d;">
+      <td style="padding:10px 16px;color:#8b949e;">Filter Tabs</td>
+      <td style="padding:10px 16px;">All / Frontend·5 / Backend·3 / CLI/MCP·2 / Mobile·2 / Embedded·2 — 胶囊标签切换，staggered animate out/in</td>
+    </tr>
+    <tr style="border-bottom:1px solid #21262d;">
+      <td style="padding:10px 16px;color:#8b949e;">Card Layout</td>
+      <td style="padding:10px 16px;">水平行式 (非网格) — 左：项目名+描述 | 右：STACK + 亮点指标。列表式在项目多时更易扫读</td>
+    </tr>
+    <tr>
+      <td style="padding:10px 16px;color:#8b949e;">Hover/Tilt</td>
+      <td style="padding:10px 16px;">与卡片交互规范一致：边框发光 + 上浮 + 鼠标倾斜 + 单击跳转</td>
+    </tr>
+  </table>
+</div>
