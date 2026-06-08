@@ -1,0 +1,16 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "Jamie" [ref=e6] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Projects" [ref=e9] [cursor=pointer]:
+          - /url: /projects
+  - main [ref=e10]:
+    - paragraph [ref=e12]: Homepage — coming soon
+  - contentinfo [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]: ~ $ click to type...█
+      - paragraph [ref=e16]: Built with React · Vite · Tailwind · Deployed on Netlify
