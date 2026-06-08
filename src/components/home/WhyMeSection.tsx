@@ -3,23 +3,23 @@ import ScrollReveal from '../shared/ScrollReveal';
 const reasons = [
   {
     emoji: '\u{1F680}',
-    title: 'Speed',
-    text: 'Ship a full MVP in days, not weeks. AI-accelerated without cutting corners.',
+    title: '速度',
+    text: '几天交付完整 MVP，不是几周。AI 加速但不偷工减料。',
   },
   {
     emoji: '\u{1F3AF}',
-    title: 'Breadth',
-    text: 'React to STM32 registers. I connect dots across the entire tech spectrum.',
+    title: '广度',
+    text: 'React 到 STM32 寄存器。我在整个技术光谱中连接各个节点。',
   },
   {
     emoji: '\u{1F4E6}',
-    title: 'Ship to Users',
-    text: "I don't stop at localhost. Live demos, APKs, EXEs — real deliverables.",
+    title: '交付给用户',
+    text: '从不止于 localhost。线上 Demo、APK、EXE——真正的可交付物。',
   },
   {
     emoji: '\u{1F9E0}',
-    title: 'Deep Understanding',
-    text: 'Custom linker scripts. Custom TCP protocol. I go deep when needed — with or without AI.',
+    title: '深度理解',
+    text: '自定义链接脚本。自定义 TCP 协议。需要深入的时候绝不浮于表面——无论用不用 AI。',
   },
 ];
 
@@ -29,10 +29,10 @@ export default function WhyMeSection() {
       <div className="max-w-5xl mx-auto">
         <ScrollReveal>
           <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-3">
-            Why Me
+            为什么是我
           </p>
           <h2 className="text-[36px] font-light tracking-[-1px] mb-16">
-            Not just a coder — a <span className="text-frontend">builder</span>
+            不只是写代码——我是<span className="text-frontend">建造者</span>
           </h2>
         </ScrollReveal>
 

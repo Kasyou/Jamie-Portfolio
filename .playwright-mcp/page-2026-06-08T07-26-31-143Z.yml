@@ -1,0 +1,259 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "Jamie" [ref=e6] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Projects" [ref=e9] [cursor=pointer]:
+          - /url: /projects
+  - main [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - paragraph [ref=e13]: Project Universe
+        - paragraph [ref=e14]: drag to explore · hover for details
+      - generic [ref=e15]:
+        - generic:
+          - generic [ref=e20]: Jamie
+          - generic "CoBoard" [ref=e21] [cursor=pointer]:
+            - generic: CoBoard
+          - generic "AiWaifu" [ref=e22] [cursor=pointer]:
+            - generic: AiWaifu
+          - generic "ccMonitor" [ref=e23] [cursor=pointer]:
+            - generic: ccMonitor
+          - generic "CrossBorderWorkflow" [ref=e24] [cursor=pointer]:
+            - generic: CrossBorderWorkflow
+          - generic "RussiaBlock" [ref=e25] [cursor=pointer]:
+            - generic: RussiaBlock
+          - generic "AsynSMS" [ref=e26] [cursor=pointer]:
+            - generic: AsynSMS
+          - generic "FinancialSystem" [ref=e27] [cursor=pointer]:
+            - generic: FinancialSystem
+          - generic "ContentPlatform" [ref=e28] [cursor=pointer]:
+            - generic: ContentPlatform
+          - generic "MCPX" [ref=e29] [cursor=pointer]:
+            - generic: MCPX
+          - generic "VibeView" [ref=e30] [cursor=pointer]:
+            - generic: VibeView
+          - generic "ExpenseTracker" [ref=e31] [cursor=pointer]:
+            - generic: ExpenseTracker
+          - generic "WeatherReport" [ref=e32] [cursor=pointer]:
+            - generic: WeatherReport
+    - generic [ref=e34]:
+      - paragraph [ref=e35]: Project Index
+      - heading "What I've built" [level=2] [ref=e36]
+      - paragraph [ref=e37]: ~ $ tree projects/ --by-category
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - heading "Frontend" [level=3] [ref=e42]
+          - generic [ref=e43]: 5 projects
+        - generic [ref=e44]:
+          - link "📋 Featured CoBoard Cross-department Kanban with 4-tier permissions and Framer Motion landing page. React 18 TypeScript Tailwind CSS" [ref=e46] [cursor=pointer]:
+            - /url: /projects/coboard
+            - generic [ref=e47]:
+              - generic [ref=e48]:
+                - generic [ref=e49]: 📋
+                - generic [ref=e50]: Featured
+              - generic [ref=e51]:
+                - heading "CoBoard" [level=3] [ref=e52]
+                - paragraph [ref=e53]: Cross-department Kanban with 4-tier permissions and Framer Motion landing page.
+                - generic [ref=e54]:
+                  - generic [ref=e55]: React 18
+                  - generic [ref=e56]: TypeScript
+                  - generic [ref=e57]: Tailwind CSS
+          - link "💬 AiWaifu AI anime character chat with streaming SSE, multimodal input, and Android APK packaging. React 18 TypeScript Vite" [ref=e59] [cursor=pointer]:
+            - /url: /projects/aiwaifu
+            - generic [ref=e60]:
+              - generic [ref=e62]: 💬
+              - generic [ref=e63]:
+                - heading "AiWaifu" [level=3] [ref=e64]
+                - paragraph [ref=e65]: AI anime character chat with streaming SSE, multimodal input, and Android APK packaging.
+                - generic [ref=e66]:
+                  - generic [ref=e67]: React 18
+                  - generic [ref=e68]: TypeScript
+                  - generic [ref=e69]: Vite
+          - link "🖥 ccMonitor Windows desktop companion for Claude Code with real-time status monitoring and DeepSeek API dashboard. C# .NET 8 WPF" [ref=e71] [cursor=pointer]:
+            - /url: /projects/ccmonitor
+            - generic [ref=e72]:
+              - generic [ref=e74]: 🖥
+              - generic [ref=e75]:
+                - heading "ccMonitor" [level=3] [ref=e76]
+                - paragraph [ref=e77]: Windows desktop companion for Claude Code with real-time status monitoring and DeepSeek API dashboard.
+                - generic [ref=e78]:
+                  - generic [ref=e79]: C#
+                  - generic [ref=e80]: .NET 8
+                  - generic [ref=e81]: WPF
+          - link "📦 CrossBorderWorkflow Cross-border e-commerce management desktop app with multi-platform order sync and AI translation. Electron 31 React 18 TypeScript" [ref=e83] [cursor=pointer]:
+            - /url: /projects/crossborder-workflow
+            - generic [ref=e84]:
+              - generic [ref=e86]: 📦
+              - generic [ref=e87]:
+                - heading "CrossBorderWorkflow" [level=3] [ref=e88]
+                - paragraph [ref=e89]: Cross-border e-commerce management desktop app with multi-platform order sync and AI translation.
+                - generic [ref=e90]:
+                  - generic [ref=e91]: Electron 31
+                  - generic [ref=e92]: React 18
+                  - generic [ref=e93]: TypeScript
+          - link "🎮 RussiaBlock Classic Tetris desktop game with Canvas rendering and Electron packaging for Windows. HTML5 Canvas Electron 33 JavaScript" [ref=e95] [cursor=pointer]:
+            - /url: /projects/russiablock
+            - generic [ref=e96]:
+              - generic [ref=e98]: 🎮
+              - generic [ref=e99]:
+                - heading "RussiaBlock" [level=3] [ref=e100]
+                - paragraph [ref=e101]: Classic Tetris desktop game with Canvas rendering and Electron packaging for Windows.
+                - generic [ref=e102]:
+                  - generic [ref=e103]: HTML5 Canvas
+                  - generic [ref=e104]: Electron 33
+                  - generic [ref=e105]: JavaScript
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - heading "Backend" [level=3] [ref=e110]
+          - generic [ref=e111]: 3 projects
+        - generic [ref=e112]:
+          - link "📨 Featured AsynSMS Enterprise SMS dispatch system with triple-guarantee message reliability and Docker one-click deploy. Spring Boot 3.5 Java 21 RabbitMQ 4.0" [ref=e114] [cursor=pointer]:
+            - /url: /projects/asynsms
+            - generic [ref=e115]:
+              - generic [ref=e116]:
+                - generic [ref=e117]: 📨
+                - generic [ref=e118]: Featured
+              - generic [ref=e119]:
+                - heading "AsynSMS" [level=3] [ref=e120]
+                - paragraph [ref=e121]: Enterprise SMS dispatch system with triple-guarantee message reliability and Docker one-click deploy.
+                - generic [ref=e122]:
+                  - generic [ref=e123]: Spring Boot 3.5
+                  - generic [ref=e124]: Java 21
+                  - generic [ref=e125]: RabbitMQ 4.0
+          - link "📈 FinancialSystem A-share stock trading simulation with real market data, 3 strategies, and event-driven backtest engine. Python 3.10+ akshare pandas" [ref=e127] [cursor=pointer]:
+            - /url: /projects/financial-system
+            - generic [ref=e128]:
+              - generic [ref=e130]: 📈
+              - generic [ref=e131]:
+                - heading "FinancialSystem" [level=3] [ref=e132]
+                - paragraph [ref=e133]: A-share stock trading simulation with real market data, 3 strategies, and event-driven backtest engine.
+                - generic [ref=e134]:
+                  - generic [ref=e135]: Python 3.10+
+                  - generic [ref=e136]: akshare
+                  - generic [ref=e137]: pandas
+          - link "✍️ ContentPlatform AI-driven multi-platform content creation pipeline producing technical articles across 4 Chinese platforms. Claude Code Markdown JSON" [ref=e139] [cursor=pointer]:
+            - /url: /projects/content-platform
+            - generic [ref=e140]:
+              - generic [ref=e142]: ✍️
+              - generic [ref=e143]:
+                - heading "ContentPlatform" [level=3] [ref=e144]
+                - paragraph [ref=e145]: AI-driven multi-platform content creation pipeline producing technical articles across 4 Chinese platforms.
+                - generic [ref=e146]:
+                  - generic [ref=e147]: Claude Code
+                  - generic [ref=e148]: Markdown
+                  - generic [ref=e149]: JSON
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - heading "CLI / MCP" [level=3] [ref=e154]
+          - generic [ref=e155]: 2 projects
+        - generic [ref=e156]:
+          - link "⚡ Featured MCPX \"Next.js for MCP\" — TypeScript framework reducing MCP server development complexity by 60%. TypeScript Node.js @modelcontextprotocol/sdk" [ref=e158] [cursor=pointer]:
+            - /url: /projects/mcpx
+            - generic [ref=e159]:
+              - generic [ref=e160]:
+                - generic [ref=e161]: ⚡
+                - generic [ref=e162]: Featured
+              - generic [ref=e163]:
+                - heading "MCPX" [level=3] [ref=e164]
+                - paragraph [ref=e165]: "\"Next.js for MCP\" — TypeScript framework reducing MCP server development complexity by 60%."
+                - generic [ref=e166]:
+                  - generic [ref=e167]: TypeScript
+                  - generic [ref=e168]: Node.js
+                  - generic [ref=e169]: "@modelcontextprotocol/sdk"
+          - link "👁 VibeView CLI tool giving Claude Code visual output — real-time browser whiteboard and design preview with 9 MCP tools. Go 1.23 WebSocket Mermaid.js" [ref=e171] [cursor=pointer]:
+            - /url: /projects/vibeview
+            - generic [ref=e172]:
+              - generic [ref=e174]: 👁
+              - generic [ref=e175]:
+                - heading "VibeView" [level=3] [ref=e176]
+                - paragraph [ref=e177]: CLI tool giving Claude Code visual output — real-time browser whiteboard and design preview with 9 MCP tools.
+                - generic [ref=e178]:
+                  - generic [ref=e179]: Go 1.23
+                  - generic [ref=e180]: WebSocket
+                  - generic [ref=e181]: Mermaid.js
+      - generic [ref=e183]:
+        - generic [ref=e184]:
+          - heading "Mobile" [level=3] [ref=e186]
+          - generic [ref=e187]: 3 projects
+        - generic [ref=e188]:
+          - link "💰 ExpenseTracker Clean personal expense tracker with cycle-based budgeting, category statistics, and Excel export. React Native 0.81 Expo SDK 54 TypeScript" [ref=e190] [cursor=pointer]:
+            - /url: /projects/expense-tracker
+            - generic [ref=e191]:
+              - generic [ref=e193]: 💰
+              - generic [ref=e194]:
+                - heading "ExpenseTracker" [level=3] [ref=e195]
+                - paragraph [ref=e196]: Clean personal expense tracker with cycle-based budgeting, category statistics, and Excel export.
+                - generic [ref=e197]:
+                  - generic [ref=e198]: React Native 0.81
+                  - generic [ref=e199]: Expo SDK 54
+                  - generic [ref=e200]: TypeScript
+          - link "🌤 WeatherReport Full-stack Android weather app with MVVM architecture, custom windmill animation, and 3-level city picker. Android Java MVVM Room 2.4" [ref=e202] [cursor=pointer]:
+            - /url: /projects/weather-report
+            - generic [ref=e203]:
+              - generic [ref=e205]: 🌤
+              - generic [ref=e206]:
+                - heading "WeatherReport" [level=3] [ref=e207]
+                - paragraph [ref=e208]: Full-stack Android weather app with MVVM architecture, custom windmill animation, and 3-level city picker.
+                - generic [ref=e209]:
+                  - generic [ref=e210]: Android Java
+                  - generic [ref=e211]: MVVM
+                  - generic [ref=e212]: Room 2.4
+          - link "🎵 MusicPlayer Desktop local music player built with Electron + React 19, featuring sidebar navigation and persistent player bar. Electron 33 React 19 TypeScript" [ref=e214] [cursor=pointer]:
+            - /url: /projects/music-player
+            - generic [ref=e215]:
+              - generic [ref=e217]: 🎵
+              - generic [ref=e218]:
+                - heading "MusicPlayer" [level=3] [ref=e219]
+                - paragraph [ref=e220]: Desktop local music player built with Electron + React 19, featuring sidebar navigation and persistent player bar.
+                - generic [ref=e221]:
+                  - generic [ref=e222]: Electron 33
+                  - generic [ref=e223]: React 19
+                  - generic [ref=e224]: TypeScript
+      - generic [ref=e226]:
+        - generic [ref=e227]:
+          - heading "Embedded" [level=3] [ref=e229]
+          - generic [ref=e230]: 3 projects
+        - generic [ref=e231]:
+          - link "🤖 Featured TinyRobot $11 ESP32-S3 desktop companion robot with 4 gravity-switched modes, custom TCP protocol, and interactive 3D model. C++ ESP32-S3 FreeRTOS" [ref=e233] [cursor=pointer]:
+            - /url: /projects/tinyrobot
+            - generic [ref=e234]:
+              - generic [ref=e235]:
+                - generic [ref=e236]: 🤖
+                - generic [ref=e237]: Featured
+              - generic [ref=e238]:
+                - heading "TinyRobot" [level=3] [ref=e239]
+                - paragraph [ref=e240]: $11 ESP32-S3 desktop companion robot with 4 gravity-switched modes, custom TCP protocol, and interactive 3D model.
+                - generic [ref=e241]:
+                  - generic [ref=e242]: C++
+                  - generic [ref=e243]: ESP32-S3
+                  - generic [ref=e244]: FreeRTOS
+          - link "💡 TrafficLight Bare-metal STM32F103 register-level LED controller with custom linker script and dual build system. C STM32F103VET6 CMSIS" [ref=e246] [cursor=pointer]:
+            - /url: /projects/trafficlight
+            - generic [ref=e247]:
+              - generic [ref=e249]: 💡
+              - generic [ref=e250]:
+                - heading "TrafficLight" [level=3] [ref=e251]
+                - paragraph [ref=e252]: Bare-metal STM32F103 register-level LED controller with custom linker script and dual build system.
+                - generic [ref=e253]:
+                  - generic [ref=e254]: C
+                  - generic [ref=e255]: STM32F103VET6
+                  - generic [ref=e256]: CMSIS
+          - link "📡 IoT Monitor STM32 environmental IoT system with ESP8266 cloud upload, WeChat mini-program, and self-designed PCB. C STM32F103C8T6 ESP8266" [ref=e258] [cursor=pointer]:
+            - /url: /projects/iot-monitor
+            - generic [ref=e259]:
+              - generic [ref=e261]: 📡
+              - generic [ref=e262]:
+                - heading "IoT Monitor" [level=3] [ref=e263]
+                - paragraph [ref=e264]: STM32 environmental IoT system with ESP8266 cloud upload, WeChat mini-program, and self-designed PCB.
+                - generic [ref=e265]:
+                  - generic [ref=e266]: C
+                  - generic [ref=e267]: STM32F103C8T6
+                  - generic [ref=e268]: ESP8266
+  - contentinfo [ref=e269]:
+    - generic [ref=e270]:
+      - generic [ref=e271]: ~ $ click to type...█
+      - paragraph [ref=e272]: Built with React · Vite · Tailwind · Deployed on Netlify

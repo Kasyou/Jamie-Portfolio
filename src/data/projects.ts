@@ -1,40 +1,28 @@
 import type { Project } from '../types/project';
 
 export const projects: Project[] = [
-  // ── Project 1: CoBoard (frontend, featured) ──
   {
     id: 'coboard',
     name: 'CoBoard',
     category: 'frontend',
-    tagline: 'Cross-department Kanban with 4-tier permissions and Framer Motion landing page.',
-    description:
-      'Small-to-medium dev teams often lack visibility into cross-department progress. CoBoard solves this with a shared Kanban where each department manages their own board, while anyone can submit requests or flag blockers visible to all. Built in one week to demonstrate React ecosystem mastery.',
-    problemStatement:
-      "Frontend doesn't know what backend is blocking on. PM can't see actual progress. CoBoard makes team work transparent.",
-    techStack: [
-      'React 18',
-      'TypeScript',
-      'Tailwind CSS',
-      'Zustand',
-      '@dnd-kit',
-      'Framer Motion',
-      'React Router v6',
-      'Lucide React',
-    ],
-    meta: { files: '34 TSX/TS', timeline: '1 week', status: 'Live' },
+    tagline: '跨部门协作看板，四级权限系统，Framer Motion 动效落地页。',
+    description: '小型开发团队常面临跨部门信息不透明的问题。前端不知道后端阻塞了什么，PM 看不到真实进度。CoBoard 用共享看板解决这个问题——每个部门管理自己的看板，同时可以跨部门提交需求、标记阻塞项。一周内完成，展示 React 生态系统的全面掌控。',
+    problemStatement: '前端不知道后端在阻塞什么，PM 看不到实际进度。CoBoard 让团队协作透明化。',
+    techStack: ['React 18', 'TypeScript', 'Tailwind CSS', 'Zustand', '@dnd-kit', 'Framer Motion', 'React Router v6', 'Lucide React'],
+    meta: { files: '34 个 TSX/TS 文件', timeline: '1 周', status: 'Live' },
     highlights: [
       {
-        title: 'Landing Page Motion Design',
-        text: 'Mouse-follow radial gradient orbs using useSpring, scroll parallax cards with useScroll + useTransform, and staggered entrance animations with whileInView. Every animation serves information hierarchy.',
+        title: '落地页 Motion 动效设计',
+        text: '鼠标跟随径向渐变光球（useSpring），滚动视差卡片（useScroll + useTransform），交错入场动画（whileInView）。每个动画都有信息层级的目的，不是装饰。',
       },
       {
-        title: 'Permission Model as Pure Functions',
-        text: 'All permission logic lives in 6 pure functions in src/utils/permissions.ts. Given a user role and card type, each function returns allowed operations. Testable without a browser.',
+        title: '纯函数权限模型',
+        text: '所有权限逻辑集中在 src/utils/permissions.ts 的 6 个纯函数中。给定用户角色和卡片类型，每个函数返回允许的操作。无需浏览器即可测试，一目了然可审计。',
         code: "export const canEditCard = (user: User, card: Card): boolean => {\n  if (user.role === 'pm') return true;\n  if (user.role === 'leader' && user.dept === card.dept) return true;\n  return user.id === card.authorId;\n};",
       },
       {
-        title: 'Type Safety Without Leaks',
-        text: 'User and UserSafe type separation ensures passwords never reach the frontend. TypeScript enforced what code review would have to catch.',
+        title: '类型安全无泄漏',
+        text: 'User 和 UserSafe 类型分离，确保密码永远不会到达前端。TypeScript 强制执行了代码审查才能发现的安全问题。',
       },
     ],
     links: { live: 'https://coboard.netlify.app/' },
@@ -42,40 +30,27 @@ export const projects: Project[] = [
     featured: true,
     emoji: '📋',
   },
-
-  // ── Project 2: AiWaifu (frontend) ──
   {
     id: 'aiwaifu',
     name: 'AiWaifu',
     category: 'frontend',
-    tagline:
-      'AI anime character chat with streaming SSE, multimodal input, and Android APK packaging.',
-    description:
-      'A pure frontend AI chat app for real-time conversation with anime characters. Supports web browser and Android APK deployment with zero backend dependency. Features character creation, style learning, and location awareness.',
-    problemStatement:
-      'Anime fans want immersive character interactions. AiWaifu delivers streaming conversations with personality — no server needed.',
-    techStack: [
-      'React 18',
-      'TypeScript',
-      'Vite',
-      'Tailwind CSS',
-      'Zustand',
-      'Capacitor 8',
-      'SSE',
-    ],
-    meta: { files: '22 TSX/TS', timeline: '2 weeks', status: 'Live' },
+    tagline: 'AI 动漫角色聊天应用，SSE 流式对话，多模态图片输入，Web + Android APK 双端部署。',
+    description: '纯前端 AI 聊天应用，与动漫角色实时对话。支持浏览器和 Android APK，零后端依赖。角色创建、风格学习、地理位置感知——所有数据存于 localStorage。',
+    problemStatement: '动漫爱好者想要沉浸式角色互动。AiWaifu 提供流式对话体验，有个性、有记忆、无需服务器。',
+    techStack: ['React 18', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Capacitor 8', 'SSE'],
+    meta: { files: '22 个 TSX/TS 文件', timeline: '2 周', status: 'Live' },
     highlights: [
       {
-        title: 'Streaming SSE with Typewriter Effect',
-        text: 'Token-by-token streaming via Server-Sent Events with automatic model detection for multimodal support. Character system prompts adapt based on conversation context.',
+        title: 'SSE 流式打字机效果',
+        text: '通过 Server-Sent Events 实现逐 token 流式输出，自动检测多模态模型支持。角色 System Prompt 根据对话上下文自适应调整。',
       },
       {
-        title: 'Dual-Platform Without Code Split',
-        text: 'Single codebase produces both Netlify web deployment and Android APK via Capacitor. Responsive layout switches between desktop sidebar and mobile page navigation.',
+        title: '一套代码双端运行',
+        text: '单代码库同时产出 Netlify Web 部署和 Android APK（Capacitor 封装）。响应式布局自动切换桌面侧边栏和移动端页面导航。',
       },
       {
-        title: 'Natural Language System Prompt Tuning',
-        text: 'During conversation, user style suggestions auto-optimize the System Prompt with a 5-minute cooldown. Characters learn from interaction.',
+        title: '自然语言 System Prompt 调优',
+        text: '对话中用户的风格建议自动优化 System Prompt，5 分钟冷却时间。角色从互动中学习，越来越贴近用户期望。',
       },
     ],
     links: { live: 'https://kasyouaiwaifu.netlify.app/' },
@@ -83,28 +58,23 @@ export const projects: Project[] = [
     featured: false,
     emoji: '💬',
   },
-
-  // ── Project 3: ccMonitor (frontend) ──
   {
     id: 'ccmonitor',
     name: 'ccMonitor',
     category: 'frontend',
-    tagline:
-      'Windows desktop companion for Claude Code with real-time status monitoring and DeepSeek API dashboard.',
-    description:
-      'A WPF desktop app that monitors Claude Code working status via file watcher, displays DeepSeek API usage and balance, and provides a terminal-style log console. Features cat-themed pixel art status indicators.',
-    problemStatement:
-      'Claude Code runs in terminal. ccMonitor gives it a visual dashboard — status, costs, logs — always visible on the desktop.',
+    tagline: 'Claude Code Windows 桌面伴侣，实时状态监控 + DeepSeek API 用量仪表盘。',
+    description: '一个 WPF 桌面应用，通过文件监听实时监控 Claude Code 工作状态，显示 DeepSeek API 用量和余额，提供终端风格日志控制台。猫咪主题像素艺术状态指示器。',
+    problemStatement: 'Claude Code 跑在终端里。ccMonitor 给它一个可视化面板——状态、费用、日志——始终在桌面上可见。',
     techStack: ['C#', '.NET 8', 'WPF', 'XAML', 'DeepSeek API', 'DPAPI'],
-    meta: { files: '~15 files', timeline: '3 days', status: 'Complete' },
+    meta: { files: '约 15 个文件', timeline: '3 天', status: 'Complete' },
     highlights: [
       {
-        title: 'Cat-Themed Status System',
-        text: 'Four custom cat pixel art PNGs represent Idle/Working/Alert/Done states. File watcher polls claude_status.txt at configurable intervals.',
+        title: '猫咪主题状态系统',
+        text: '四张自定义猫咪像素艺术 PNG 代表空闲/工作中/警报/完成四种状态。文件监听器以可配置间隔轮询 claude_status.txt。',
       },
       {
-        title: 'API Key Security',
-        text: 'DeepSeek API key encrypted at rest using Windows DPAPI (ProtectedData.Protect). Never stored in plaintext.',
+        title: 'API 密钥安全加密',
+        text: 'DeepSeek API 密钥使用 Windows DPAPI（ProtectedData.Protect）加密存储。绝不明文落盘。',
       },
     ],
     links: {},
@@ -112,37 +82,23 @@ export const projects: Project[] = [
     featured: false,
     emoji: '🖥',
   },
-
-  // ── Project 4: CrossBorderWorkflow (frontend) ──
   {
     id: 'crossborder-workflow',
     name: 'CrossBorderWorkflow',
     category: 'frontend',
-    tagline:
-      'Cross-border e-commerce management desktop app with multi-platform order sync and AI translation.',
-    description:
-      'An Electron + React + Ant Design desktop application for managing cross-border e-commerce operations. Handles orders, inventory, products, and warehouses with AI-powered listing translation and automated logistics tracking.',
-    problemStatement:
-      'Cross-border sellers juggle Temu, Amazon, Shopee, TikTok. This app centralizes everything with AI assistance.',
-    techStack: [
-      'Electron 31',
-      'React 18',
-      'TypeScript',
-      'Ant Design 5',
-      'ECharts',
-      'Zustand',
-      'better-sqlite3',
-      'xlsx',
-    ],
-    meta: { files: '~40 files', timeline: 'Ongoing', status: 'WIP' },
+    tagline: '跨境电商管理桌面端，多平台订单同步，AI 翻译，库存仓库管理。',
+    description: '基于 Electron + React + Ant Design 的跨境电商运营管理桌面应用。处理订单、库存、产品、仓库，集成 AI 翻译和物流追踪。支持 Temu 表格导入、多平台数据同步。',
+    problemStatement: '跨境卖家在 Temu、Amazon、Shopee、TikTok 之间来回切换。这个应用把所有操作集中到一处，AI 辅助提效。',
+    techStack: ['Electron 31', 'React 18', 'TypeScript', 'Ant Design 5', 'ECharts', 'Zustand', 'better-sqlite3', 'xlsx'],
+    meta: { files: '约 40 个文件', timeline: '持续开发中', status: 'WIP' },
     highlights: [
       {
-        title: '30+ IPC Channels',
-        text: 'Electron main process handles 30+ IPC channels for file system access, database operations, and system tray integration.',
+        title: '30+ IPC 通道',
+        text: 'Electron 主进程处理 30+ IPC 通道，涵盖文件系统访问、数据库操作和系统托盘集成。渲染进程保持轻量。',
       },
       {
-        title: 'AI Translation Adapter',
-        text: 'Configurable AI provider (DeepSeek/OpenAI) for product listing translation. Adapter pattern allows swapping without changing business logic.',
+        title: 'AI 翻译适配器',
+        text: '可配置 AI 提供商（DeepSeek/OpenAI）用于产品 listing 翻译。适配器模式允许无痛切换，不修改业务逻辑。',
       },
     ],
     links: {},
@@ -150,28 +106,23 @@ export const projects: Project[] = [
     featured: false,
     emoji: '📦',
   },
-
-  // ── Project 5: RussiaBlock (frontend) ──
   {
     id: 'russiablock',
-    name: 'RussiaBlock',
+    name: '俄罗斯方块',
     category: 'frontend',
-    tagline:
-      'Classic Tetris desktop game with Canvas rendering and Electron packaging for Windows.',
-    description:
-      'A fully-featured Tetris game with Canvas-based rendering, dark space-themed UI, glassmorphism panels, and Electron packaging into portable EXE and NSIS installer.',
-    problemStatement:
-      'A nostalgic game rebuilt with modern tooling — demonstrating Canvas game loop mastery and desktop packaging.',
+    tagline: '经典俄罗斯方块桌面游戏，Canvas 渲染，Electron 打包为 Windows 便携版和安装包。',
+    description: '一款功能完整的俄罗斯方块游戏，Canvas 渲染，深空主题 UI，毛玻璃面板，Electron 打包为 portable EXE 和 NSIS 安装器。',
+    problemStatement: '用现代工具链重新演绎经典游戏，展示 Canvas 游戏循环掌控和桌面打包能力。',
     techStack: ['HTML5 Canvas', 'Electron 33', 'JavaScript', 'electron-builder'],
-    meta: { files: '2 files', timeline: '1 day', status: 'Complete' },
+    meta: { files: '2 个文件', timeline: '1 天', status: 'Complete' },
     highlights: [
       {
-        title: 'Pure Canvas Game Loop',
-        text: 'All 7 standard Tetris pieces rendered via Canvas API. Game state machine handles play/pause/game-over with blur overlay transitions.',
+        title: '纯 Canvas 游戏循环',
+        text: '全部 7 种标准俄罗斯方块通过 Canvas API 渲染。游戏状态机处理游戏/暂停/结束，配合模糊遮罩过渡。',
       },
       {
-        title: 'Dual Build Targets',
-        text: 'electron-builder configured for both portable EXE and NSIS installer output from a single codebase.',
+        title: '双构建目标',
+        text: 'electron-builder 同时配置 portable EXE 和 NSIS 安装器输出，单次构建产出两种格式。',
       },
     ],
     links: {},
@@ -179,42 +130,28 @@ export const projects: Project[] = [
     featured: false,
     emoji: '🎮',
   },
-
-  // ── Project 6: AsynSMS (backend, featured) ──
   {
     id: 'asynsms',
     name: 'AsynSMS',
     category: 'backend',
-    tagline:
-      'Enterprise SMS dispatch system with triple-guarantee message reliability and Docker one-click deploy.',
-    description:
-      'An enterprise-grade bulk SMS push system with RabbitMQ dead-letter queues, Redis Lua-scripted token bucket rate limiting, and a real-time progress dashboard. 48/48 integration tests passing.',
-    problemStatement:
-      "SMS delivery must be reliable at scale. Messages can't be lost, rate limits must be respected, failures must be traceable.",
-    techStack: [
-      'Spring Boot 3.5',
-      'Java 21',
-      'RabbitMQ 4.0',
-      'Redis 7',
-      'MySQL 8.0',
-      'Docker',
-      'Thymeleaf',
-      'Bootstrap 5',
-    ],
-    meta: { files: '44 Java', timeline: '2 weeks', status: 'Complete' },
+    tagline: '企业级短信推送系统，三重消息可靠性保障，Docker 一键部署。',
+    description: '企业级批量短信推送系统，集成 RabbitMQ 死信队列、Redis Lua 脚本令牌桶限流、实时进度看板。48/48 集成测试全部通过。',
+    problemStatement: '短信下发必须在大规模下可靠。消息不能丢，速率限制必须遵守，失败必须可追溯。',
+    techStack: ['Spring Boot 3.5', 'Java 21', 'RabbitMQ 4.0', 'Redis 7', 'MySQL 8.0', 'Docker', 'Thymeleaf', 'Bootstrap 5'],
+    meta: { files: '44 个 Java 文件', timeline: '2 周', status: 'Complete' },
     highlights: [
       {
-        title: 'Triple-Guarantee Reliability',
-        text: 'Publisher Confirm + Manual ACK + Dead Letter Queue. Every message tracked from production to consumption. Custom retry logic avoids Spring default head-of-line blocking.',
+        title: '三重可靠性保障',
+        text: 'Publisher Confirm + Manual ACK + Dead Letter Queue。每条消息从生产到消费全链路追踪。自定义重试逻辑避免 Spring 默认的队头阻塞问题。',
       },
       {
-        title: 'Redis Token Bucket Rate Limiting',
-        text: 'Atomic Lua-scripted token bucket in Redis prevents exceeding provider rate limits. Distributed-safe across multiple app instances.',
-        code: "-- Lua script: atomic token bucket\nlocal key = KEYS[1]\nlocal capacity = tonumber(ARGV[1])\nlocal now = tonumber(ARGV[2])\nlocal tokens = tonumber(redis.call('get', key) or capacity)\nif tokens > 0 then\n  redis.call('set', key, tokens - 1)\n  return 1\nend\nreturn 0",
+        title: 'Redis 令牌桶限流',
+        text: '基于 Lua 脚本的原子令牌桶算法，防止超过供应商速率限制。分布式安全——多实例环境下也正确运行。',
+        code: "-- Lua 脚本：原子令牌桶\nlocal key = KEYS[1]\nlocal capacity = tonumber(ARGV[1])\nlocal now = tonumber(ARGV[2])\nlocal tokens = tonumber(redis.call('get', key) or capacity)\nif tokens > 0 then\n  redis.call('set', key, tokens - 1)\n  return 1\nend\nreturn 0",
       },
       {
-        title: '100% Test Pass Rate',
-        text: '48/48 integration tests across all controllers and services. Docker Compose spins up full stack for testing.',
+        title: '100% 测试通过率',
+        text: '48/48 集成测试覆盖全部控制器和服务。Docker Compose 一键启动完整测试环境。',
       },
     ],
     links: {},
@@ -222,40 +159,27 @@ export const projects: Project[] = [
     featured: true,
     emoji: '📨',
   },
-
-  // ── Project 7: FinancialSystem (backend) ──
   {
     id: 'financial-system',
     name: 'FinancialSystem',
     category: 'backend',
-    tagline:
-      'A-share stock trading simulation with real market data, 3 strategies, and event-driven backtest engine.',
-    description:
-      'A Python-based A-share stock and mutual fund trading simulation using free akshare data. Features event-driven backtesting, 3 built-in strategies, configurable risk controls, and a broker abstraction layer for live trading.',
-    problemStatement:
-      'Strategy validation requires real data and realistic fee modeling. This system provides professional-grade simulation without paid data feeds.',
-    techStack: [
-      'Python 3.10+',
-      'akshare',
-      'pandas',
-      'numpy',
-      'matplotlib',
-      'SQLite',
-      'PyYAML',
-    ],
-    meta: { files: '25 Python', timeline: '1 week', status: 'Complete' },
+    tagline: 'A 股量化交易模拟系统，真实行情数据，3 种策略，事件驱动回测引擎。',
+    description: '基于 Python 的 A 股股票和基金交易模拟系统，使用免费 akshare 数据源。事件驱动回测引擎，3 种内置策略，可配置风控规则，券商抽象层支持仿真和实盘。',
+    problemStatement: '策略验证需要真实数据和实际费用模型。这个系统用免费数据源提供专业级模拟，不需要付费数据订阅。',
+    techStack: ['Python 3.10+', 'akshare', 'pandas', 'numpy', 'matplotlib', 'SQLite', 'PyYAML'],
+    meta: { files: '25 个 Python 文件', timeline: '1 周', status: 'Complete' },
     highlights: [
       {
-        title: 'Realistic A-Share Fee Modeling',
-        text: 'Full T+1 settlement with commission (min 5 CNY), stamp tax (0.1% sell only), transfer fee, and slippage. Matches real trading costs.',
+        title: '真实 A 股费用建模',
+        text: '完整 T+1 结算规则，佣金（最低 5 元）、印花税（卖出 0.1%）、过户费、滑点。不是简化版——完全匹配真实交易成本。',
       },
       {
-        title: 'Strategy Comparison Pipeline',
-        text: 'demo.py runs all 3 strategies against the same data, outputs comparison table and equity curve chart.',
+        title: '策略对比流水线',
+        text: 'demo.py 一键运行：数据加载 → 3 策略对比 → 最优策略详细报告 → 权益曲线图导出。从原始数据到最终报告一气呵成。',
       },
       {
-        title: 'Broker Abstraction',
-        text: 'BrokerBase abstract class allows swapping SimulatedBroker for LiveBroker without changing any strategy code.',
+        title: '券商抽象层',
+        text: 'BrokerBase 抽象类，将 SimulatedBroker 替换为 LiveBroker 即可切换实盘，策略代码零改动。',
       },
     ],
     links: {},
@@ -263,28 +187,23 @@ export const projects: Project[] = [
     featured: false,
     emoji: '📈',
   },
-
-  // ── Project 8: ContentPlatform (backend) ──
   {
     id: 'content-platform',
     name: 'ContentPlatform',
     category: 'backend',
-    tagline:
-      'AI-driven multi-platform content creation pipeline producing technical articles across 4 Chinese platforms.',
-    description:
-      'An autonomous content operation system using Claude Code as the content engine. Produces weekly 3000-word technical articles adapted for Zhihu, Juejin, CSDN, and WeChat with branded identity and data-driven topic selection.',
-    problemStatement:
-      'Content marketing at scale requires consistency. This pipeline automates research, writing, and adaptation while maintaining quality.',
-    techStack: ['Claude Code', 'Markdown', 'JSON', 'Analytics'],
-    meta: { files: '~15 files', timeline: 'Ongoing', status: 'Paused' },
+    tagline: 'AI 驱动多平台内容创作流水线，知乎/掘金/CSDN/微信公众号四平台技术文章自动分发。',
+    description: '基于 Claude Code 的自主内容运营系统。每周产出 3000 字深度技术文章，适配知乎、掘金、CSDN、微信公众号四个平台的格式和风格。品牌统一身份"Jamie笔记"。',
+    problemStatement: '内容营销规模化需要一致性。这个流水线自动化了调研、写作和平台适配，同时保持文章质量。',
+    techStack: ['Claude Code', 'Markdown', 'JSON', '数据分析'],
+    meta: { files: '约 15 个文件', timeline: '持续运营', status: 'Paused' },
     highlights: [
       {
-        title: 'Platform Adaptation Layer',
-        text: 'Core article adapted for 4 platforms with different formatting, tone, and SEO requirements. Single source of truth.',
+        title: '平台适配层',
+        text: '核心文章适配 4 个平台的不同格式、语调和 SEO 需求。单一内容源，多平台输出。',
       },
       {
-        title: 'Data-Driven Topic Queue',
-        text: '10+ pre-planned articles across 4 content lines. Analytics tracking informs topic selection and style adjustments.',
+        title: '数据驱动选题',
+        text: '10+ 预规划选题，覆盖 4 条内容线（入门到精通/实战案例/工具评测/Prompt 工程）。数据分析指导选题调整。',
       },
     ],
     links: {},
@@ -292,40 +211,27 @@ export const projects: Project[] = [
     featured: false,
     emoji: '✍️',
   },
-
-  // ── Project 9: MCPX (cli-mcp, featured) ──
   {
     id: 'mcpx',
     name: 'MCPX',
     category: 'cli-mcp',
-    tagline:
-      '"Next.js for MCP" — TypeScript framework reducing MCP server development complexity by 60%.',
-    description:
-      'A TypeScript framework that reduces MCP server development from 42 lines of boilerplate to 17. One function per MCP tool, zero boilerplate, full type inference. Includes CLI scaffolding, hot reload dev server, and 4 example servers.',
-    problemStatement:
-      'Raw MCP SDK requires repetitive boilerplate for every tool. MCPX makes server creation as simple as defining a function.',
-    techStack: [
-      'TypeScript',
-      'Node.js',
-      '@modelcontextprotocol/sdk',
-      'Zod',
-      'Commander',
-      'Chokidar',
-      'Vitest',
-    ],
-    meta: { files: '~15 files', timeline: '3 days', status: 'Live' },
+    tagline: '"MCP 界的 Next.js"——TypeScript 框架，减少 60% MCP 服务器开发代码量。',
+    description: '一个 TypeScript 框架，将 MCP 服务器开发从 42 行模板代码减少到 17 行。一个函数对应一个 MCP 工具，零样板代码，完整类型推断。附带 CLI 脚手架、热重载开发服务器和 4 个示例服务器。',
+    problemStatement: '原生 MCP SDK 每个工具都需要重复的样板代码。MCPX 让创建 MCP 服务器像定义函数一样简单。',
+    techStack: ['TypeScript', 'Node.js', '@modelcontextprotocol/sdk', 'Zod', 'Commander', 'Chokidar', 'Vitest'],
+    meta: { files: '约 15 个文件', timeline: '3 天', status: 'Live' },
     highlights: [
       {
-        title: '60% Less Code',
-        text: 'Side-by-side comparison: 42 lines with raw SDK vs 17 with MCPX. The mcpx() factory chains .tool() calls with auto-generated Zod schemas.',
+        title: '减少 60% 代码量',
+        text: '并排对比：原生 SDK 需要 42 行代码，MCPX 只需 17 行。mcpx() 工厂函数链式调用 .tool()，自动生成 Zod Schema，自动封装返回值。',
       },
       {
-        title: '111-Line Core',
-        text: 'The entire framework core fits in 111 lines. Compact enough to audit in 5 minutes, powerful enough to build production MCP servers.',
+        title: '111 行核心',
+        text: '整个框架核心仅 111 行代码。5 分钟就能审计完，却足够构建生产级 MCP 服务器。',
       },
       {
-        title: 'CLI with Hot Reload',
-        text: 'mcpx init scaffolds a new project. mcpx dev runs with file-watching hot reload. mcpx build bundles for distribution.',
+        title: 'CLI 热重载开发',
+        text: 'mcpx init 脚手架新项目，mcpx dev 文件监听热重载，mcpx build 打包分发。完整的开发体验。',
       },
     ],
     links: {},
@@ -333,34 +239,23 @@ export const projects: Project[] = [
     featured: true,
     emoji: '⚡',
   },
-
-  // ── Project 10: VibeView (cli-mcp) ──
   {
     id: 'vibeview',
     name: 'VibeView',
     category: 'cli-mcp',
-    tagline:
-      'CLI tool giving Claude Code visual output — real-time browser whiteboard and design preview with 9 MCP tools.',
-    description:
-      'A Go binary that embeds a web renderer and MCP server. Two modes: Whiteboard (mind maps, tables, analysis cards) and Design Preview (device-framed UI with hot reload and console forwarding).',
-    problemStatement:
-      'Claude Code is text-only. VibeView adds visual output — whiteboards for thinking, device previews for UI work.',
-    techStack: [
-      'Go 1.23',
-      'WebSocket',
-      'Mermaid.js',
-      'fsnotify',
-      'gorilla/websocket',
-    ],
-    meta: { files: '~20 Go', timeline: '1 week', status: 'Complete' },
+    tagline: 'Go 语言 CLI 工具，为 Claude Code 提供可视化输出——实时浏览器白板和设计预览。',
+    description: '一个 Go 编译的二进制文件，内嵌 Web 渲染器和 MCP 服务器。两种模式：白板模式（思维导图、表格、分析卡）和设计预览模式（带设备框的 UI 预览、热重载、控制台转发）。',
+    problemStatement: 'Claude Code 只有文字界面。VibeView 给它加上可视化输出——白板用于思考，设备预览用于 UI 开发。',
+    techStack: ['Go 1.23', 'WebSocket', 'Mermaid.js', 'fsnotify', 'gorilla/websocket'],
+    meta: { files: '约 20 个 Go 文件', timeline: '1 周', status: 'Complete' },
     highlights: [
       {
-        title: '9 MCP Tools',
-        text: 'preview_show, preview_clear, preview_screenshot, preview_inspect, preview_console, preview_diff, preview_reload, preview_stop — each maps to a single browser action.',
+        title: '9 个 MCP 工具',
+        text: 'preview_show、preview_clear、preview_screenshot、preview_inspect、preview_console、preview_diff、preview_reload、preview_stop——每个工具映射到一个浏览器操作。',
       },
       {
-        title: 'Single Binary Distribution',
-        text: '12 MB compiled binary with embedded renderer, Mermaid.js, and web server. Zero dependencies — download and run.',
+        title: '单二进制分发',
+        text: '12 MB 编译产物，内嵌渲染器、Mermaid.js 和 Web 服务器。零依赖——下载即运行。',
       },
     ],
     links: {},
@@ -368,39 +263,27 @@ export const projects: Project[] = [
     featured: false,
     emoji: '👁',
   },
-
-  // ── Project 11: ExpenseTracker (mobile) ──
   {
     id: 'expense-tracker',
-    name: 'ExpenseTracker',
+    name: '记账本',
     category: 'mobile',
-    tagline:
-      'Clean personal expense tracker with cycle-based budgeting, category statistics, and Excel export.',
-    description:
-      'A React Native + Expo mobile app for personal finance tracking. Features a custom NumberPad, cycle-based accounting, category statistics, and 3-sheet Excel export. Local-first architecture with SQLite.',
-    problemStatement:
-      'Most finance apps are bloated or cloud-dependent. ExpenseTracker is local-first, fast, and focused on tracking spending.',
-    techStack: [
-      'React Native 0.81',
-      'Expo SDK 54',
-      'TypeScript',
-      'expo-sqlite',
-      'expo-router',
-      'xlsx',
-    ],
-    meta: { files: '~25 TSX', timeline: '1 week', status: 'Complete' },
+    tagline: '简洁记账应用，周期预算管理，分类统计，Excel 导出。React Native + Expo 开发。',
+    description: '一款 React Native + Expo 移动记账应用。自定义数字键盘，周期记账，分类统计，三页 Excel 导出。本地优先架构，SQLite 存储，无需云端。',
+    problemStatement: '大多数记账 App 要么臃肿要么依赖云端。记账本本地优先、轻快、专注核心功能——追踪开支。',
+    techStack: ['React Native 0.81', 'Expo SDK 54', 'TypeScript', 'expo-sqlite', 'expo-router', 'xlsx'],
+    meta: { files: '约 25 个 TSX 文件', timeline: '1 周', status: 'Complete' },
     highlights: [
       {
-        title: 'Custom NumberPad',
-        text: 'Fully custom numeric input component designed for rapid amount entry. Slide-from-bottom modal for adding transactions.',
+        title: '自定义数字键盘',
+        text: '完全自定义的数字输入组件，专为快速金额录入设计。底部滑出式模态框添加交易。',
       },
       {
-        title: 'Cycle-Based Accounting',
-        text: 'Monthly or custom duration cycles with configurable start date. Historical cycle browsing with per-cycle statistics.',
+        title: '周期记账',
+        text: '支持月度或自定义时长周期，可配置起始日期。历史周期浏览，每周期独立统计。',
       },
       {
-        title: 'Excel Export with 3 Sheets',
-        text: 'One-tap export generates a workbook with cycle summary, category breakdown, and full transaction detail.',
+        title: '三页 Excel 导出',
+        text: '一键导出生成包含周期摘要、分类明细、交易详情的 Excel 工作簿。UTF-8 BOM 编码兼容中文。',
       },
     ],
     links: {},
@@ -408,40 +291,27 @@ export const projects: Project[] = [
     featured: false,
     emoji: '💰',
   },
-
-  // ── Project 12: WeatherReport (mobile, hand-built) ──
   {
     id: 'weather-report',
-    name: 'WeatherReport',
+    name: '天气预报',
     category: 'mobile',
-    tagline:
-      'Full-stack Android weather app with MVVM architecture, custom windmill animation, and 3-level city picker.',
-    description:
-      'A graduation project Android app using Java + MVVM + Room + Retrofit. Features real-time weather from QWeather API, 7-day forecast, 9 lifestyle indices, Baidu Map auto-location, and a hand-drawn Canvas windmill animation. Entirely hand-coded without AI assistance.',
-    problemStatement:
-      'A comprehensive Android learning project covering MVVM architecture, network layer abstraction, database migration, and custom View rendering.',
-    techStack: [
-      'Android Java',
-      'MVVM',
-      'Room 2.4',
-      'Retrofit 2.9',
-      'RxJava 2',
-      'Baidu Map SDK',
-      'QWeather API',
-    ],
-    meta: { files: '62 Java', timeline: 'Semester', status: 'Complete' },
+    tagline: '全栈 Android 天气预报 App，MVVM 架构，手绘风车动画，三级城市选择器。大学毕设项目。',
+    description: '毕业设计 Android 应用，Java + MVVM + Room + Retrofit。和风天气 API 实时数据，7 日预报，9 项生活指数，百度地图自动定位，手绘 Canvas 风车动画。全程手写代码，未使用 AI 辅助。',
+    problemStatement: '一个综合性的 Android 学习项目，涵盖 MVVM 架构、网络层抽象、数据库迁移和自定义 View 渲染。',
+    techStack: ['Android Java', 'MVVM', 'Room 2.4', 'Retrofit 2.9', 'RxJava 2', '百度地图 SDK', '和风天气 API'],
+    meta: { files: '62 个 Java 文件', timeline: '一学期', status: 'Complete' },
     highlights: [
       {
-        title: '4-Layer MVVM + Library Module',
-        text: 'View (Activity + ViewBinding) → ViewModel (LiveData) → Repository (RxJava) → Data (Room + Retrofit). Library module enforces architecture via abstract base classes.',
+        title: '四层 MVVM + 基础库模块',
+        text: 'View（Activity + ViewBinding）→ ViewModel（LiveData）→ Repository（RxJava）→ Data（Room + Retrofit）。Library 模块通过抽象基类强制执行架构规范。',
       },
       {
-        title: 'Hand-Drawn Windmill Animation',
-        text: 'Custom WhiteWindmills View draws two windmills with three blades each on Canvas. Rotates at ~100fps via Handler with WeakReference to prevent memory leaks. Blade speed reflects real wind speed.',
+        title: '手绘 Canvas 风车动画',
+        text: '自定义 WhiteWindmills View 在 Canvas 上绘制两架风车，每架三片扇叶。通过 Handler + WeakReference 以约 100fps 旋转，防止内存泄漏。扇叶转速反映实时风速。',
       },
       {
-        title: 'Hand-Built Without AI',
-        text: 'All 62 Java source files written independently. Library module demonstrates architectural thinking.',
+        title: '全部手写，未使用 AI',
+        text: '62 个 Java 源文件全部独立编写。Library 模块展示架构思维——NetworkApi 类按 base URL 缓存 Retrofit 实例，统一超时配置，结构化错误处理。',
       },
     ],
     links: {},
@@ -449,28 +319,23 @@ export const projects: Project[] = [
     featured: false,
     emoji: '🌤',
   },
-
-  // ── Project 13: MusicPlayer (mobile) ──
   {
     id: 'music-player',
     name: 'MusicPlayer',
     category: 'mobile',
-    tagline:
-      'Desktop local music player built with Electron + React 19, featuring sidebar navigation and persistent player bar.',
-    description:
-      'An Electron desktop music player with React 19 frontend. Features AppShell layout with sidebar navigation, main content area, and persistent bottom player bar. Dark-themed with CSS custom properties.',
-    problemStatement:
-      'A scaffolded desktop app demonstrating Electron + latest React integration patterns with proper security.',
+    tagline: 'Electron + React 19 桌面本地音乐播放器，侧边栏导航，持久底部播放栏。',
+    description: '一款 Electron 桌面音乐播放器，React 19 前端。AppShell 布局：侧边栏导航 + 主内容区 + 持久底部播放栏。暗色主题，CSS 自定义属性。',
+    problemStatement: '展示 Electron + 最新 React 的集成模式，注重安全性和开发体验的桌面应用脚手架。',
     techStack: ['Electron 33', 'React 19', 'TypeScript', 'Vite 6', 'CSS Modules'],
-    meta: { files: '~10 files', timeline: 'Scaffolded', status: 'WIP' },
+    meta: { files: '约 10 个文件', timeline: '脚手架阶段', status: 'WIP' },
     highlights: [
       {
-        title: 'Context Isolation by Default',
-        text: 'Preload script exposes safe app info via contextBridge. No nodeIntegration — secure by design.',
+        title: '默认上下文隔离',
+        text: 'Preload 脚本通过 contextBridge 只暴露安全的 app 信息。不开 nodeIntegration——安全优先。',
       },
       {
-        title: 'Latest React 19',
-        text: 'Built with React 19 (latest major version at time of build). Ready-to-show optimization avoids white flash on app launch.',
+        title: '最新 React 19',
+        text: '使用 React 19 最新大版本构建。ready-to-show 优化避免应用启动白屏闪烁。',
       },
     ],
     links: {},
@@ -478,46 +343,32 @@ export const projects: Project[] = [
     featured: false,
     emoji: '🎵',
   },
-
-  // ── Project 14: TinyRobot (embedded, featured) ──
   {
     id: 'tinyrobot',
     name: 'TinyRobot',
     category: 'embedded',
-    tagline:
-      '$11 ESP32-S3 desktop companion robot with 4 gravity-switched modes, custom TCP protocol, and interactive 3D model.',
-    description:
-      'A low-cost desktop cubic companion robot. Gravity sensing (MPU6050) switches between animated face, NTP clock, weather display, and Pomodoro timer. PC Link mode streams screen via custom TCP protocol. Dual-core FreeRTOS architecture.',
-    problemStatement:
-      'Can a useful desktop companion be built for $11? TinyRobot proves yes — with personality, utility, and hackability.',
-    techStack: [
-      'C++',
-      'ESP32-S3',
-      'FreeRTOS',
-      'PlatformIO',
-      'ST7789',
-      'MPU6050',
-      'WiFi',
-      'Custom TCP Protocol',
-    ],
-    meta: { files: '17 files', timeline: '2 weeks', status: 'Complete' },
+    tagline: '成本 80 元的 ESP32-S3 桌面立方体机器人，重力感应切换 4 种模式，自定义 TCP 协议，交互式 3D 模型。',
+    description: '一个低成本桌面立方体伴侣机器人。MPU6050 重力感应切换表情动画、NTP 时钟、天气预报、番茄钟四种模式。PC Link 模式通过自定义 TCP 协议传输屏幕画面。双核 FreeRTOS 架构。',
+    problemStatement: '80 块钱能做出一个有用的桌面伴侣吗？TinyRobot 用事实证明——有个性、有实用功能、还能二次开发。',
+    techStack: ['C++', 'ESP32-S3', 'FreeRTOS', 'PlatformIO', 'ST7789', 'MPU6050', 'WiFi', '自定义 TCP 协议'],
+    meta: { files: '17 个文件', timeline: '2 周', status: 'Complete' },
     highlights: [
       {
-        title: 'Custom Binary TCP Protocol',
-        text: '4-byte sync word + command byte + 2-byte length + payload + CRC. Supports full RGB565 frame pushes, text overlay, and WiFi credential config. Discovered via mDNS.',
-        code: '// Protocol frame structure\n// AA 55 01 FF | CMD | LEN_H | LEN_L | PAYLOAD... | CRC',
+        title: '自定义二进制 TCP 协议',
+        text: '4 字节同步头 + 命令字节 + 2 字节长度 + 数据载荷 + CRC 校验。支持完整 RGB565 帧推送、文字叠加和 WiFi 凭证配置。通过 mDNS 自动发现。',
+        code: '// 协议帧结构\n// AA 55 01 FF | CMD | LEN_H | LEN_L | PAYLOAD... | CRC\n// 同步字      | 命令 | 16位长度  | 数据载荷     | 校验',
       },
       {
-        title: 'Dual-Core FreeRTOS Architecture',
-        text: 'Core 0: UI rendering (1Hz heartbeat LED). Core 1: 100Hz sensor poll + mode manager + TCP server + power monitor. Mutex-protected mode transitions.',
+        title: '双核 FreeRTOS 架构',
+        text: 'Core 0：UI 渲染（1Hz 心跳 LED）。Core 1：100Hz 传感器轮询 + 模式管理器 + TCP 服务器 + 电量监控。互斥锁保护模式状态切换。',
       },
       {
-        title: 'Power-Aware WiFi Management',
-        text: 'Reference-counted WiFi requests from subsystems. WiFi only active when needed. Expression mode runs ~17h on 1200mAh battery.',
+        title: '功耗感知 WiFi 管理',
+        text: '引用计数式 WiFi 请求管理。仅当需要时开启 WiFi（NTP 同步、天气获取、PC Link）。表情模式在 1200mAh 电池下续航约 17 小时。',
       },
       {
-        title: 'Interactive 3D Model',
-        text: 'Three.js WebGL scene in model.html shows physical assembly with OrbitControls, toggle between battery form factors, and animated wire routing.',
+        title: '交互式 3D 模型',
+        text: 'model.html 使用 Three.js WebGL 展示物理组装结构，支持 OrbitControls 旋转、电池型号切换和导线布线动画。',
       },
     ],
     links: {},
@@ -525,36 +376,24 @@ export const projects: Project[] = [
     featured: true,
     emoji: '🤖',
   },
-
-  // ── Project 15: TrafficLight (embedded) ──
   {
     id: 'trafficlight',
     name: 'TrafficLight',
     category: 'embedded',
-    tagline:
-      'Bare-metal STM32F103 register-level LED controller with custom linker script and dual build system.',
-    description:
-      'A register-level CMSIS project on STM32F103VET6. Two buttons cycle RGB LED color and toggle on/off. No HAL, no standard peripheral library — every register write is explicit. Includes custom linker script, Makefile (ARM GCC), and Keil MDK project.',
-    problemStatement:
-      'Most STM32 tutorials use HAL. This project proves understanding at the silicon level — clock configuration, GPIO registers, atomic bit operations.',
-    techStack: [
-      'C',
-      'STM32F103VET6',
-      'CMSIS',
-      'ARM GCC',
-      'Makefile',
-      'Keil MDK',
-    ],
-    meta: { files: '~10 files', timeline: '1 day', status: 'Complete' },
+    tagline: 'STM32F103 裸机寄存器编程，自定义链接脚本，双构建系统（ARM GCC + Keil MDK）。',
+    description: '基于 STM32F103VET6 的寄存器级 CMSIS 项目。两个按钮循环切换 RGB LED 颜色和开关状态。不使用 HAL，不使用标准外设库——每个寄存器操作都是显式的。包含自定义链接脚本、Makefile 和 Keil MDK 工程。',
+    problemStatement: '大多数 STM32 教程用 HAL。这个项目证明了对硅片级别的理解——时钟配置、GPIO 寄存器、原子位操作。',
+    techStack: ['C', 'STM32F103VET6', 'CMSIS', 'ARM GCC', 'Makefile', 'Keil MDK'],
+    meta: { files: '约 10 个文件', timeline: '1 天', status: 'Complete' },
     highlights: [
       {
-        title: 'Register-Level Bare Metal',
-        text: 'Every peripheral configured via direct register writes. RCC clock enable, GPIO CRL/CRH mode configuration, BSRR/BRR atomic bit operations for glitch-free LED transitions.',
-        code: '// Direct register manipulation — no HAL\nRCC->APB2ENR |= RCC_APB2ENR_IOPBEN;\nGPIOB->CRL &= ~(0xF << 0);\nGPIOB->CRL |= (0x3 << 0);  // PB0: 50MHz push-pull\nGPIOB->BSRR = GPIO_BSRR_BS0;  // Atomic set',
+        title: '寄存器级裸机编程',
+        text: '每个外设通过直接寄存器写入配置。RCC 时钟使能、GPIO CRL/CRH 模式配置、BSRR/BRR 原子位操作实现无毛刺 LED 切换。',
+        code: '// 直接寄存器操作——无 HAL\nRCC->APB2ENR |= RCC_APB2ENR_IOPBEN;\nGPIOB->CRL &= ~(0xF << 0);\nGPIOB->CRL |= (0x3 << 0);  // PB0: 50MHz 推挽输出\nGPIOB->BSRR = GPIO_BSRR_BS0;  // 原子置位',
       },
       {
-        title: 'Custom Linker Script',
-        text: 'Hand-written STM32F103VETx_FLASH.ld defining memory regions (512K Flash, 64K SRAM), section placement, and stack/heap sizing.',
+        title: '自定义链接脚本',
+        text: '手写 STM32F103VETx_FLASH.ld，定义内存区域（512K Flash，64K SRAM）、段布局和栈/堆大小。',
       },
     ],
     links: {},
@@ -562,40 +401,27 @@ export const projects: Project[] = [
     featured: false,
     emoji: '💡',
   },
-
-  // ── Project 16: IoT Monitor (embedded, hand-built) ──
   {
     id: 'iot-monitor',
-    name: 'IoT Monitor',
+    name: 'IoT 环境监控',
     category: 'embedded',
-    tagline:
-      'STM32 environmental IoT system with ESP8266 cloud upload, WeChat mini-program, and self-designed PCB.',
-    description:
-      'A complete embedded IoT environmental monitoring system. STM32F103C8T6 reads DHT11 + MQ-4 sensors, displays on LCD/OLED, triggers alarms, and uploads to Bemfa Cloud via ESP8266 WiFi for WeChat mini-program remote monitoring. Three firmware iterations, self-designed PCB.',
-    problemStatement:
-      'A full-stack embedded project spanning hardware design, firmware, cloud integration, and documentation — built manually without AI.',
-    techStack: [
-      'C',
-      'STM32F103C8T6',
-      'ESP8266',
-      'DHT11',
-      'MQ-4',
-      'PCB Design',
-      'Bemfa Cloud',
-    ],
-    meta: { files: '~30 C files', timeline: 'Semester', status: 'Complete' },
+    tagline: 'STM32 物联网环境监控系统，ESP8266 云上传，微信小程序远程查看，自制 PCB。大学课程设计。',
+    description: '完整的嵌入式物联网环境监控系统。STM32F103C8T6 采集 DHT11 + MQ-4 传感器数据，LCD/OLED 本地显示，超限声光报警，通过 ESP8266 WiFi 上传巴法云，微信小程序远程实时查看。三套固件迭代，自制 PCB 设计。全程手写代码。',
+    problemStatement: '一个贯穿硬件设计、固件开发（三种范式）、云集成和文档编写的全栈嵌入式项目——全部手工完成，无 AI 辅助。',
+    techStack: ['C', 'STM32F103C8T6', 'ESP8266', 'DHT11', 'MQ-4', 'PCB 设计', '巴法云'],
+    meta: { files: '约 30 个 C 文件', timeline: '一学期', status: 'Complete' },
     highlights: [
       {
-        title: 'Three Firmware Iterations',
-        text: 'Standard Lib + LCD1602 → Standard Lib + OLED + Bemfa Cloud → HAL + CubeMX + PID light control + DMA ADC. Each iteration used different development paradigms.',
+        title: '三套固件迭代',
+        text: '标准库 + LCD1602 → 标准库 + OLED + 巴法云 → HAL + CubeMX + PID 光控 + DMA ADC。每次迭代使用不同的开发范式，体现学习深度。',
       },
       {
-        title: 'Self-Designed PCB',
-        text: 'Full PCB designed in both Altium Designer and EasyEDA. Bit-reversed LCD data bus required a software fix — compensating for reversed wiring without re-spinning the board.',
+        title: '自制 PCB 设计',
+        text: '使用 Altium Designer 和 EasyEDA 双工具设计 PCB。LCD 数据总线因布线反了——写了一个 BitReversed() 函数在软件层补偿，没有重做 PCB。真正的硬件调试能力。',
       },
       {
-        title: 'Hand-Built Without AI',
-        text: 'All firmware written independently. ESP8266 AT-command parsing with hand-rolled strstr() checks. No cloud SDK — raw HTTP via sprintf().',
+        title: '全部手写，未使用 AI',
+        text: '所有固件独立编写。ESP8266 AT 指令解析用 strstr() 手写匹配和重试循环。不用云 SDK——裸 HTTP GET 字符串 sprintf() 拼接。',
       },
     ],
     links: {},
@@ -610,13 +436,10 @@ export const projectsByCategory = (category: string) =>
 
 export const featuredProjects = projects.filter((p) => p.featured);
 
-export const categoryMeta: Record<
-  string,
-  { label: string; color: string; count: number }
-> = {
-  frontend: { label: 'Frontend', color: '#58a6ff', count: 5 },
-  backend: { label: 'Backend', color: '#7ee787', count: 3 },
+export const categoryMeta: Record<string, { label: string; color: string; count: number }> = {
+  frontend: { label: '前端', color: '#58a6ff', count: 5 },
+  backend: { label: '后端', color: '#7ee787', count: 3 },
   'cli-mcp': { label: 'CLI / MCP', color: '#a78bfa', count: 2 },
-  mobile: { label: 'Mobile', color: '#ff6b35', count: 3 },
-  embedded: { label: 'Embedded', color: '#ffa657', count: 3 },
+  mobile: { label: '移动端', color: '#ff6b35', count: 3 },
+  embedded: { label: '嵌入式', color: '#ffa657', count: 3 },
 };

@@ -3,22 +3,22 @@ import ScrollReveal from '../shared/ScrollReveal';
 const capabilities = [
   {
     emoji: '\u{1F3AF}',
-    title: 'Full-Stack Breadth',
-    text: 'Comfortable at every layer — from CSS animations to database indexing to firmware registers.',
+    title: '全栈广度',
+    text: '每一层都游刃有余——从 CSS 动画到数据库索引到固件寄存器。',
     tags: ['React', 'Spring Boot', 'Go', 'React Native', 'C++'],
     color: '#58a6ff',
   },
   {
     emoji: '⚡',
-    title: 'AI-Native Workflow',
-    text: 'Ship faster with AI co-pilots. Built 16 projects in 12 months using Claude Code. I know how to leverage AI without losing code quality.',
+    title: 'AI 原生工作流',
+    text: '用 AI 协作极速交付。12 个月用 Claude Code 完成了 16 个项目。知道如何利用 AI 而不牺牲代码质量。',
     tags: ['Claude Code', 'Prompt Engineering', 'MCP Development'],
     color: '#a78bfa',
   },
   {
     emoji: '\u{1F527}',
-    title: 'Ship End-to-End',
-    text: "I don't stop at code. Docker deployment, Netlify live demos, Android APK packaging, EXE bundling — I take projects to real users.",
+    title: '端到端交付',
+    text: '代码写完只是开始。Docker 部署、Netlify 线上 Demo、Android APK 打包、EXE 封装——把项目真正送到用户手中。',
     tags: ['Docker', 'Netlify', 'APK Build', 'PyInstaller'],
     color: '#7ee787',
   },
@@ -30,10 +30,10 @@ export default function CapabilitiesSection() {
       <div className="max-w-5xl mx-auto">
         <ScrollReveal>
           <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-3">
-            Capabilities
+            核心能力
           </p>
           <h2 className="text-[36px] font-light tracking-[-1px] mb-16">
-            What I bring to the table
+            我能带来什么
           </h2>
         </ScrollReveal>
 

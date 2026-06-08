@@ -2,8 +2,8 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import MiniTerminal from '../components/shared/MiniTerminal';
 
 const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/projects', label: 'Projects' },
+  { to: '/', label: '首页' },
+  { to: '/projects', label: '项目' },
 ];
 
 export default function RootLayout() {

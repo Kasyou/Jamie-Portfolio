@@ -12,10 +12,10 @@ export default function ProjectsPage() {
       <section className="py-16 px-8">
         <div className="max-w-6xl mx-auto">
           <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-3">
-            Project Index
+            项目索引
           </p>
           <h2 className="text-[40px] font-light tracking-[-1px] mb-3">
-            What I've built
+            我构建过的项目
           </h2>
           <p className="text-text-muted text-sm font-mono mb-16">
             ~ $ tree projects/ --by-category

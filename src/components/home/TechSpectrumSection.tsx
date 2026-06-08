@@ -9,10 +9,10 @@ export default function TechSpectrumSection() {
       <div className="max-w-5xl mx-auto">
         <ScrollReveal>
           <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-3">
-            Tech Spectrum
+            技术光谱
           </p>
           <h2 className="text-[36px] font-light tracking-[-1px] mb-16">
-            One developer, <span className="text-frontend">five dimensions</span>
+            一个人，<span className="text-frontend">五个维度</span>
           </h2>
         </ScrollReveal>
 
@@ -37,7 +37,7 @@ export default function TechSpectrumSection() {
                   {key === 'backend' && 'Spring Boot · Python\nRabbitMQ · Redis\nMySQL · Docker'}
                   {key === 'cli-mcp' && 'Go CLI · MCP SDK\nTypeScript · npm\nVibeView · MCPX'}
                   {key === 'mobile' && 'React Native · Expo\nAndroid Java\nCapacitor'}
-                  {key === 'embedded' && 'STM32 CMSIS\nESP32-S3 RTOS\nCustom Protocol'}
+                  {key === 'embedded' && 'STM32 CMSIS\nESP32-S3 RTOS\n自定义协议'}
                 </p>
               </div>
             </ScrollReveal>

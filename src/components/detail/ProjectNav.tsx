@@ -21,7 +21,7 @@ export default function ProjectNav({ currentId }: Props) {
           <span />
         )}
         <Link to="/projects" className="text-text-secondary text-sm hover:text-text-primary transition-colors">
-          All projects
+          全部项目
         </Link>
         {next ? (
           <Link to={`/projects/${next.id}`} className="text-text-secondary text-sm hover:text-text-primary transition-colors">

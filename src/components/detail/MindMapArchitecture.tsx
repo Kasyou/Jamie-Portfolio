@@ -14,13 +14,13 @@ interface Branch {
 function deriveBranches(techStack: string[]): Branch[] {
   const branches: Branch[] = [];
   const keywords: Record<string, string[]> = {
-    'UI / Framework': ['React', 'Vue', 'Svelte', 'Next.js', 'WPF', 'XAML', 'Thymeleaf', 'Bootstrap', 'Ant Design', 'ECharts', 'Tailwind CSS', 'HTML5 Canvas'],
-    'State / Data': ['Zustand', 'Redux', 'Context', 'electron-store', 'SQLite', 'better-sqlite3', 'MySQL'],
-    'Language / Runtime': ['TypeScript', 'JavaScript', 'Java', 'Python', 'Go', 'C#', 'C++', 'C', 'Node.js'],
-    'Platform / Build': ['Electron', 'Capacitor', 'Expo', 'React Native', 'Android', '.NET', 'Vite', 'electron-builder', 'Keil MDK', 'Makefile', 'PlatformIO'],
-    'Backend / Infra': ['Spring Boot', 'RabbitMQ', 'Redis', 'Docker', 'akshare', 'pandas', 'MCP SDK', 'Zod', 'REST API'],
-    'Interaction / Visual': ['Framer Motion', '@dnd-kit', 'Canvas', 'SSE', 'WebSocket', 'Commander', 'Chokidar', 'Mermaid.js', 'Lucide React', 'gsap'],
-    'Hardware / Embedded': ['ESP32-S3', 'STM32', 'FreeRTOS', 'PlatformIO', 'CMSIS', 'ESP8266', 'PCB Design', 'DHT11', 'MQ-4', 'MPU6050', 'ST7789', 'Custom TCP Protocol', 'WiFi', 'DeepSeek API', 'Baidu Map SDK', 'QWeather API'],
+    'UI / 框架': ['React', 'Vue', 'Svelte', 'Next.js', 'WPF', 'XAML', 'Thymeleaf', 'Bootstrap', 'Ant Design', 'ECharts', 'Tailwind CSS', 'HTML5 Canvas'],
+    '状态 / 数据': ['Zustand', 'Redux', 'Context', 'electron-store', 'SQLite', 'better-sqlite3', 'MySQL'],
+    '语言 / 运行时': ['TypeScript', 'JavaScript', 'Java', 'Python', 'Go', 'C#', 'C++', 'C', 'Node.js'],
+    '平台 / 构建': ['Electron', 'Capacitor', 'Expo', 'React Native', 'Android', '.NET', 'Vite', 'electron-builder', 'Keil MDK', 'Makefile', 'PlatformIO'],
+    '后端 / 基础设施': ['Spring Boot', 'RabbitMQ', 'Redis', 'Docker', 'akshare', 'pandas', 'MCP SDK', 'Zod', 'REST API'],
+    '交互 / 视觉': ['Framer Motion', '@dnd-kit', 'Canvas', 'SSE', 'WebSocket', 'Commander', 'Chokidar', 'Mermaid.js', 'Lucide React', 'gsap'],
+    '硬件 / 嵌入式': ['ESP32-S3', 'STM32', 'FreeRTOS', 'PlatformIO', 'CMSIS', 'ESP8266', 'PCB Design', 'DHT11', 'MQ-4', 'MPU6050', 'ST7789', 'Custom TCP Protocol', 'WiFi', 'DeepSeek API', 'Baidu Map SDK', 'QWeather API'],
   };
   const branchColors = ['#58a6ff', '#7ee787', '#a78bfa', '#ff6b35', '#ffa657', '#c9d1d9', '#ffa657'];
 
@@ -47,7 +47,7 @@ export default function MindMapArchitecture({ project }: Props) {
     <section className="py-20 px-8 border-t border-white/5">
       <div className="max-w-3xl mx-auto">
         <p className="text-text-secondary text-[11px] tracking-[2px] uppercase mb-12">
-          Architecture
+          技术架构
         </p>
 
         <div className="flex items-center justify-center">

@@ -9,32 +9,32 @@ export default function HeroSection() {
 
       <ScrollReveal>
         <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-6">
-          Full-Stack Developer · AI-Native Builder
+          全栈开发者 · AI 原生构建者
         </p>
       </ScrollReveal>
 
       <ScrollReveal delay={0.1}>
         <h1 className="text-[64px] font-light tracking-[-1.5px] leading-[1.08] mb-5 max-w-3xl mx-auto">
-          I turn ideas into{' '}
-          <span className="text-frontend font-medium">shipped products</span>
+          把想法变成{' '}
+          <span className="text-frontend font-medium">落地的产品</span>
         </h1>
       </ScrollReveal>
 
       <ScrollReveal delay={0.2}>
         <p className="text-text-secondary text-[17px] max-w-[500px] mx-auto mb-16 leading-relaxed">
-          Not just frontend. Not just backend.{' '}
+          不只是前端。不只是后端。{' '}
           <strong className="text-text-primary font-medium">
-            React → Spring Boot → Go CLI → Android → ESP32 firmware
+            React → Spring Boot → Go CLI → Android → ESP32 固件
           </strong>
-          <br />I build across the entire stack spectrum.
+          <br />从 React 到 STM32，横跨整个技术光谱。
         </p>
       </ScrollReveal>
 
       <ScrollReveal delay={0.3}>
         <div className="flex justify-center gap-16">
-          <StatNumber value="16" label="SHIPPED" color="#58a6ff" />
-          <StatNumber value="5" label="DOMAINS" color="#7ee787" />
-          <StatNumber value="6" label="LANGUAGES" color="#a78bfa" />
+          <StatNumber value="16" label="已交付" color="#58a6ff" />
+          <StatNumber value="5" label="领域" color="#7ee787" />
+          <StatNumber value="6" label="语言" color="#a78bfa" />
           <StatNumber value="1yr" label="VIBECODING" color="#ff6b35" />
         </div>
       </ScrollReveal>

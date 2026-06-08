@@ -9,7 +9,7 @@ export default function HighlightsSection({ project }: Props) {
     <section className="py-20 px-8 border-t border-white/5">
       <div className="max-w-3xl mx-auto">
         <p className="text-text-secondary text-[11px] tracking-[2px] uppercase mb-12">
-          Highlights
+          技术亮点
         </p>
 
         <div className="space-y-14">

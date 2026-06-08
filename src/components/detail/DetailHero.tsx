@@ -20,11 +20,11 @@ export default function DetailHero({ project }: Props) {
         <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-5">
           <span style={{ color: catColor }}>{catLabel}</span>
           {' · '}
-          {project.meta.status === 'Live' && 'Live Demo'}
-          {project.meta.status === 'Complete' && 'Completed'}
-          {project.meta.status === 'Prototype' && 'Prototype'}
-          {project.meta.status === 'Paused' && 'Paused'}
-          {project.meta.status === 'WIP' && 'Work in Progress'}
+          {project.meta.status === 'Live' && '在线'}
+          {project.meta.status === 'Complete' && '已完成'}
+          {project.meta.status === 'Prototype' && '原型'}
+          {project.meta.status === 'Paused' && '暂停'}
+          {project.meta.status === 'WIP' && '开发中'}
         </p>
 
         <h1 className="text-[56px] font-light tracking-[-1.5px] leading-[1.08] mb-5">
@@ -44,7 +44,7 @@ export default function DetailHero({ project }: Props) {
               className="text-sm border-b pb-0.5 transition-colors"
               style={{ color: catColor, borderColor: `${catColor}30` }}
             >
-              Live Demo →
+              在线演示 →
             </a>
           )}
           {project.links.source && (
@@ -54,7 +54,7 @@ export default function DetailHero({ project }: Props) {
               rel="noopener noreferrer"
               className="text-text-secondary text-sm border-b border-text-secondary/20 pb-0.5 hover:text-text-primary transition-colors"
             >
-              Source ↗
+              源码 ↗
             </a>
           )}
         </div>

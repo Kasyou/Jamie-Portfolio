@@ -14,7 +14,7 @@ export default function OverviewSection({ project }: Props) {
 
         <div>
           <p className="text-text-secondary text-[11px] tracking-[2px] uppercase mb-4">
-            Overview
+            项目概述
           </p>
           <p className="text-text-primary text-[17px] leading-relaxed mb-5">
             <span className="text-white font-medium">{project.problemStatement.split('.')[0]}.</span>
@@ -25,7 +25,7 @@ export default function OverviewSection({ project }: Props) {
 
           {project.isHandBuilt && (
             <p className="mt-5 text-cli text-sm">
-              ✦ Built entirely by hand, without AI assistance.
+              ✦ 全程手写代码，未使用 AI 辅助。
             </p>
           )}
         </div>

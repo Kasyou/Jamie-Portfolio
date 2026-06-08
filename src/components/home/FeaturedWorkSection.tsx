@@ -10,10 +10,10 @@ export default function FeaturedWorkSection() {
       <div className="max-w-5xl mx-auto">
         <ScrollReveal>
           <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-3">
-            Featured Work
+            精选项目
           </p>
           <h2 className="text-[36px] font-light tracking-[-1px] mb-16">
-            Selected projects that <span className="text-frontend">demonstrate range</span>
+            跨越五个领域的<span className="text-frontend">代表性作品</span>
           </h2>
         </ScrollReveal>
 
@@ -44,7 +44,7 @@ export default function FeaturedWorkSection() {
                     </div>
                     {project.links.live && (
                       <p className="text-frontend text-[11px] mt-4">
-                        Live Demo →
+                        在线演示 →
                       </p>
                     )}
                   </Card>
@@ -59,7 +59,7 @@ export default function FeaturedWorkSection() {
             to="/projects"
             className="text-frontend text-sm border-b border-frontend/30 pb-1 hover:border-frontend transition-colors"
           >
-            Browse all 16 projects →
+            浏览全部 16 个项目 →
           </Link>
         </div>
       </div>

@@ -14,10 +14,10 @@ export default function StarMap() {
     <section className="relative py-20 px-8 overflow-hidden border-b border-white/5 select-none">
       <div className="max-w-4xl mx-auto text-center mb-8">
         <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-2">
-          Project Universe
+          项目宇宙
         </p>
         <p className="text-text-muted text-xs font-mono">
-          drag to explore &middot; hover for details
+          拖拽探索 &middot; 悬停查看详情
         </p>
       </div>
 

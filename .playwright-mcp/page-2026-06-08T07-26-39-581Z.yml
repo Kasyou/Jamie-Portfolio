@@ -1,0 +1,87 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "Jamie" [ref=e6] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Projects" [ref=e9] [cursor=pointer]:
+          - /url: /projects
+  - main [ref=e10]:
+    - generic [ref=e273]:
+      - generic [ref=e276]:
+        - paragraph [ref=e277]: CLI / MCP · Live Demo
+        - heading "MCPX" [level=1] [ref=e278]
+        - paragraph [ref=e279]: "\"Next.js for MCP\" — TypeScript framework reducing MCP server development complexity by 60%."
+      - generic [ref=e281]:
+        - generic [ref=e283]: ⚡
+        - generic [ref=e284]:
+          - paragraph [ref=e285]: Overview
+          - paragraph [ref=e286]:
+            - generic [ref=e287]: Raw MCP SDK requires repetitive boilerplate for every tool.
+          - paragraph [ref=e288]: A TypeScript framework that reduces MCP server development from 42 lines of boilerplate to 17. One function per MCP tool, zero boilerplate, full type inference. Includes CLI scaffolding, hot reload dev server, and 4 example servers.
+      - generic [ref=e290]:
+        - paragraph [ref=e291]: Architecture
+        - generic [ref=e292]:
+          - generic [ref=e293]:
+            - generic [ref=e295]:
+              - paragraph [ref=e296]: State / Data
+              - generic [ref=e298]: "@modelcontextprotocol/sdk"
+            - generic [ref=e302]:
+              - paragraph [ref=e303]: Language / Runtime
+              - generic [ref=e304]:
+                - generic [ref=e305]: TypeScript
+                - generic [ref=e306]: Node.js
+                - generic [ref=e307]: "@modelcontextprotocol/sdk"
+                - generic [ref=e308]: Commander
+                - generic [ref=e309]: Chokidar
+            - generic [ref=e313]:
+              - paragraph [ref=e314]: Platform / Build
+              - generic [ref=e316]: Vitest
+          - generic [ref=e320]: MCPX
+          - generic [ref=e321]:
+            - generic [ref=e325]:
+              - paragraph [ref=e326]: Backend / Infra
+              - generic [ref=e328]: Zod
+            - generic [ref=e332]:
+              - paragraph [ref=e333]: Interaction / Visual
+              - generic [ref=e334]:
+                - generic [ref=e335]: Commander
+                - generic [ref=e336]: Chokidar
+      - generic [ref=e338]:
+        - paragraph [ref=e339]: Highlights
+        - generic [ref=e340]:
+          - generic [ref=e341]:
+            - heading "01 — 60% Less Code" [level=3] [ref=e342]
+            - paragraph [ref=e343]: "Side-by-side comparison: 42 lines with raw SDK vs 17 with MCPX. The mcpx() factory chains .tool() calls with auto-generated Zod schemas."
+          - generic [ref=e344]:
+            - heading "02 — 111-Line Core" [level=3] [ref=e345]
+            - paragraph [ref=e346]: The entire framework core fits in 111 lines. Compact enough to audit in 5 minutes, powerful enough to build production MCP servers.
+          - generic [ref=e347]:
+            - heading "03 — CLI with Hot Reload" [level=3] [ref=e348]
+            - paragraph [ref=e349]: mcpx init scaffolds a new project. mcpx dev runs with file-watching hot reload. mcpx build bundles for distribution.
+      - generic [ref=e351]:
+        - generic [ref=e352]:
+          - paragraph [ref=e353]: Codebase
+          - paragraph [ref=e354]: ~15 files
+        - generic [ref=e355]:
+          - paragraph [ref=e356]: Timeline
+          - paragraph [ref=e357]: 3 days
+        - generic [ref=e358]:
+          - paragraph [ref=e359]: Status
+          - paragraph [ref=e360]: Live
+        - generic [ref=e361]:
+          - paragraph [ref=e362]: Stack
+          - paragraph [ref=e363]: TypeScript · Node.js · @modelcontextprotocol/sdk · Zod · Commander · Chokidar +1 more
+      - generic [ref=e365]:
+        - link "← ContentPlatform" [ref=e366] [cursor=pointer]:
+          - /url: /projects/content-platform
+        - link "All projects" [ref=e367] [cursor=pointer]:
+          - /url: /projects
+        - link "VibeView →" [ref=e368] [cursor=pointer]:
+          - /url: /projects/vibeview
+  - contentinfo [ref=e269]:
+    - generic [ref=e270]:
+      - generic [ref=e271]: ~ $ click to type...█
+      - paragraph [ref=e272]: Built with React · Vite · Tailwind · Deployed on Netlify

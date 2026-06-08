@@ -15,9 +15,9 @@ export default function ProjectDetailPage() {
   if (!project) {
     return (
       <div className="py-40 text-center">
-        <p className="text-text-secondary text-lg">Project not found</p>
+        <p className="text-text-secondary text-lg">项目未找到</p>
         <Link to="/projects" className="text-frontend text-sm mt-4 inline-block">
-          ← Back to projects
+          ← 返回项目列表
         </Link>
       </div>
     );

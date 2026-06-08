@@ -10,7 +10,7 @@ export default function ProjectDataRow({ project }: Props) {
       <div className="max-w-3xl mx-auto flex gap-20">
         <div>
           <p className="text-text-muted text-[10px] tracking-[2px] uppercase mb-2">
-            Codebase
+            代码规模
           </p>
           <p className="text-[28px] font-light text-text-primary">
             {project.meta.files}
@@ -18,7 +18,7 @@ export default function ProjectDataRow({ project }: Props) {
         </div>
         <div>
           <p className="text-text-muted text-[10px] tracking-[2px] uppercase mb-2">
-            Timeline
+            开发周期
           </p>
           <p className="text-[28px] font-light text-text-primary">
             {project.meta.timeline}
@@ -26,7 +26,7 @@ export default function ProjectDataRow({ project }: Props) {
         </div>
         <div>
           <p className="text-text-muted text-[10px] tracking-[2px] uppercase mb-2">
-            Status
+            状态
           </p>
           <p className="text-[28px] font-light" style={{ color: project.meta.status === 'Live' ? '#7ee787' : '#c9d1d9' }}>
             {project.meta.status}
@@ -34,7 +34,7 @@ export default function ProjectDataRow({ project }: Props) {
         </div>
         <div>
           <p className="text-text-muted text-[10px] tracking-[2px] uppercase mb-2">
-            Stack
+            技术栈
           </p>
           <p className="text-text-secondary text-[13px] max-w-xs">
             {project.techStack.slice(0, 6).join(' · ')}

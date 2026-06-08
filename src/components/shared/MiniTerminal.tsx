@@ -26,11 +26,11 @@ export default function MiniTerminal() {
             }}
           />
         ) : (
-          <span className="text-text-muted">click to type...</span>
+          <span className="text-text-muted">点击输入...</span>
         )}
         <span className="text-frontend animate-[blink_1s_infinite]">█</span>
       </div>
-      <p className="text-border text-xs mt-5">Built with React · Vite · Tailwind · Deployed on Netlify</p>
+      <p className="text-border text-xs mt-5">基于 React · Vite · Tailwind 构建 · 部署于 Netlify</p>
     </div>
   );
 }
