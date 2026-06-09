@@ -8,13 +8,13 @@ interface Branch { name: string; items: string[]; color: string; }
 function deriveBranches(techStack: string[]): Branch[] {
   const branches: Branch[] = [];
   const keywords: Record<string, string[]> = {
-    'UI / Framework': ['React', 'Vue', 'Svelte', 'Next.js', 'WPF', 'XAML', 'Thymeleaf', 'Bootstrap', 'Ant Design', 'ECharts', 'Tailwind CSS', 'HTML5 Canvas'],
-    'State / Data': ['Zustand', 'Redux', 'Context', 'electron-store', 'SQLite', 'better-sqlite3', 'MySQL'],
-    'Language / Runtime': ['TypeScript', 'JavaScript', 'Java', 'Python', 'Go', 'C#', 'C++', 'C', 'Node.js'],
-    'Platform / Build': ['Electron', 'Capacitor', 'Expo', 'React Native', 'Android', '.NET', 'Vite', 'electron-builder', 'Keil MDK', 'Makefile', 'PlatformIO'],
-    'Backend / Infra': ['Spring Boot', 'RabbitMQ', 'Redis', 'Docker', 'akshare', 'pandas', 'MCP SDK', 'Zod', 'REST API'],
+    'UI / Framework': ['React', 'Vue', 'Svelte', 'Next.js', 'WPF', 'XAML', 'Thymeleaf', 'Bootstrap', 'Ant Design', 'ECharts', 'Tailwind CSS', 'HTML5 Canvas', 'MVVM', 'ViewBinding'],
+    'State / Data': ['Zustand', 'Redux', 'Context', 'electron-store', 'SQLite', 'better-sqlite3', 'MySQL', 'Room', 'LiveData', 'MMKV'],
+    'Language / Runtime': ['TypeScript', 'JavaScript', 'Java', 'Python', 'Go', 'C#', 'C++', 'C', 'Node.js', 'RxJava', 'Kotlin'],
+    'Platform / Build': ['Electron', 'Capacitor', 'Expo', 'React Native', 'Android', '.NET', 'Vite', 'electron-builder', 'Keil MDK', 'Makefile', 'PlatformIO', 'Gradle'],
+    'Backend / Infra': ['Spring Boot', 'RabbitMQ', 'Redis', 'Docker', 'akshare', 'pandas', 'MCP SDK', 'Zod', 'REST API', 'OkHttp', 'Retrofit', 'Gson'],
     'Interaction / Visual': ['Framer Motion', '@dnd-kit', 'Canvas', 'SSE', 'WebSocket', 'Commander', 'Chokidar', 'Mermaid.js', 'Lucide React', 'gsap'],
-    'Hardware / Embedded': ['ESP32-S3', 'STM32', 'FreeRTOS', 'PlatformIO', 'CMSIS', 'ESP8266', 'PCB Design', 'DHT11', 'MQ-4', 'MPU6050', 'ST7789', 'Custom TCP Protocol', 'WiFi', 'DeepSeek API', 'Baidu Map SDK', 'QWeather API'],
+    'Hardware / Embedded': ['ESP32-S3', 'STM32', 'FreeRTOS', 'CMSIS', 'ESP8266', 'PCB Design', 'DHT11', 'MQ-4', 'MPU6050', 'ST7789', 'Custom TCP Protocol', 'WiFi', 'DeepSeek API', 'Baidu Map', 'QWeather', '和风天气', '百度地图'],
   };
   const branchColors = ['#58a6ff', '#7ee787', '#a78bfa', '#ff6b35', '#ffa657', '#c9d1d9', '#ffa657'];
 

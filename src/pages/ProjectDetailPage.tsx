@@ -3,6 +3,7 @@ import { projects } from '../data/projects';
 import DetailHero from '../components/detail/DetailHero';
 import OverviewSection from '../components/detail/OverviewSection';
 import TechStackSection from '../components/detail/TechStackSection';
+import TechShowcaseSection from '../components/detail/TechShowcaseSection';
 import MindMapArchitecture from '../components/detail/MindMapArchitecture';
 import HighlightsSection from '../components/detail/HighlightsSection';
 import ProjectDataRow from '../components/detail/ProjectDataRow';
@@ -27,6 +28,7 @@ export default function ProjectDetailPage() {
       <DetailHero project={project} />
       <OverviewSection project={project} />
       <TechStackSection project={project} />
+      <TechShowcaseSection project={project} />
       <MindMapArchitecture project={project} />
       <HighlightsSection project={project} />
       <ProjectDataRow project={project} />
