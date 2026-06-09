@@ -107,7 +107,7 @@ export const projects: Project[] = [
     description: '毕业设计 Android 应用，Java + MVVM + Room + Retrofit。和风天气 API 实时数据，7 日预报，9 项生活指数，百度地图自动定位，手绘 Canvas 风车动画。全程手写代码，未使用 AI 辅助。',
     problemStatement: '一个综合性的 Android 学习项目，涵盖 MVVM 架构、网络层抽象、数据库迁移和自定义 View 渲染。',
     techStack: ['Android Java', 'MVVM', 'Room 2.4', 'Retrofit 2.9', 'RxJava 2', '百度地图 SDK', '和风天气 API'],
-    meta: { files: '62 个 Java 文件', timeline: '一学期', status: 'Complete' },
+    meta: { files: '62 个 Java 文件', timeline: '3 个月', status: 'Complete' },
     highlights: [
       { title: '四层 MVVM + 基础库模块', text: 'View（Activity + ViewBinding）→ ViewModel（LiveData）→ Repository（RxJava）→ Data（Room + Retrofit）。Library 模块通过抽象基类强制执行架构规范。' },
       { title: '手绘 Canvas 风车动画', text: '自定义 WhiteWindmills View 在 Canvas 上绘制两架风车，每架三片扇叶。通过 Handler + WeakReference 以约 100fps 旋转，防止内存泄漏。扇叶转速反映实时风速。' },
