@@ -17,14 +17,14 @@ export default function Card({ children, accentColor = '#58a6ff', className = ''
       onClick={onClick}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      className={`bg-surface border border-border rounded-2xl transition-[border-color,box-shadow] duration-300 cursor-pointer ${className}`}
+      className={`card-base cursor-pointer ${className}`}
       style={{ transformStyle: 'preserve-3d' }}
       onMouseOver={(e) => {
         e.currentTarget.style.borderColor = `${accentColor}40`;
-        e.currentTarget.style.boxShadow = `0 8px 30px ${accentColor}10`;
+        e.currentTarget.style.boxShadow = `0 8px 30px ${accentColor}12`;
       }}
       onMouseOut={(e) => {
-        e.currentTarget.style.borderColor = '#21262d';
+        e.currentTarget.style.borderColor = '#222831';
         e.currentTarget.style.boxShadow = 'none';
       }}
     >

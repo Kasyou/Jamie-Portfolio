@@ -25,8 +25,12 @@ export interface Project {
   links: {
     live?: string;
     source?: string;
+    github?: string;
   };
   isHandBuilt: boolean;
   featured: boolean;
   emoji: string;
+  screenshot?: string;
+  logo?: string;
+  colorHex?: string;
 }

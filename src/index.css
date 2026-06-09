@@ -1,29 +1,70 @@
 @import "tailwindcss";
 
 @theme {
-  --color-void: #090c10;
-  --color-surface: #0d1117;
-  --color-elevated: #161b22;
-  --color-border: #21262d;
+  --color-void: #06080c;
+  --color-surface: #0c1016;
+  --color-elevated: #141a22;
+  --color-border: #202530;
   --color-frontend: #58a6ff;
   --color-backend: #7ee787;
   --color-cli: #a78bfa;
   --color-mobile: #ff6b35;
   --color-embedded: #ffa657;
-  --color-text-primary: #c9d1d9;
+  --color-accent: #58a6ff;
+  --color-text-primary: #e6edf3;
   --color-text-secondary: #8b949e;
   --color-text-muted: #484f58;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --font-sans: 'Inter', 'Geist Sans', -apple-system, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
+
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 body {
   background-color: var(--color-void);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  /* Global dot grid */
+  background-image:
+    radial-gradient(circle, rgba(200,210,240,0.05) 1px, transparent 1px),
+    radial-gradient(ellipse 50% 50% at 30% 20%, rgba(88,166,255,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 70% 60%, rgba(167,139,250,0.03) 0%, transparent 60%);
+  background-size: 28px 28px, 100% 100%, 100% 100%;
+  background-attachment: fixed;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+h1,h2,h3,h4 { font-family: var(--font-sans); letter-spacing: -0.02em; line-height: 1.1; }
+html { scroll-behavior: smooth; }
+
+.text-accent {
+  background: linear-gradient(135deg, var(--color-frontend), var(--color-cli));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.card-base {
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px;
+  transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+}
+.card-base:hover { transform: translateY(-2px); }
+
+.bg-dots {
+  background-image: radial-gradient(circle, rgba(200,210,230,0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.glow-tag-container { position: relative; overflow: visible; }
+.glow-tag-container::after {
+  content: ''; position: absolute;
+  inset: -20px -10px -5px -10px; border-radius: 40px;
+  opacity: 0; transition: opacity 400ms ease; pointer-events: none; z-index: -1;
+  background: radial-gradient(ellipse 60% 50% at var(--mx, 50%) var(--my, 50%), var(--glow-color, rgba(88,166,255,0.10)) 0%, transparent 70%);
+}
+.glow-tag-container:hover::after { opacity: 1; }
+
+::-webkit-scrollbar { height: 4px; width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }

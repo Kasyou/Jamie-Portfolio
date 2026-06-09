@@ -14,18 +14,18 @@ export default function GalleryBand({ categoryKey, projects }: Props) {
 
   return (
     <ScrollReveal>
-      <div className="mb-12">
+      <div className="mb-14">
         <div className="flex items-baseline gap-4 mb-6">
-          <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: meta.color }} />
-          <h3 className="text-lg font-medium" style={{ color: meta.color }}>
+          <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: meta.color }} />
+          <h3 className="text-lg font-semibold" style={{ color: meta.color }}>
             {meta.label}
           </h3>
-          <span className="text-border text-xs">{meta.count} projects</span>
+          <span className="text-border text-xs font-mono">{meta.count} projects</span>
         </div>
 
-        <div className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory">
+        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin">
           {projects.map((project) => (
-            <div key={project.id} className="snap-start">
+            <div key={project.id} className="snap-start flex-shrink-0">
               <GalleryTile project={project} featured={project.featured} />
             </div>
           ))}
