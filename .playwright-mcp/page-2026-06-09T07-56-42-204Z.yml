@@ -1,0 +1,38 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: RUSSIA BLOCK
+    - generic [ref=e5]:
+      - generic:
+        - generic: GAME OVER
+        - generic: 最终得分 0
+        - button "重新开始"
+      - generic:
+        - generic: 暂 停
+        - generic: 按 P 键继续
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e9]: 分数
+      - generic [ref=e10]: "0"
+    - generic [ref=e11]:
+      - generic [ref=e12]: 关卡
+      - generic [ref=e13]: "1"
+    - generic [ref=e19]: 下一块
+    - button "暂 停" [ref=e22] [cursor=pointer]
+    - button "重新开始" [ref=e23] [cursor=pointer]
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]: ←
+        - generic [ref=e27]: →
+        - text: 移动
+      - generic [ref=e28]:
+        - generic [ref=e29]: ↑
+        - text: 旋转
+      - generic [ref=e30]:
+        - generic [ref=e31]: ↓
+        - text: 加速
+      - generic [ref=e32]:
+        - generic [ref=e33]: Space
+        - text: 落底
+      - generic [ref=e34]:
+        - generic [ref=e35]: P
+        - text: 暂停

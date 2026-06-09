@@ -1,0 +1,24 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: Music Player
+    - navigation [ref=e6]:
+      - button "音乐库" [ref=e7] [cursor=pointer]
+      - button "播放列表" [ref=e8] [cursor=pointer]
+      - button "喜欢" [ref=e9] [cursor=pointer]
+    - generic [ref=e10]: 本地音乐 · 框架就绪
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - heading "音乐库" [level=1] [ref=e14]
+      - paragraph [ref=e15]: 在此接入扫描目录、元数据与列表渲染
+    - paragraph [ref=e17]: 拖拽音频文件到窗口，或点击「打开文件夹」以开始（逻辑在 services / hooks 中实现）。
+  - contentinfo [ref=e18]:
+    - generic [ref=e21]:
+      - generic [ref=e22]: 未播放
+      - generic [ref=e23]: 选择曲目开始
+    - generic [ref=e24]:
+      - button "上一首" [ref=e25] [cursor=pointer]: ‹‹
+      - button "播放" [ref=e26] [cursor=pointer]: ▶
+      - button "下一首" [ref=e27] [cursor=pointer]: ››
+    - generic [ref=e28]:
+      - generic [ref=e29]: 0:00/0:00
+      - progressbar [ref=e30]

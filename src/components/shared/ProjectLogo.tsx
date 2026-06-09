@@ -1,6 +1,6 @@
-interface Props { projectId: string; categoryColor: string; name: string; size?: number; featured?: boolean; }
+interface Props { projectId?: string; categoryColor: string; name: string; size?: number; featured?: boolean; }
 
-export default function ProjectLogo({ projectId, categoryColor, name, size = 56, featured }: Props) {
+export default function ProjectLogo({ categoryColor, name, size = 56, featured }: Props) {
   const initials = name.replace(/[a-z]/g,'').replace(/s/g,'').slice(0,2) || name.slice(0,2);
   return (
     <div className="relative flex-shrink-0" style={{width:size,height:size}}>

@@ -1,0 +1,16 @@
+- generic [ref=e2]:
+  - generic [ref=e3]: 📡
+  - generic [ref=e4]: IoT 环境监控
+  - generic [ref=e5]:
+    - text: STM32F103 · ESP8266 WiFi · 巴法云 · 微信小程序
+    - text: DHT11 温湿度 · MQ-4 烟雾 · 声光报警
+  - generic [ref=e6]:
+    - generic [ref=e7]: 传感器
+    - generic [ref=e8]: →
+    - generic [ref=e9]: STM32
+    - generic [ref=e10]: →
+    - generic [ref=e11]: ESP8266
+    - generic [ref=e12]: →
+    - generic [ref=e13]: 巴法云
+    - generic [ref=e14]: →
+    - generic [ref=e15]: 微信小程序

@@ -1,0 +1,17 @@
+- generic [ref=e2]:
+  - generic [ref=e3]: 💡 STM32F103VET6 — TrafficLight
+  - generic [ref=e4]:
+    - text: // 寄存器级裸机编程 — 无 HAL，无标准外设库
+    - text: // 使能 GPIOB 时钟
+    - text: RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+    - text: // 配置 PB0 为 50MHz 推挽输出
+    - text: GPIOB->CRL &= ~(0xF << 0);
+    - text: GPIOB->CRL |= (0x3 << 0);
+    - text: // 原子置位 PB0 — 点亮绿色 LED
+    - text: GPIOB->BSRR = GPIO_BSRR_BS0;
+    - text: // PA0 (KEY1) 检测 — 切换颜色
+    - text: "if (GPIOA->IDR & GPIO_IDR_IDR0) {"
+    - text: color_state = (color_state + 1) % 3;
+    - text: "}"
+    - text: "// 自定义链接脚本: STM32F103VETx_FLASH.ld"
+    - text: // 512K Flash · 64K SRAM · ARM GCC + Keil MDK

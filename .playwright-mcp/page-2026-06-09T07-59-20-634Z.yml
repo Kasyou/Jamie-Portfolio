@@ -1,0 +1,14 @@
+- generic [ref=e2]:
+  - generic [ref=e7]: asynsms@docker ~
+  - generic [ref=e8]:
+    - text: $ docker compose up -d
+    - text: "[+] Running 4/4: mysql ✓ redis ✓ rabbitmq ✓ app ✓"
+    - text: $ ./gradlew test
+    - text: Running 48 integration tests...
+    - text: 48/48 PASSED (12.4s)
+    - text: $ curl -X POST localhost:8080/api/sms/send \
+    - text: "-H \"Content-Type: application/json\" \\"
+    - text: "-d '{\"phones\":[\"138xxxx1234\"],\"content\":\"您的验证码: 382917\"}'"
+    - text: "{\"code\":200,\"message\":\"任务已提交\",\"taskId\":\"tsk_3a7f\","
+    - text: "\"queueSize\":1,\"estimatedTime\":\"2.3s\"}"
+    - text: $ █

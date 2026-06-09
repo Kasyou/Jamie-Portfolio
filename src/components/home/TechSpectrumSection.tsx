@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import ScrollReveal from '../shared/ScrollReveal';
 import { categoryMeta } from '../../data/projects';
 
@@ -17,23 +16,6 @@ const domainInfo: Record<string, string> = {
   mobile: '3 个移动端项目，React Native/Android 原生/Electron，跨平台实战',
   embedded: '3 个嵌入式项目，ESP32/STM32 裸机编程，从固件到 PCB 全链路',
 };
-
-function GlowTags({ tags, color }: { tags: string[]; color: string }) {
-  const r = useRef<HTMLDivElement>(null);
-  const mm = (e: React.MouseEvent) => {
-    if (!r.current) return;
-    const rc = r.current.getBoundingClientRect();
-    r.current.style.setProperty('--mx', `${e.clientX - rc.left}px`);
-    r.current.style.setProperty('--my', `${e.clientY - rc.top}px`);
-  };
-  return (
-    <div ref={r} onMouseMove={mm} className="glow-tag-container flex flex-wrap gap-1.5 min-h-[28px]" style={{ '--glow-color': `${color}20` } as React.CSSProperties}>
-      {tags.map((t) => (
-        <span key={t} className="relative z-10 text-[10px] px-2.5 py-1 rounded-md font-medium transition-all duration-200 hover:scale-110" style={{ backgroundColor: `${color}12`, color }}>{t}</span>
-      ))}
-    </div>
-  );
-}
 
 export default function TechSpectrumSection() {
   const entries = Object.entries(categoryMeta);

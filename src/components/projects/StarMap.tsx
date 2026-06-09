@@ -67,7 +67,7 @@ export default function StarMap() {
             }}/>
         ))}
 
-        {projected.map(({project, sx, sy, scale, z}) => {
+        {projected.map(({project, sx, sy, scale}) => {
           const cc = categoryMeta[project.category]?.color ?? '#8b949e';
           const baseSize = project.featured ? 50 : 40;
           const op = 0.4 + scale * 0.6;

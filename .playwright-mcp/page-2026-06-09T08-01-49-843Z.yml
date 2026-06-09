@@ -1,0 +1,17 @@
+- generic [ref=e2]:
+  - generic [ref=e3]: 🤖
+  - generic [ref=e4]: TinyRobot
+  - generic [ref=e5]: ESP32-S3 桌面立方体机器人 · 80 元 BOM · 4 种模式
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: 😊 表情模式
+      - generic [ref=e9]: 8 种表情 · 30 帧动画池
+    - generic [ref=e10]:
+      - generic [ref=e11]: ⏰ 时钟模式
+      - generic [ref=e12]: NTP 同步 · 日期显示
+    - generic [ref=e13]:
+      - generic [ref=e14]: 🌤 天气模式
+      - generic [ref=e15]: 心知天气 API · 30min 刷新
+    - generic [ref=e16]:
+      - generic [ref=e17]: 🍅 番茄钟
+      - generic [ref=e18]: 25+5 工作/休息 · 径向进度
