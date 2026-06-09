@@ -9,7 +9,7 @@ export default function OverviewSection({ project }: Props) {
     <section className="py-24 px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row gap-14 items-start">
-          <div className="flex-shrink-0 w-full md:w-[420px] rounded-xl bg-surface border border-border overflow-hidden" style={{boxShadow:`0 0 50px ${catColor}10`,aspectRatio:project.id==='coboard'?'16/9':'3/2'}}>
+          <div className="flex-shrink-0 w-full md:w-[420px] rounded-xl bg-surface border border-border overflow-hidden" style={{boxShadow:`0 0 50px ${catColor}10`,aspectRatio:project.id==='coboard'||project.id==='aiwaifu'?'16/9':'3/2'}}>
             <img src={`/screenshots/${project.id}/${project.id}-main.png`} alt={project.name} className="w-full h-full object-cover"
                 onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
               />

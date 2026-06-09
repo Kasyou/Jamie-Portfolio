@@ -1,0 +1,194 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "J Jamie" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: J
+        - generic [ref=e8]: Jamie
+      - generic [ref=e9]:
+        - link "首页" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "项目" [ref=e11] [cursor=pointer]:
+          - /url: /projects
+        - link "GitHub" [ref=e12] [cursor=pointer]:
+          - /url: https://github.com/Kasyou
+          - img [ref=e13]
+  - main [ref=e15]:
+    - generic [ref=e23]:
+      - paragraph [ref=e25]: 全栈开发者 · AI 原生构建者
+      - heading "把想法变成 落地产品" [level=1] [ref=e27]
+      - paragraph [ref=e29]:
+        - text: 不只是前端。不只是后端。
+        - strong [ref=e30]: React → Spring Boot → Go CLI → Android → 嵌入式软硬件
+        - text: 从像素到寄存器，横跨整个技术光谱。
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: "16"
+          - paragraph [ref=e35]: 已交付
+        - generic [ref=e36]:
+          - paragraph [ref=e37]: "5"
+          - paragraph [ref=e38]: 领域
+        - generic [ref=e39]:
+          - paragraph [ref=e40]: "6"
+          - paragraph [ref=e41]: 语言
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: 12m
+          - paragraph [ref=e44]: VibeCoding
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - paragraph [ref=e48]: 核心能力
+        - heading "我能带来什么" [level=2] [ref=e49]
+      - generic [ref=e50]:
+        - generic [ref=e52]:
+          - img [ref=e54]
+          - heading "全栈广度" [level=3] [ref=e59]
+          - paragraph [ref=e60]: 每一层都游刃有余——从 CSS 动画到数据库索引到固件寄存器。横跨整个技术栈。
+          - generic [ref=e61]:
+            - generic [ref=e62]: React
+            - generic [ref=e63]: Spring Boot
+            - generic [ref=e64]: Go
+            - generic [ref=e65]: React Native
+            - generic [ref=e66]: C++
+        - generic [ref=e68]:
+          - img [ref=e70]
+          - heading "AI 原生工作流" [level=3] [ref=e72]
+          - paragraph [ref=e73]: 12 个月 Claude Code 协作，16 个项目交付。深知如何用 AI 加速而不牺牲质量。
+          - generic [ref=e74]:
+            - generic [ref=e75]: Claude Code
+            - generic [ref=e76]: Prompt Engineering
+            - generic [ref=e77]: MCP 开发
+        - generic [ref=e79]:
+          - img [ref=e81]
+          - heading "端到端交付" [level=3] [ref=e84]
+          - paragraph [ref=e85]: 代码写完只是开始。Docker、Netlify、APK、EXE——把项目真正送到用户手中。
+          - generic [ref=e86]:
+            - generic [ref=e87]: Docker
+            - generic [ref=e88]: Netlify
+            - generic [ref=e89]: APK 构建
+            - generic [ref=e90]: PyInstaller
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - paragraph [ref=e94]: 技术光谱
+        - heading "一个开发者，五个维度" [level=2] [ref=e95]
+      - generic [ref=e96]:
+        - generic [ref=e98]:
+          - paragraph [ref=e99]: "5"
+          - paragraph [ref=e100]: 前端
+          - paragraph [ref=e101]: React · TS Tailwind · Electron Framer Motion
+          - paragraph [ref=e102]: 5 个前端项目，涵盖 Web 应用、桌面端、游戏，React/Electron/WPF 多框架掌控
+        - generic [ref=e104]:
+          - paragraph [ref=e105]: "3"
+          - paragraph [ref=e106]: 后端
+          - paragraph [ref=e107]: Spring Boot · Python RabbitMQ · Redis MySQL · Docker
+          - paragraph [ref=e108]: 3 个后端项目，企业级 SMS、量化交易、AI 内容流水线，高可靠架构
+        - generic [ref=e110]:
+          - paragraph [ref=e111]: "2"
+          - paragraph [ref=e112]: CLI / MCP
+          - paragraph [ref=e113]: Go CLI · MCP SDK TypeScript · npm VibeView · MCPX
+          - paragraph [ref=e114]: 2 个 CLI/MCP 工具，框架开发 + 可视化输出，开源生态贡献
+        - generic [ref=e116]:
+          - paragraph [ref=e117]: "3"
+          - paragraph [ref=e118]: 移动端
+          - paragraph [ref=e119]: React Native · Expo Android Java Capacitor
+          - paragraph [ref=e120]: 3 个移动端项目，React Native/Android 原生/Electron，跨平台实战
+        - generic [ref=e122]:
+          - paragraph [ref=e123]: "3"
+          - paragraph [ref=e124]: 嵌入式
+          - paragraph [ref=e125]: STM32 CMSIS ESP32-S3 RTOS 自定义协议
+          - paragraph [ref=e126]: 3 个嵌入式项目，ESP32/STM32 裸机编程，从固件到 PCB 全链路
+    - generic [ref=e128]:
+      - generic [ref=e129]:
+        - paragraph [ref=e130]: 精选项目
+        - heading "跨越五个领域的 代表性作品" [level=2] [ref=e131]
+      - generic [ref=e132]:
+        - link "CB 前端 CoBoard 跨部门协作看板，四级权限系统，Framer Motion 动效落地页。 React 18 TypeScript Tailwind CSS Zustand @dnd-kit 在线演示 →" [ref=e134] [cursor=pointer]:
+          - /url: /projects/coboard
+          - generic [ref=e135]:
+            - generic [ref=e139]: CB
+            - generic [ref=e140]:
+              - generic [ref=e142]: 前端
+              - heading "CoBoard" [level=3] [ref=e143]
+              - paragraph [ref=e144]: 跨部门协作看板，四级权限系统，Framer Motion 动效落地页。
+              - generic [ref=e145]:
+                - generic [ref=e146]: React 18
+                - generic [ref=e147]: TypeScript
+                - generic [ref=e148]: Tailwind CSS
+                - generic [ref=e149]: Zustand
+                - generic [ref=e150]: "@dnd-kit"
+              - paragraph [ref=e151]: 在线演示 →
+        - link "AS 后端 AsynSMS 企业级短信推送系统，三重消息可靠性保障，Docker 一键部署。 Spring Boot 3.5 Java 21 RabbitMQ 4.0 Redis 7 MySQL 8.0" [ref=e153] [cursor=pointer]:
+          - /url: /projects/asynsms
+          - generic [ref=e154]:
+            - generic [ref=e158]: AS
+            - generic [ref=e159]:
+              - generic [ref=e161]: 后端
+              - heading "AsynSMS" [level=3] [ref=e162]
+              - paragraph [ref=e163]: 企业级短信推送系统，三重消息可靠性保障，Docker 一键部署。
+              - generic [ref=e164]:
+                - generic [ref=e165]: Spring Boot 3.5
+                - generic [ref=e166]: Java 21
+                - generic [ref=e167]: RabbitMQ 4.0
+                - generic [ref=e168]: Redis 7
+                - generic [ref=e169]: MySQL 8.0
+        - link "MC CLI / MCP MCPX \"MCP 界的 Next.js\"——TypeScript 框架，减少 60% MCP 服务器开发代码量。 TypeScript Node.js @modelcontextprotocol/sdk Zod Commander" [ref=e171] [cursor=pointer]:
+          - /url: /projects/mcpx
+          - generic [ref=e172]:
+            - generic [ref=e176]: MC
+            - generic [ref=e177]:
+              - generic [ref=e179]: CLI / MCP
+              - heading "MCPX" [level=3] [ref=e180]
+              - paragraph [ref=e181]: "\"MCP 界的 Next.js\"——TypeScript 框架，减少 60% MCP 服务器开发代码量。"
+              - generic [ref=e182]:
+                - generic [ref=e183]: TypeScript
+                - generic [ref=e184]: Node.js
+                - generic [ref=e185]: "@modelcontextprotocol/sdk"
+                - generic [ref=e186]: Zod
+                - generic [ref=e187]: Commander
+        - link "TR 嵌入式 TinyRobot 成本 80 元的 ESP32-S3 桌面立方体机器人，重力感应切换 4 种模式，自定义 TCP 协议，交互式 3D 模型。 C++ ESP32-S3 FreeRTOS PlatformIO ST7789" [ref=e189] [cursor=pointer]:
+          - /url: /projects/tinyrobot
+          - generic [ref=e190]:
+            - generic [ref=e194]: TR
+            - generic [ref=e195]:
+              - generic [ref=e197]: 嵌入式
+              - heading "TinyRobot" [level=3] [ref=e198]
+              - paragraph [ref=e199]: 成本 80 元的 ESP32-S3 桌面立方体机器人，重力感应切换 4 种模式，自定义 TCP 协议，交互式 3D 模型。
+              - generic [ref=e200]:
+                - generic [ref=e201]: C++
+                - generic [ref=e202]: ESP32-S3
+                - generic [ref=e203]: FreeRTOS
+                - generic [ref=e204]: PlatformIO
+                - generic [ref=e205]: ST7789
+      - link "浏览全部 16 个项目 →" [ref=e207] [cursor=pointer]:
+        - /url: /projects
+    - generic [ref=e209]:
+      - generic [ref=e210]:
+        - paragraph [ref=e211]: 为什么是我
+        - heading "不只是写代码——我是 建造者" [level=2] [ref=e212]
+        - paragraph [ref=e213]: AI 原生 vibecoding 速度 + 传统手写专业功底。快速交付又不走捷径的正确组合。
+      - generic [ref=e214]:
+        - generic [ref=e216]:
+          - generic [ref=e217]: "01"
+          - heading "速度" [level=3] [ref=e218]
+          - paragraph [ref=e219]: 几天交付完整 MVP，不是几周。AI 加速但不偷工减料。12 个月 16 个项目证明了交付速度。
+        - generic [ref=e221]:
+          - generic [ref=e222]: "02"
+          - heading "广度" [level=3] [ref=e223]
+          - paragraph [ref=e224]: React 到 STM32 寄存器。我在整个技术光谱中连接各个节点。不只是能沟通——我能真正跨领域构建。
+        - generic [ref=e226]:
+          - generic [ref=e227]: "03"
+          - heading "交付到用户" [level=3] [ref=e228]
+          - paragraph [ref=e229]: 从不停止于 localhost。线上 Demo、APK、EXE——每个项目都是真正可交付物。从浏览器到裸机。
+        - generic [ref=e231]:
+          - generic [ref=e232]: "04"
+          - heading "深度理解" [level=3] [ref=e233]
+          - paragraph [ref=e234]: 自定义链接脚本。自定义 TCP 协议。需要深入的时候绝不浮于表面——无论用不用 AI。
+      - link "在 GitHub 上查看我的作品 →" [ref=e237] [cursor=pointer]:
+        - /url: https://github.com/Kasyou
+  - contentinfo [ref=e238]:
+    - generic [ref=e239]:
+      - generic [ref=e240]:
+        - link "GitHub" [ref=e241] [cursor=pointer]:
+          - /url: https://github.com/Kasyou
+        - generic [ref=e242]: "|"
+        - generic [ref=e243]: Guangzhou
+      - paragraph [ref=e244]: 基于 React · Vite · Tailwind 构建 · 部署于 Netlify
