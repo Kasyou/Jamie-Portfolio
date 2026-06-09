@@ -32,5 +32,6 @@ export interface Project {
   emoji: string;
   screenshot?: string;
   logo?: string;
+  heroImage?: string;
   colorHex?: string;
 }

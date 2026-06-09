@@ -33,7 +33,7 @@ export default function DetailHero({ project }: Props) {
           </div>
         </div>
         <div className="flex-shrink-0 w-[400px] h-[225px] rounded-xl bg-surface border border-border overflow-hidden self-start mt-[40px]" style={{boxShadow:`0 0 50px ${catColor}10`}}>
-          {project.logo ? <img src={project.logo} alt={project.name} className="w-full h-full object-cover" /> : (
+          {project.heroImage || project.logo ? <img src={project.heroImage || project.logo} alt={project.name} className="w-full h-full object-cover" /> : (
             <div className="w-full h-full flex items-center justify-center" style={{background:`linear-gradient(135deg,${catColor}15,transparent 60%)`}}>
               <span className="text-5xl">{project.emoji}</span>
             </div>

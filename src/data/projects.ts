@@ -114,6 +114,7 @@ export const projects: Project[] = [
       { title: '全部手写，未使用 AI', text: '62 个 Java 源文件全部独立编写。Library 模块展示架构思维——NetworkApi 类按 base URL 缓存 Retrofit 实例，统一超时配置，结构化错误处理。' },
     ],
     logo: '/screenshots/weather-report/weather-report-logo.png',
+    heroImage: '/screenshots/weather-report/MVVM架构图.jpg',
     links: {}, isHandBuilt: true, featured: false, emoji: '🌦', colorHex: '#ff6b35',
   },
   { id: 'music-player', name: 'MusicPlayer', category: 'mobile', tagline: 'Electron + React 19 桌面本地音乐播放器，侧边栏导航，持久底部播放栏。', description: '一款 Electron 桌面音乐播放器，React 19 前端。AppShell 布局：侧边栏导航 + 主内容区 + 持久底部播放栏。暗色主题，CSS 自定义属性。', problemStatement: '展示 Electron + 最新 React 的集成模式，注重安全性和开发体验的桌面应用脚手架。', techStack: ['Electron 33', 'React 19', 'TypeScript', 'Vite 6', 'CSS Modules'], meta: { files: '约 10 个文件', timeline: '脚手架阶段', status: 'WIP' }, highlights: [{ title: '默认上下文隔离', text: 'Preload 脚本通过 contextBridge 只暴露安全的 app 信息。不开 nodeIntegration——安全优先。' }, { title: '最新 React 19', text: '使用 React 19 最新大版本构建。ready-to-show 优化避免应用启动白屏闪烁。' }], links: {}, isHandBuilt: false, logo: '/screenshots/music-player/music-player-logo.png',
