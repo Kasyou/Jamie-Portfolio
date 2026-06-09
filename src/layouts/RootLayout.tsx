@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
@@ -7,9 +8,22 @@ const navLinks = [
 
 export default function RootLayout() {
   const location = useLocation();
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      if (!rootRef.current) return;
+      rootRef.current.style.setProperty('--mx', `${e.clientX}px`);
+      rootRef.current.style.setProperty('--my', `${e.clientY}px`);
+    };
+    window.addEventListener('mousemove', onMove);
+    return () => window.removeEventListener('mousemove', onMove);
+  }, []);
+
   return (
     <div
-      className="min-h-screen text-text-primary font-sans"
+      ref={rootRef}
+      className="min-h-screen text-text-primary font-sans relative"
       style={{
         backgroundColor: 'var(--color-void, #06080c)',
         backgroundImage: `radial-gradient(circle, rgba(180,200,230,0.12) 1px, transparent 1px),
@@ -20,6 +34,11 @@ export default function RootLayout() {
         backgroundAttachment: 'scroll, fixed, fixed, fixed',
       }}
     >
+      {/* Ambient mouse-follow glow */}
+      <div className="fixed inset-0 pointer-events-none z-0" style={{
+        background: 'radial-gradient(circle 600px at var(--mx,50%) var(--my,50%), rgba(88,166,255,0.06), transparent 60%)',
+      }}/>
+      <div className="relative z-[1]">
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/[0.04]" style={{backgroundColor:'rgba(6,8,12,0.85)'}}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-3 group">
@@ -37,6 +56,7 @@ export default function RootLayout() {
         </div>
       </nav>
       <main className="pt-16"><Outlet /></main>
+      </div>
       <footer className="border-t border-white/[0.04]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 flex flex-col items-center gap-6">
           <div className="flex gap-6 text-text-secondary text-sm"><a href="https://github.com/Kasyou" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors">GitHub</a><span className="text-border">|</span><span>Guangzhou</span></div>
