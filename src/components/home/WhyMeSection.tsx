@@ -1,3 +1,4 @@
+import { useRef, useCallback } from 'react';
 import ScrollReveal from '../shared/ScrollReveal';
 
 const reasons = [
@@ -6,6 +7,43 @@ const reasons = [
   { number: '03', title: '交付到用户', text: '从不停止于 localhost。线上 Demo、APK、EXE——每个项目都是真正可交付物。从浏览器到裸机。', color: '#a78bfa' },
   { number: '04', title: '深度理解', text: '自定义链接脚本。自定义 TCP 协议。需要深入的时候绝不浮于表面——无论用不用 AI。', color: '#ff6b35' },
 ];
+
+function ReasonCard({ reason, delay }: { reason: typeof reasons[0]; delay: number }) {
+  const elRef = useRef<HTMLDivElement>(null);
+  const onMove = useCallback((e: React.MouseEvent) => {
+    const el = elRef.current;
+    if (!el) return;
+    const rc = el.getBoundingClientRect();
+    el.style.setProperty('--mx', `${e.clientX - rc.left}px`);
+    el.style.setProperty('--my', `${e.clientY - rc.top}px`);
+    const x = (e.clientX - rc.left) / rc.width - 0.5;
+    const y = (e.clientY - rc.top) / rc.height - 0.5;
+    el.style.transition = 'none';
+    el.style.transform = `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(-2px)`;
+  }, []);
+  const onLeave = useCallback(() => {
+    const el = elRef.current;
+    if (!el) return;
+    el.style.transition = 'transform 500ms ease-out';
+    el.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+  }, []);
+
+  return (
+    <ScrollReveal delay={delay}>
+      <div ref={elRef} onMouseMove={onMove} onMouseLeave={onLeave}
+        className="card-base p-8 h-full text-left group relative overflow-hidden"
+        style={{'--glow':reason.color, transformStyle:'preserve-3d'} as React.CSSProperties}>
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
+          style={{background: `radial-gradient(circle 200px at var(--mx) var(--my), ${reason.color}10, transparent)`}}/>
+        <div className="relative z-10">
+          <span className="text-[48px] font-bold block mb-4 leading-none" style={{color:`${reason.color}60`}}>{reason.number}</span>
+          <h3 className="text-xl font-semibold text-text-primary mb-3">{reason.title}</h3>
+          <p className="text-text-secondary text-[14px] leading-relaxed">{reason.text}</p>
+        </div>
+      </div>
+    </ScrollReveal>
+  );
+}
 
 export default function WhyMeSection() {
   return (
@@ -18,13 +56,7 @@ export default function WhyMeSection() {
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {reasons.map((reason, i) => (
-            <ScrollReveal key={reason.title} delay={i*0.1}>
-              <div className="card-base p-8 h-full text-left group">
-                <span className="text-[48px] font-bold block mb-4 leading-none" style={{color:`${reason.color}60`}}>{reason.number}</span>
-                <h3 className="text-xl font-semibold text-text-primary mb-3">{reason.title}</h3>
-                <p className="text-text-secondary text-[14px] leading-relaxed">{reason.text}</p>
-              </div>
-            </ScrollReveal>
+            <ReasonCard key={reason.title} reason={reason} delay={i * 0.1} />
           ))}
         </div>
         <ScrollReveal delay={0.5}>

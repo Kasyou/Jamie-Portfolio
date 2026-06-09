@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useCallback } from 'react';
 import ScrollReveal from '../shared/ScrollReveal';
 
 const capabilities = [
@@ -25,20 +25,50 @@ const capabilities = [
   },
 ];
 
-function GlowTags({ tags, color }: { tags: string[]; color: string }) {
-  const r = useRef<HTMLDivElement>(null);
-  const mm = (e: React.MouseEvent) => {
-    if (!r.current) return;
-    const rc = r.current.getBoundingClientRect();
-    r.current.style.setProperty('--mx', `${e.clientX - rc.left}px`);
-    r.current.style.setProperty('--my', `${e.clientY - rc.top}px`);
-  };
+function CapCard({ cap, delay }: { cap: typeof capabilities[0]; delay: number }) {
+  const elRef = useRef<HTMLDivElement>(null);
+
+  const onMove = useCallback((e: React.MouseEvent) => {
+    const el = elRef.current;
+    if (!el) return;
+    const rc = el.getBoundingClientRect();
+    // glow position
+    el.style.setProperty('--mx', `${e.clientX - rc.left}px`);
+    el.style.setProperty('--my', `${e.clientY - rc.top}px`);
+    // tilt
+    const x = (e.clientX - rc.left) / rc.width - 0.5;
+    const y = (e.clientY - rc.top) / rc.height - 0.5;
+    el.style.transition = 'none';
+    el.style.transform = `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(-2px)`;
+  }, []);
+
+  const onLeave = useCallback(() => {
+    const el = elRef.current;
+    if (!el) return;
+    el.style.transition = 'transform 500ms ease-out';
+    el.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+  }, []);
+
   return (
-    <div ref={r} onMouseMove={mm} className="glow-tag-container flex flex-wrap gap-1.5 min-h-[28px]" style={{ '--glow-color': `${color}20` } as React.CSSProperties}>
-      {tags.map((t) => (
-        <span key={t} className="relative z-10 text-[10px] px-2.5 py-1 rounded-md font-medium transition-all duration-200 hover:scale-110" style={{ backgroundColor: `${color}12`, color }}>{t}</span>
-      ))}
-    </div>
+    <ScrollReveal delay={delay}>
+      <div ref={elRef} onMouseMove={onMove} onMouseLeave={onLeave}
+        className="card-base p-8 h-full group relative overflow-hidden"
+        style={{'--glow':cap.color, transformStyle:'preserve-3d'} as React.CSSProperties}>
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
+          style={{background: `radial-gradient(circle 200px at var(--mx) var(--my), ${cap.color}12, transparent)`}}/>
+        <div className="relative z-10">
+          <div className="mb-5" style={{color:cap.color}}>{cap.icon}</div>
+          <h3 className="text-lg font-semibold text-text-primary mb-3">{cap.title}</h3>
+          <p className="text-text-secondary text-[13px] leading-relaxed mb-6">{cap.text}</p>
+          <div className="flex flex-wrap gap-1.5">
+            {cap.tags.map(t=>(
+              <span key={t} className="text-[10px] px-2.5 py-1 rounded-md font-medium transition-transform duration-200 hover:scale-110"
+                style={{backgroundColor:`${cap.color}12`,color:cap.color}}>{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </ScrollReveal>
   );
 }
 
@@ -48,15 +78,8 @@ export default function CapabilitiesSection() {
       <div className="max-w-7xl mx-auto">
         <ScrollReveal><p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-3">核心能力</p><h2 className="text-[40px] font-semibold tracking-[-1px] mb-16">我能带来什么</h2></ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {capabilities.map((cap, i) => (
-            <ScrollReveal key={cap.title} delay={i * 0.15}>
-              <div className="card-base p-8 h-full group overflow-visible">
-                <div className="mb-5" style={{ color: cap.color }}>{cap.icon}</div>
-                <h3 className="text-lg font-semibold text-text-primary mb-3">{cap.title}</h3>
-                <p className="text-text-secondary text-[13px] leading-relaxed mb-6">{cap.text}</p>
-                <GlowTags tags={cap.tags} color={cap.color} />
-              </div>
-            </ScrollReveal>
+          {capabilities.map((cap,i)=>(
+            <CapCard key={cap.title} cap={cap} delay={i*0.15}/>
           ))}
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { useRef, useCallback } from 'react';
 import ScrollReveal from '../shared/ScrollReveal';
 import { categoryMeta } from '../../data/projects';
 
@@ -17,6 +18,44 @@ const domainInfo: Record<string, string> = {
   embedded: '4 个嵌入式项目，ESP32/STM32/Linux，从裸机到系统级全链路',
 };
 
+function SpectrumCard({ color, count, label, details, info, delay }: { color: string; count: number; label: string; details: string; info: string; delay: number }) {
+  const elRef = useRef<HTMLDivElement>(null);
+  const onMove = useCallback((e: React.MouseEvent) => {
+    const el = elRef.current;
+    if (!el) return;
+    const rc = el.getBoundingClientRect();
+    el.style.setProperty('--mx', `${e.clientX - rc.left}px`);
+    el.style.setProperty('--my', `${e.clientY - rc.top}px`);
+    const x = (e.clientX - rc.left) / rc.width - 0.5;
+    const y = (e.clientY - rc.top) / rc.height - 0.5;
+    el.style.transition = 'none';
+    el.style.transform = `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(-2px)`;
+  }, []);
+  const onLeave = useCallback(() => {
+    const el = elRef.current;
+    if (!el) return;
+    el.style.transition = 'transform 500ms ease-out';
+    el.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+  }, []);
+
+  return (
+    <ScrollReveal delay={delay}>
+      <div ref={elRef} onMouseMove={onMove} onMouseLeave={onLeave}
+        className="card-base py-8 px-4 h-full relative overflow-hidden group"
+        style={{'--glow':color, transformStyle:'preserve-3d'} as React.CSSProperties}>
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
+          style={{background: `radial-gradient(circle 180px at var(--mx) var(--my), ${color}10, transparent)`}}/>
+        <div className="relative z-10">
+          <p className="text-[34px] font-bold leading-none mb-2" style={{color}}>{count}</p>
+          <p className="text-sm font-semibold mb-3" style={{color}}>{label}</p>
+          <p className="text-text-secondary text-[12px] leading-relaxed whitespace-pre-line mb-4">{details}</p>
+          <p className="text-text-secondary/60 text-[11px] leading-relaxed">{info}</p>
+        </div>
+      </div>
+    </ScrollReveal>
+  );
+}
+
 export default function TechSpectrumSection() {
   const entries = Object.entries(categoryMeta);
   return (
@@ -28,14 +67,7 @@ export default function TechSpectrumSection() {
         </ScrollReveal>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
           {entries.map(([key, meta], i) => (
-            <ScrollReveal key={key} delay={i * 0.1}>
-              <div className="card-base py-8 px-4 h-full">
-                <p className="text-[34px] font-bold leading-none mb-2" style={{ color: meta.color }}>{meta.count}</p>
-                <p className="text-sm font-semibold mb-3" style={{ color: meta.color }}>{meta.label}</p>
-                <p className="text-text-secondary text-[12px] leading-relaxed whitespace-pre-line mb-4">{techDetails[key]}</p>
-                <p className="text-text-secondary/60 text-[11px] leading-relaxed">{domainInfo[key]}</p>
-              </div>
-            </ScrollReveal>
+            <SpectrumCard key={key} color={meta.color} count={meta.count} label={meta.label} details={techDetails[key]} info={domainInfo[key]} delay={i * 0.1} />
           ))}
         </div>
       </div>
