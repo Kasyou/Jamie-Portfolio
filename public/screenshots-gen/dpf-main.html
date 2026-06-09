@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#06080c;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'JetBrains Mono',monospace}
+.terminal{background:#0d1117;border:1px solid #30363d;border-radius:12px;width:800px;overflow:hidden}
+.header{background:#161b22;padding:8px 16px;display:flex;gap:8px;align-items:center;border-bottom:1px solid #30363d}
+.dot{width:10px;height:10px;border-radius:50%}.r{background:#ff5f56}.y{background:#ffbd2e}.g{background:#27c93f}
+.title{color:#8b949e;font-size:11px;margin-left:12px}
+.body{padding:20px 24px;font-size:12px;line-height:1.8}
+.green{color:#7ee787}.blue{color:#58a6ff}.orange{color:#ffa657}.gray{color:#8b949e}.white{color:#e6edf3}
+.comment{color:#484f58}
+</style></head><body>
+<div class="terminal">
+<div class="header"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span class="title">arm-linux-gcc — digital-photo-frame</span></div>
+<div class="body">
+<span class="comment">/* Linux Framebuffer 数码相册 — 零图形库，全底层手写 */</span><br><br>
+<span class="comment">// 1. Framebuffer 初始化 — mmap 显存映射</span><br>
+<span class="blue">int</span> fb_fd = <span class="green">open</span>(<span class="white">"/dev/fb0"</span>, O_RDWR);<br>
+<span class="blue">int</span>* fb_ptr = (<span class="blue">int</span>*)<span class="green">mmap</span>(NULL, <span class="orange">800*480*4</span>, PROT_READ|PROT_WRITE, MAP_SHARED, fb_fd, <span class="orange">0</span>);<br><br>
+<span class="comment">// 2. BMP 手动解析 — packed struct 读文件头</span><br>
+<span class="blue">typedef struct</span> <span class="orange">__attribute__</span>((packed)) {<br>
+  &nbsp;&nbsp;<span class="blue">uint16_t</span> type;     &nbsp;&nbsp;<span class="comment">// "BM"</span><br>
+  &nbsp;&nbsp;<span class="blue">uint32_t</span> size;<br>
+  &nbsp;&nbsp;<span class="blue">uint32_t</span> offbits;  &nbsp;&nbsp;<span class="comment">// 像素数据偏移 = 54</span><br>
+  &nbsp;&nbsp;<span class="blue">uint32_t</span> width, height;<br>
+  &nbsp;&nbsp;<span class="blue">uint16_t</span> bitcount; &nbsp;<span class="comment">// 24bpp</span><br>
+} BmpHeader;<br><br>
+<span class="comment">// 3. 17 种动画切换 — 百叶窗 / 圆形收缩 / 对角线滑动</span><br>
+<span class="comment">// 模式 7-8: 圆形动画 — 距离公式逐像素比较</span><br>
+<span class="blue">for</span> (<span class="blue">int</span> k = <span class="orange">0</span>; k < <span class="orange">400</span>; k += <span class="orange">4</span>) {<br>
+  &nbsp;&nbsp;<span class="blue">for</span> (<span class="blue">int</span> y = <span class="orange">0</span>; y < <span class="orange">480</span>; y++)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">for</span> (<span class="blue">int</span> x = <span class="orange">0</span>; x < <span class="orange">800</span>; x++)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">if</span> ((x-<span class="orange">400</span>)*(x-<span class="orange">400</span>) + (y-<span class="orange">240</span>)*(y-<span class="orange">240</span>) < k*k)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fb_ptr[y*<span class="orange">800</span>+x] = bmp_pixel[y][x];<br>
+}<br><br>
+<span class="comment">// 4. 触摸手势 — /dev/input/event0 原始事件</span><br>
+<span class="blue">struct</span> input_event ev;<br>
+<span class="green">read</span>(ts_fd, &ev, <span class="blue">sizeof</span>(ev));<br>
+<span class="blue">if</span> (ev.type == EV_ABS && ev.code == ABS_X) touch_x = ev.value;<br>
+<span class="blue">if</span> (ev.type == EV_KEY && ev.code == BTN_TOUCH && ev.value == <span class="orange">0</span>)<br>
+  &nbsp;&nbsp;<span class="green">detectSwipe</span>(slide_x1, slide_y1, touch_x, touch_y);<br><br>
+<span class="comment">// 5. mplayer FIFO 音乐控制</span><br>
+<span class="green">mkfifo</span>(<span class="white">"/tmp/fifo"</span>, <span class="orange">0666</span>);<br>
+<span class="green">system</span>(<span class="white">"mplayer -slave -quiet -input file=/tmp/fifo &"</span>);<br>
+<span class="green">write</span>(fifo_fd, <span class="white">"pause\n"</span>, <span class="orange">6</span>);<br>
+<span class="green">write</span>(fifo_fd, <span class="white">"volume 50 1\n"</span>, <span class="orange">13</span>);<br>
+</div></div>
+</body></html>

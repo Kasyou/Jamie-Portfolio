@@ -78,7 +78,6 @@ export const projects: Project[] = [
   { id: 'financial-system', name: 'FinancialSystem', category: 'backend', tagline: 'A 股量化交易模拟系统，真实行情数据，3 种策略，事件驱动回测引擎。', description: '基于 Python 的 A 股股票和基金交易模拟系统，使用免费 akshare 数据源。支持 T+1 结算规则、佣金印花税建模、滑点模拟。事件驱动回测引擎，3 种内置策略，可配置风控规则，抽象券商接口层支持仿真和实盘无缝切换。', problemStatement: '策略验证需要真实数据和实际费用模型。这个系统用免费数据源提供专业级模拟，不需要付费数据订阅。', techStack: ['Python 3.10+', 'akshare', 'pandas', 'numpy', 'matplotlib', 'SQLite', 'PyYAML'], meta: { files: '25 个 Python 文件', timeline: '1 周', status: 'Complete' }, highlights: [{ title: '真实 A 股费用建模', text: '完整 T+1 结算规则，佣金（最低 5 元）、印花税（卖出 0.1%）、过户费、滑点。不是简化版——完全匹配真实交易成本。' }, { title: '策略对比流水线', text: 'demo.py 一键运行：数据加载 → 3 策略对比 → 最优策略详细报告 → 权益曲线图导出。从原始数据到最终报告一气呵成。' }, { title: '券商抽象层', text: 'BrokerBase 抽象类，将 SimulatedBroker 替换为 LiveBroker 即可切换实盘，策略代码零改动。' }, { title: '事件驱动回测引擎', text: '基于时间驱动的事件循环按日线逐天回放历史数据，模拟真实交易时序。引擎与策略解耦，新增策略只需实现 Strategy 接口的 on_bar() 方法。' }], links: { github: 'https://github.com/Kasyou/financial-system' }, isHandBuilt: false, logo: '/screenshots/financial-system/financial-system-logo.png',
     screenshot: '/screenshots/financial-system/financial-system.png',
     featured: false, emoji: '📱', colorHex: '#7ee787' },
-  { id: 'content-platform', name: 'ContentPlatform', category: 'backend', tagline: 'AI 驱动多平台内容创作流水线，知乎/掘金/CSDN/微信公众号四平台技术文章自动分发。', description: '基于 Claude Code 的自主内容运营系统。每周产出 3000 字深度技术文章，适配知乎、掘金、CSDN、微信公众号四个平台的格式和风格。品牌统一身份"Jamie笔记"，定制头像和 SVG 矢量标识。', problemStatement: '内容营销规模化需要一致性。这个流水线自动化了调研、写作和平台适配，同时保持文章质量。', techStack: ['Claude Code', 'Markdown', 'JSON', '数据分析'], meta: { files: '约 15 个文件', timeline: '持续运营', status: 'Paused' }, highlights: [{ title: '平台适配层', text: '核心文章适配 4 个平台的不同格式、语调和 SEO 需求。单一内容源，多平台输出。' }, { title: '数据驱动选题', text: '10+ 预规划选题，覆盖 4 条内容线（入门到精通/实战案例/工具评测/Prompt 工程）。数据分析指导选题调整。' }, { title: '数据驱动选题策略', text: '10+ 预规划选题覆盖 4 条内容线（入门到精通、实战案例、工具评测、Prompt 工程）。选题队列以 JSON 管理，根据发布反馈动态调整优先级。' }], links: {}, logo: '/screenshots/content-platform/content-platform-logo.png', isHandBuilt: false, featured: false, emoji: '✍️', colorHex: '#7ee787' },
   {
     id: 'mcpx',
     name: 'MCPX',
@@ -159,8 +158,9 @@ export const projects: Project[] = [
       { title: '全部手写，未使用 AI', text: '所有固件独立编写。ESP8266 AT 指令解析用 strstr() 手写匹配和重试循环。不用云 SDK——裸 HTTP GET 字符串 sprintf() 拼装。' },
     , { title: '双工具 PCB 设计', text: '同时掌握 Altium Designer 和 EasyEDA 两套 EDA 工具。完整的 BOM 表、原理图 PDF 导出和 PCB 布局文件，体现专业工程文档习惯。' }],
     logo: '/screenshots/iot-monitor/iot-monitor-logo.png',
-    links: {}, isHandBuilt: true, featured: false, emoji: '📗', colorHex: '#ffa657',
+    links: { github: 'https://github.com/Kasyou/stm32-env-monitor-iot' }, isHandBuilt: true, featured: false, emoji: '📗', colorHex: '#ffa657',
   },
+{ id: 'digital-photo-frame', name: '数码相册', category: 'embedded', tagline: '嵌入式 Linux 数码相册，framebuffer 直接渲染，触摸手势操作，17 种动画切换效果。大学课程设计。', description: '基于 ARM 开发板 + 嵌入式 Linux 的触控数码相册。直接操作 /dev/fb0 framebuffer 进行像素级渲染，通过 /dev/input/event0 读取触摸事件，手动解析 BMP 二进制格式显示图片。全程不使用任何图形库或 UI 框架——所有渲染逻辑从底层手写。项目经历三个迭代版本：原始代码（基础 BMP 显示 + 9 种切换动画）→ 数码相册（功能整合）→ 龙版本（增加开机动画、密码锁屏、滑动手势、17 种动画效果）。代码总量约 1200 行纯 C，arm-linux-gcc 交叉编译为 ARM 可执行文件。', problemStatement: '在不使用任何图形库的条件下，如何在嵌入式 Linux 上实现流畅的触控相册？这个项目从 framebuffer、input 子系统、BMP 解析到底层实现全链路。', techStack: ['C', 'Embedded Linux', 'Framebuffer', 'ARM', 'BMP 解析', 'mplayer FIFO'], meta: { files: '7 个 C 文件', timeline: '4 个月', status: 'Complete' }, highlights: [{ title: 'Framebuffer 直接渲染', text: '打开 /dev/fb0 设备文件，通过 mmap() 将 800×480 显存映射到用户空间，直接写入像素数据。BMP 文件手动解析 54 字节文件头，逐像素 BGR→ARGB 转换后写入映射内存。17 种图片切换动画效果（百叶窗、圆形收缩/扩展、对角线滑动等）全部通过像素级算法手写实现。' }, { title: '触摸手势识别', text: '读取 /dev/input/event0 的 struct input_event 解析原始触摸坐标。实现左右滑动切换图片、下滑返回主页、点击播放/暂停音乐。手势检测通过对比触摸按下和释放的坐标差值，设置 50px 水平阈值和 100px 垂直阈值，配合方向判断区分四种滑动方向。' }, { title: '开机动画与密码锁屏', text: '19 帧 BMP 序列逐帧渲染实现开机动画（每帧约 0.9ms）。锁屏界面在 framebuffer 上直接绘制 3×4 数字键盘，通过触摸坐标映射到对应数字，实现密码输入和验证。' }, { title: 'FIFO 音乐控制', text: '通过 system() 启动 mplayer 并进入 slave 模式，创建命名管道（mkfifo）发送控制命令。支持播放、暂停、音量调节、进度跳转、静音和退出——所有操作通过 write() 向 FIFO 写入命令字符串实现。' }], links: { github: 'https://github.com/Kasyou/linux-digital-photo-frame' }, isHandBuilt: true, logo: '/screenshots/digital-photo-frame/digital-photo-frame-logo.png', featured: false, emoji: '🖼', colorHex: '#ffa657' },
 ];
 
 
@@ -172,8 +172,8 @@ export const featuredProjects = projects.filter((p) => p.featured);
 
 export const categoryMeta: Record<string, { label: string; color: string; count: number }> = {
   frontend: { label: '前端', color: '#58a6ff', count: 5 },
-  backend: { label: '后端', color: '#7ee787', count: 3 },
+  backend: { label: '后端', color: '#7ee787', count: 2 },
   'cli-mcp': { label: 'CLI / MCP', color: '#a78bfa', count: 2 },
   mobile: { label: '移动端', color: '#ff6b35', count: 3 },
-  embedded: { label: '嵌入式', color: '#ffa657', count: 3 },
+  embedded: { label: '嵌入式', color: '#ffa657', count: 4 },
 };

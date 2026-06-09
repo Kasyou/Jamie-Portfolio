@@ -7,7 +7,7 @@ export default function TechStackSection({ project }: Props) {
   const catColor = categoryMeta[project.category]?.color ?? '#58a6ff';
 
   return (
-    <section className="py-20 px-8 border-t border-white/[0.04]">
+    <section className="py-[50px] px-8 border-t border-white/[0.04]">
       <div className="max-w-7xl mx-auto">
         <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-12">技术栈详情</p>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">

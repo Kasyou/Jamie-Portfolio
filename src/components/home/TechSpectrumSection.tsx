@@ -11,10 +11,10 @@ const techDetails: Record<string, string> = {
 
 const domainInfo: Record<string, string> = {
   frontend: '5 个前端项目，涵盖 Web 应用、桌面端、游戏，React/Electron/WPF 多框架掌控',
-  backend: '3 个后端项目，企业级 SMS、量化交易、AI 内容流水线，高可靠架构',
+  backend: '2 个后端项目，企业级 SMS、量化交易系统，高可靠架构',
   'cli-mcp': '2 个 CLI/MCP 工具，框架开发 + 可视化输出，开源生态贡献',
   mobile: '3 个移动端项目，React Native/Android 原生/Electron，跨平台实战',
-  embedded: '3 个嵌入式项目，ESP32/STM32 裸机编程，从固件到 PCB 全链路',
+  embedded: '4 个嵌入式项目，ESP32/STM32/Linux，从裸机到系统级全链路',
 };
 
 export default function TechSpectrumSection() {

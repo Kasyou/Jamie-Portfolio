@@ -14,7 +14,7 @@ function deriveBranches(techStack: string[]): Branch[] {
     'Platform / Build': ['Electron', 'Capacitor', 'Expo', 'React Native', 'Android', '.NET', 'Vite', 'electron-builder', 'Keil MDK', 'Makefile', 'PlatformIO', 'Gradle'],
     'Backend / Infra': ['Spring Boot', 'RabbitMQ', 'Redis', 'Docker', 'akshare', 'pandas', 'MCP SDK', 'Zod', 'REST API', 'OkHttp', 'Retrofit', 'Gson'],
     'Interaction / Visual': ['Framer Motion', '@dnd-kit', 'Canvas', 'SSE', 'WebSocket', 'Commander', 'Chokidar', 'Mermaid.js', 'Lucide React', 'gsap'],
-    'Hardware / Embedded': ['ESP32-S3', 'STM32', 'FreeRTOS', 'CMSIS', 'ESP8266', 'PCB Design', 'DHT11', 'MQ-4', 'MPU6050', 'ST7789', 'Custom TCP Protocol', 'WiFi', 'DeepSeek API', 'Baidu Map', 'QWeather', '和风天气', '百度地图'],
+    'Hardware / Embedded': ['ESP32-S3', 'STM32', 'FreeRTOS', 'CMSIS', 'ESP8266', 'PCB Design', 'DHT11', 'MQ-4', 'MPU6050', 'ST7789', 'Custom TCP Protocol', 'WiFi', 'DeepSeek API', 'Baidu Map', 'QWeather', '和风天气', '百度地图', 'Embedded Linux', 'Linux', 'Framebuffer', 'ARM', 'BMP', 'mplayer', 'FIFO', 'mmap', 'input subsystem'],
   };
   const branchColors = ['#58a6ff', '#7ee787', '#a78bfa', '#ff6b35', '#ffa657', '#c9d1d9', '#ffa657'];
 
@@ -34,7 +34,7 @@ export default function MindMapArchitecture({ project }: Props) {
   const rightBranches = branches.slice(half);
 
   return (
-    <section className="py-20 px-8 border-t border-white/[0.04]">
+    <section className="py-[50px] px-8 border-t border-white/[0.04]">
       <div className="max-w-7xl mx-auto">
         <p className="text-text-secondary text-[11px] tracking-[2px] uppercase mb-12">技术架构</p>
         <div className="flex items-center justify-center">

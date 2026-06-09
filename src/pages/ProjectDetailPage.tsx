@@ -27,9 +27,9 @@ export default function ProjectDetailPage() {
     <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} exit={{opacity:0}} transition={{duration:0.3}}>
       <DetailHero project={project} />
       <OverviewSection project={project} />
+      <MindMapArchitecture project={project} />
       <TechStackSection project={project} />
       <TechShowcaseSection project={project} />
-      <MindMapArchitecture project={project} />
       <HighlightsSection project={project} />
       <ProjectDataRow project={project} />
       <ProjectNav currentId={project.id} />

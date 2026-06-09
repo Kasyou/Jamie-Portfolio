@@ -4,7 +4,7 @@ interface Props { project: Project; }
 
 export default function HighlightsSection({ project }: Props) {
   return (
-    <section className="py-24 px-8 border-t border-white/[0.04]">
+    <section className="py-[58px] px-8 border-t border-white/[0.04]">
       <div className="max-w-7xl mx-auto">
         <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-3">技术亮点</p>
         <h2 className="text-[36px] font-semibold tracking-[-1px] mb-16">深入 {project.name} 的技术实现</h2>

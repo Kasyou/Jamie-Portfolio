@@ -84,7 +84,7 @@ const showcaseData: Record<string, ShowcaseItem[]> = {
   'russiablock': [
     {
       title: 'Canvas 游戏渲染引擎',
-      text: '俄罗斯方块使用 HTML5 Canvas 构建完整的游戏渲染引擎。每帧通过 requestAnimationFrame 驱动，先 clearRect 清空画布，再绘制背景网格、已落定的方块和当前活动方块。\n\n7 种标准方块通过 4×4 矩阵定义，每种方块包含 4 个旋转状态，存储在 SHAPES 常量数组中。碰撞检测在每次 move/drop/rotate 操作前执行，检查方块矩阵的每个填充单元是否与边界或已落定方块重叠。行消除算法扫描所有已满行，向上移动上方所有行并重置顶行为空。得分系统基于一次消除的行数（1 行 100 分、4 行 800 分——经典 Tetris 规则），加速机制在每消除 10 行后提升下落速度。',
+      text: '俄罗斯方块使用 HTML5 Canvas 构建完整的游戏渲染引擎。每帧通过 requestAnimationFrame 驱动，先 clearRect 清空画布，再绘制背景网格、已落定的方块和当前活动方块。\n\n7 种标准方块通过 4×4 矩阵定义，每种方块包含 4 个旋转状态，存储在 SHAPES 常量数组中。碰撞检测在每次 move/drop/rotate 操作前执行，检查方块矩阵的每个填充单元是否与边界或已落定方块重叠。行消除算法扫描所有已满行，向上移动上方所有行并重置顶行为空。得分系统基于一次消除的行数（1 行 100 分、4 行 800 分——经典 Tetris 规则），加速机制在每消除 10 行后提升下落速度。\n\n## Electron 打包与分发\n游戏通过 Electron 33 封装为 Windows 桌面应用，electron-builder 配置双构建目标——portable EXE 免安装便携版和 NSIS 安装器版。应用窗口固定 400×700 像素，禁止缩放以保证游戏画面精确渲染。主进程仅约 30 行代码，负责窗口创建和 ready-to-show 优化避免白屏闪烁。应用内无任何外部依赖——游戏逻辑、渲染、音效全部在单个 HTML 文件和 Canvas API 中完成。\n\n## 深空主题视觉设计\n游戏 UI 采用深空风格：CSS radial-gradient 伪元素生成随机星场背景，半透明黑底面板通过 backdrop-filter blur 实现毛玻璃模糊效果。CSS 自定义属性 --block-size 和 --preview-block 统一管理游戏区和预览区的方块尺寸，改变一个变量即可全局缩放。游戏结束界面使用 backdrop-filter blur 模糊游戏画面并叠加半透明遮罩，最终得分以大字显示在画面中央。侧边预览面板实时展示下一块方块，配合分数动画提升反馈感。',
       imageRight: true,
       code: `// Game loop & piece rendering
 function gameLoop() {
@@ -125,7 +125,7 @@ function drawPiece(piece, x, y) {
   'asynsms': [
     {
       title: 'Docker Compose 编排',
-      text: 'AsynSMS 通过 Docker Compose 实现一键部署完整的基础设施和应用栈。docker-compose.yml 编排 4 个服务：MySQL 8.0（短信数据持久化）、Redis 7（令牌桶限流计数器）、RabbitMQ 4.0（消息队列 + 管理控制台）和 Spring Boot 应用。\n\n应用服务依赖 MySQL、Redis、RabbitMQ 三个服务的健康检查（healthcheck），确保数据库和中间件就绪后才启动。RabbitMQ 管理控制台通过 15672 端口暴露，方便监控队列深度和消息吞吐。网络配置使用自定义 bridge 网络隔离服务间通信，应用端口 8080 映射到宿主机。多阶段 Docker 构建先使用 Maven + JDK 21 编译，再用 JRE 精简镜像运行，最终镜像体积控制在 200MB 以内。',
+      text: 'AsynSMS 通过 Docker Compose 实现一键部署完整的基础设施和应用栈。docker-compose.yml 编排 4 个服务：MySQL 8.0（短信数据持久化）、Redis 7（令牌桶限流计数器）、RabbitMQ 4.0（消息队列 + 管理控制台）和 Spring Boot 应用。\n\n应用服务依赖 MySQL、Redis、RabbitMQ 三个服务的健康检查（healthcheck），确保数据库和中间件就绪后才启动。RabbitMQ 管理控制台通过 15672 端口暴露，方便监控队列深度和消息吞吐。网络配置使用自定义 bridge 网络隔离服务间通信，应用端口 8080 映射到宿主机。多阶段 Docker 构建先使用 Maven + JDK 21 编译，再用 JRE 精简镜像运行，最终镜像体积控制在 200MB 以内。\n\n## 数据库设计与 JPA 自动建表\n系统包含 6 张核心表：短信任务表（task）、消息明细表（message）、黑名单表（blacklist）、退订表（unsubscribe）、发送日志表（send_log）和虚拟用户表（virtual_user）。JPA + Hibernate 自动 DDL 在应用启动时创建表结构，开发环境使用 create-drop 策略，生产环境使用 validate 策略确保实体与表结构一致。Spring Data JPA Repository 提供开箱即用的 CRUD 和分页查询，自定义 JPQL 查询支持按状态、时间范围和手机号筛选消息记录。',
       imageRight: true,
       code: `# docker-compose.yml — 4 services
 services:
@@ -154,11 +154,23 @@ services:
       redis: { condition: service_started }
       rabbitmq: { condition: service_started }`,
     },
+    {
+      title: 'RabbitMQ 消息可靠性',
+      text: 'AsynSMS 的消息可靠性通过三重机制保障：Publisher Confirm 确认消息成功投递到 Broker，Manual ACK 确保消费者处理完成后才从队列移除，死信队列捕获超时或拒绝的消息供人工处理。\n\n自定义重试逻辑替代 Spring 默认的 RetryTemplate——失败消息不会无限重试阻塞队列，而是在 3 次重试（间隔 5s/15s/30s 指数退避）后转入死信队列。死信队列的管理界面可通过 RabbitMQ Management Plugin（端口 15672）查看和手动重新投递。\n\n生产者-消费者解耦设计使得 API 接收层和短信发送层完全独立——API 只需将消息投递到队列即可返回响应，后台 Worker 从队列拉取消息批量发送。这种架构在短信供应商响应慢时不会阻塞 API 接口，吞吐量由 Worker 实例数量线性扩展。\n\n## 实时进度 Dashboard\n系统内置 Thymeleaf + Bootstrap 5 构建的实时进度看板，通过 3 秒自动轮询 Ajax 请求刷新任务进度条。每个短信任务显示总数量、已发送、成功、失败四个数字，进度条随发送进度实时填充。Dashboard 页面按 Tab 分为活跃任务和历史任务两个视图，历史任务支持按时间和状态筛选。失败明细页面以表格展示每条失败记录的原因（号码无效、黑名单、限流拒绝等），支持 CSV 导出（UTF-8 BOM 编码兼容 Excel 中文显示）。',
+      imageRight: false,
+      code: `// RabbitMQ config — triple guarantee\n@Configuration\npublic class RabbitConfig {\n  @Bean\n  public Queue smsQueue() {\n    return QueueBuilder.durable("sms.queue")\n      .deadLetterExchange("sms.dlx")\n      .deadLetterRoutingKey("sms.dead")\n      .build();\n  }\n\n  @Bean\n  public RabbitTemplate template(ConnectionFactory cf) {\n    var t = new RabbitTemplate(cf);\n    t.setConfirmCallback((correlation, ack, reason) -> {\n      if (!ack) log.warn("Publisher confirm failed: {}", reason);\n    });\n    return t;\n  }\n}`,
+    },
+    {
+      title: 'Redis 令牌桶限流',
+      text: '短信供应商通常有严格的每秒发送速率限制，AsynSMS 通过 Redis 原子 Lua 脚本实现分布式令牌桶算法。\n\n令牌桶配置容量和填充速率——例如每令牌 = 1 条短信，桶容量 100 令牌，填充速率 10 令牌/秒（匹配供应商 QPS 限制）。每次发送前执行 Lua 脚本检查并消耗一个令牌：如果桶中有令牌则消耗并通过，无令牌则拒绝并返回建议重试时间。\n\nLua 脚本在 Redis 服务端原子执行，杜绝了"检查-消耗"之间的竞态条件，多应用实例环境下也是安全的。令牌桶状态通过 Redis key 持久化，重启不丢失。监控端点 /actuator/health 实时返回当前令牌余量和限流拒绝次数，便于运维排查。\n\n## RESTful API 设计\n系统暴露 12+ RESTful 端点，按功能分为短信任务管理（创建、查询、暂停、恢复、删除）、黑名单管理（添加、移除、查询）和数据导出（CSV 下载）。控制器层使用 @RestController + @Validated 注解实现请求参数校验，统一异常处理器 @RestControllerAdvice 将业务异常映射为标准 JSON 错误响应。Swagger/OpenAPI 文档自动生成，开发环境通过 Swagger UI 可直接测试所有接口。短信发送接口异步处理——接收请求后立即返回任务 ID 和预估时间，后台 Worker 异步消费队列执行实际发送。',
+      imageRight: true,
+      code: `-- Lua script: atomic token bucket in Redis\nlocal key = KEYS[1]\nlocal capacity = tonumber(ARGV[1])\nlocal rate = tonumber(ARGV[2])\nlocal now = tonumber(ARGV[3])\n\nlocal bucket = redis.call('hmget', key, 'tokens', 'last_refill')\nlocal tokens = tonumber(bucket[1]) or capacity\nlocal last = tonumber(bucket[2]) or now\n\nlocal elapsed = (now - last) / 1000.0\nlocal refill = math.floor(elapsed * rate)\ntokens = math.min(capacity, tokens + refill)\n\nif tokens > 0 then\n  redis.call('hmset', key, 'tokens', tokens - 1, 'last_refill', now)\n  return 1 -- allowed\nend\nreturn 0 -- rate limited`,
+    },
   ],
   'financial-system': [
     {
       title: '事件驱动回测引擎',
-      text: 'FinancialSystem 的回测引擎采用事件驱动架构，核心是一个按交易日推进的主循环。每个交易日触发 OnBar 事件，依次通知所有已注册的策略、风控模块和记录器。\n\n引擎从 akshare 获取历史日线数据（开高低收量），按日期排序后逐日推送给策略的 on_bar() 方法。策略根据当日 K 线、当前持仓和账户状态决定买卖，返回 Order 对象。订单经风控模块校验（持仓上限、单笔金额限制、T+1 卖出限制）后由 SimulatedBroker 模拟成交——考虑佣金、印花税、滑点后更新账户权益和持仓。每笔交易记录到 SQLite 便于事后分析。回测结束后输出年化收益率、最大回撤、夏普比率、胜率等核心指标，使用 matplotlib 绘制权益曲线。新增策略只需实现 Strategy 接口的 on_bar()、on_order_filled()、on_trade() 三个回调。',
+      text: 'FinancialSystem 的回测引擎采用事件驱动架构，核心是一个按交易日推进的主循环。每个交易日触发 OnBar 事件，依次通知所有已注册的策略、风控模块和记录器。\n\n引擎从 akshare 获取历史日线数据（开高低收量），按日期排序后逐日推送给策略的 on_bar() 方法。策略根据当日 K 线、当前持仓和账户状态决定买卖，返回 Order 对象。订单经风控模块校验（持仓上限、单笔金额限制、T+1 卖出限制）后由 SimulatedBroker 模拟成交——考虑佣金、印花税、滑点后更新账户权益和持仓。每笔交易记录到 SQLite 便于事后分析。回测结束后输出年化收益率、最大回撤、夏普比率、胜率等核心指标，使用 matplotlib 绘制权益曲线。新增策略只需实现 Strategy 接口的 on_bar()、on_order_filled()、on_trade() 三个回调。\n\n## 风控模块与绩效评估\n风控模块在每笔订单执行前进行多层校验：单只股票持仓上限（默认 20%）、行业集中度限制（同行业不超过 30%）、全局最大回撤熔断（回撤超 20% 强制清仓）、单笔止损（亏损 8% 强制卖出）。回测结束后自动生成绩效报告：年化收益率、夏普比率、索提诺比率、卡玛比率、最大回撤、胜率、盈亏比、利润因子——并与沪深 300 基准对比。demo.py 提供一键体验：数据加载 → 三策略对比 → 最优策略详细报告 → 权益曲线图导出为 PNG。',
       imageRight: true,
       code: `# Event-driven backtest loop
 class BacktestEngine:
@@ -186,12 +198,53 @@ class BacktestEngine:
 
         return self.analytics.summarize()`,
     },
-  ],
-  'content-platform': [
     {
-      title: '内容生产流水线',
-      text: 'ContentPlatform 的内容生产遵循标准化的五阶段流水线，每个阶段都有明确的输入、处理和产出。\n\n阶段一——选题规划：从 10+ 选题队列中按优先级选取，同步参考知乎热榜和 CSDN 热搜词确认话题热度。阶段二——大纲生成：使用 Claude 将选题扩展为包含 3-5 个小标题的详细大纲，人工审核确认覆盖深度。阶段三——文章撰写：Claude 根据大纲生成 3000+ 字初稿，包含代码示例、对比表格和流程图。阶段四——平台适配：核心文章通过适配层转为 4 个平台的格式——知乎注重叙事和互动引导（文末提问）、掘金注重技术深度和代码高亮、CSDN 注重 SEO 标题和目录锚点、微信公众号注重排版和引导关注。阶段五——数据分析：跟踪每篇文章的阅读量、点赞收藏比、评论情感倾向，反馈数据进入选题队列调整下一期的选题优先级。',
+      title: '内置交易策略',
+      text: '系统内置三种经典量化策略，覆盖趋势跟踪和均值回归两大流派。\n\n双均线交叉策略（MACross）：计算短期均线（默认 MA5）和长期均线（默认 MA20），短线上穿长线产生金叉买入信号，短线下穿长线产生死叉卖出信号。策略参数（均线周期、仓位比例）可在 YAML 配置文件中调整。\n\nRSI 超买超卖策略：当 14 日 RSI 低于 30（超卖）时买入，高于 70（超买）时卖出，适合震荡市。\n\n网格交易策略：在预设价格区间内以固定间隔挂单，价格触及网格线自动成交，赚取震荡波动收益。策略通过 YAML 驱动配置——初始资金、手续费率、印花税率、滑点等参数统一在 config.yaml 中管理，切换策略无需修改代码。',
       imageRight: false,
+      code: `# config.yaml — strategy configuration
+initial_capital: 100000
+commission:
+  rate: 0.0003      # 佣金 万分之三
+  min_fee: 5.0      # 最低 5 元
+stamp_tax:
+  rate: 0.001       # 印花税 千分之一
+  side: sell        # 仅卖出征收
+slippage: 0.001     # 滑点 千分之一
+
+strategies:
+  macross:
+    short_window: 5
+    long_window: 20
+    position_pct: 0.3
+  rsi:
+    period: 14
+    oversold: 30
+    overbought: 70`,
+    },
+    {
+      title: '数据管道与 SQLite 缓存',
+      text: 'FinancialSystem 使用 akshare 作为免费数据源，覆盖 A 股日线行情（开高低收量）、股票基本信息、指数数据。数据获取后自动缓存到本地 SQLite 数据库，避免重复网络请求。\n\nSQLite 缓存采用 EAV 模式存储——每张表对应一个数据维度（日线表、基本信息表、指数表），以股票代码 + 日期作为联合主键保证幂等性。CLI 工具提供 10 个命令管理数据生命周期：init 初始化数据库、add 添加股票到关注列表、remove 移除、list 列出所有跟踪标的、backtest 执行回测、sim 启动模拟交易、status 查看持仓、order 手动下单、risk 查看风控状态、report 生成绩效报告。所有命令共享同一个 SQLite 实例，通过 argparse 子命令路由。',
+      imageRight: true,
+      code: `# CLI commands via argparse
+$ python -m src.cli.main init          # 初始化数据库
+$ python -m src.cli.main add 600519    # 添加茅台
+$ python -m src.cli.main add 000858    # 添加五粮液
+$ python -m src.cli.main list          # 列出跟踪标的
+  1. 600519  贵州茅台
+  2. 000858  五粮液
+
+$ python -m src.cli.main backtest \\
+    --strategy macross \\
+    --start 2024-01-01 \\
+    --end 2025-12-31
+
+# Output:
+# 年化收益率: +18.7%
+# 夏普比率:   1.42
+# 最大回撤:   -12.3%
+# 胜率:      58.2%
+# 权益曲线已保存: backtest_result.png`,
     },
   ],
   'vibeview': [
@@ -303,6 +356,56 @@ uint8_t calc_crc(const Frame* f) {
   return crc;
 }`,
     },
+    {
+      title: 'FreeRTOS 双核任务调度',
+      text: 'TinyRobot 运行在 ESP32-S3 双核处理器上，Xia 核心 0 负责 UI 渲染（TFT 屏幕驱动 + 表情动画帧推送），核心 1 负责 100Hz 传感器轮询、模式管理和 TCP 服务器 I/O。\n\n两个核心通过 FreeRTOS 任务调度器独立运行，任务间通信使用互斥锁（Mutex）保护共享的模式状态变量。核心 0 的 UI 任务以 30fps 速率刷新屏幕，核心 1 的传感器任务每 10ms 读取 MPU6050 加速度数据并计算倾斜角度。模式切换由核心 1 检测倾斜变化触发，通过 xSemaphoreTake 获取互斥锁后更新全局模式枚举，核心 0 在下一帧渲染时读取新模式并切换 UI 界面。WiFi 连接管理通过引用计数实现：每个需要网络的模块（NTP 同步、天气获取、PC Link）调用 wifi_request() / wifi_release()，计数归零时自动断开 WiFi 以节省功耗。',
+      imageRight: true,
+      code: `// Dual-core task creation in FreeRTOS
+void setup() {
+  // Core 0: UI rendering
+  xTaskCreatePinnedToCore(
+    uiTask, "UI", 8192, NULL, 1, NULL, 0);
+
+  // Core 1: sensor + network
+  xTaskCreatePinnedToCore(
+    sensorTask, "Sensor", 4096, NULL, 2, NULL, 1);
+
+  // Mutex for mode state
+  modeMutex = xSemaphoreCreateMutex();
+}
+
+void sensorTask(void* pv) {
+  TickType_t lastWake = xTaskGetTickCount();
+  while (1) {
+    sensors.poll();          // 100Hz
+    modeManager.update();    // check tilt
+    tcpServer.handleClient();
+    vTaskDelayUntil(&lastWake, pdMS_TO_TICKS(10));
+  }
+}`,
+    },
+    {
+      title: '重力感应与模式切换',
+      text: 'MPU6050 六轴传感器作为 TinyRobot 的核心交互方式——通过倾斜立方体切换四种工作模式。传感器每 10ms 读取一次加速度数据，通过 atan2 函数将 X/Y/Z 三轴加速度转换为欧拉角（俯仰角和翻滚角）。\n\n模式判定逻辑：Z 轴朝上（立方体正面朝上）→ 表情模式，Z 轴朝下 → 时钟模式，X 轴朝上（左侧倾斜）→ 天气模式，X 轴朝下（右侧倾斜）→ 番茄钟模式。为防止抖动，状态切换需要方向持续稳定 300ms 且角度偏差不超过 10°。10° 死区确保微小的桌面震动不会误触发切换。\n\n番茄钟模式内置 25 分钟工作 + 5 分钟休息循环，屏幕显示径向进度条——通过绘制从圆心出发的扇形线段实现，每段覆盖 6° 弧（共 60 段对应 30 分钟），随时间推进逐段填充。',
+      imageRight: false,
+      code: `// MPU6050 tilt detection
+void ModeManager::update() {
+  float ax, ay, az;
+  mpu.getAccel(&ax, &ay, &az);
+
+  float pitch = atan2(ax, sqrt(ay*ay + az*az));
+  float roll  = atan2(ay, sqrt(ax*ax + az*az));
+
+  Direction dir = NONE;
+  if (az > 0.8f)  dir = FACE_UP;    // ~35° from vertical
+  if (az < -0.8f) dir = FACE_DOWN;
+  if (ax > 0.8f)  dir = TILT_LEFT;
+  if (ax < -0.8f) dir = TILT_RIGHT;
+
+  if (dir == lastDir && millis() - lastChange > 300)
+    switchMode(dir);
+}`,
+    },
   ],
   'trafficlight': [
     {
@@ -327,6 +430,57 @@ GPIOB->CRL |=  (0x333 << 0);
 // Atomic LED toggle — no glitch
 GPIOB->BSRR = GPIO_BSRR_BS0;  // Set PB0
 GPIOB->BRR  = GPIO_BRR_BR0;   // Reset PB0`,
+    },
+    {
+      title: 'Makefile 双构建系统',
+      text: '项目同时支持 ARM GCC Makefile 和 Keil MDK 两种构建方式，方便在不同开发环境间切换。\n\nMakefile 构建使用 arm-none-eabi-gcc 工具链，手动指定 MCU 标志（-mcpu=cortex-m3 -mthumb）、链接脚本（STM32F103VETx_FLASH.ld）和启动文件（startup_stm32f10x_hd.s）。构建流程分为编译（C 文件→.o）、链接（.o+ld→.elf）、转换（.elf→.bin/.hex）三个阶段。make flash 通过 OpenOCD 连接 ST-Link 调试器烧录固件，make size 输出 Flash 和 SRAM 使用量。\n\nKeil MDK 项目文件（.uvprojx）包含完整的工程配置——芯片型号（STM32F103VET6）、调试器设置（ST-Link SWD）、优化级别（-O0 debug / -Os release）和文件分组。双构建系统确保项目不绑定特定 IDE，符合开源协作的最佳实践。',
+      imageRight: true,
+      code: `# Makefile — ARM GCC build
+CC = arm-none-eabi-gcc
+CFLAGS = -mcpu=cortex-m3 -mthumb -O0 -g
+LDFLAGS = -T STM32F103VETx_FLASH.ld
+
+SRC = $(wildcard Src/*.c) $(wildcard Startup/*.s)
+OBJ = $(SRC:.c=.o)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+firmware.elf: $(OBJ)
+	$(CC) $(LDFLAGS) $^ -o $@
+
+flash: firmware.bin
+	openocd -f interface/stlink.cfg \\
+	  -f target/stm32f1x.cfg \\
+	  -c "program firmware.bin \\
+	  0x08000000 verify reset exit"`,
+    },
+    {
+      title: '按键消抖与状态机',
+      text: '两个物理按键（PA0 KEY1 和 PC13 KEY2）通过 GPIO 输入模式读取。PA0 配置为上拉输入（默认高电平，按下为低），PC13 配置为浮空输入。\n\n软件消抖采用"延迟+二次确认"模式：首次检测到电平变化后延时 20ms（过滤机械触点抖动期），再次读取同一引脚——若电平与首次一致则确认有效，否则视为抖动丢弃。这种简单方案在 72MHz MCU 上可靠工作，无需定时器中断——SysTick 的 HAL_Delay 提供毫秒级延时。\n\n颜色状态管理通过全局 color_state 枚举（RED=0 / GREEN=1 / BLUE=2）实现。KEY1 每次短按使 color_state 循环递增（0→1→2→0），KEY2 控制 LED 开关——关闭时记忆当前颜色状态（保存到 last_color），重新打开时恢复到之前颜色。BSRR/BRR 原子操作确保 LED 切换无毛刺。',
+      imageRight: false,
+      code: `// Button debounce with state machine
+uint8_t read_key1(void) {
+  if (!(GPIOA->IDR & GPIO_IDR_IDR0)) {
+    HAL_Delay(20);           // debounce
+    if (!(GPIOA->IDR & GPIO_IDR_IDR0)) {
+      while (!(GPIOA->IDR & GPIO_IDR_IDR0)); // wait release
+      return 1;
+    }
+  }
+  return 0;
+}
+
+// Color state cycle
+if (read_key1()) {
+  if (led_on) {
+    color_state = (color_state + 1) % 3;
+    set_led_color(color_state);
+  } else {
+    led_on = 1;
+    set_led_color(last_color);
+  }
+}`,
     },
   ],
   'iot-monitor': [
@@ -364,6 +518,142 @@ uint8_t DHT11_Read(uint8_t* hum, uint8_t* temp) {
     *hum = buf[0]; *temp = buf[2];
     return 1;
 }`,
+    },
+    {
+      title: 'PID 光控与 DMA ADC',
+      text: '自设版本中实现了基于 PID 控制器的光照自动调节系统。光敏电阻通过 ADC 采集环境光照度，PID 控制器根据目标值与实际值的偏差计算 PWM 输出占空比，驱动 LED 实现亮度闭环控制。\n\nPID 参数分为三档——高照度（0-500 lux, kp=0.06/ki=0.005/kd=0.002）、中照度（500-750 lux, kp=0.04/ki=0.003/kd=0.001）、低照度（750-900 lux, kp=0.02/ki=0.002/kd=0.001）——不同工作点使用不同的参数集以适应系统非线性。ADC 采集使用 DMA 循环模式，6 通道连续扫描无需 CPU 干预。滑动窗口滤波器对每通道保留最近 10 个采样值，剔除最大最小值后取平均，有效抑制电源噪声和传感器抖动。',
+      imageRight: true,
+      code: `// PID controller with multi-range parameters
+typedef struct {
+  float kp, ki, kd;
+  float integral, prev_error;
+  float integral_max;
+} PID;
+
+float PID_Compute(PID* pid, float target, float actual) {
+  float error = target - actual;
+  pid->integral += error;
+  pid->integral = constrain(pid->integral,
+    -pid->integral_max, pid->integral_max);
+
+  float deriv = error - pid->prev_error;
+  pid->prev_error = error;
+
+  return pid->kp * error +
+         pid->ki * pid->integral +
+         pid->kd * deriv;
+}
+
+// DMA ADC continuous scan (6 channels)
+HAL_ADC_Start_DMA(&hadc1,
+  (uint32_t*)adc_buf, 6 * 10); // 10 samples/ch`,
+    },
+    {
+      title: 'ESP8266 WiFi 云通信',
+      text: 'IoT Monitor 通过 ESP8266-01S WiFi 模块将传感器数据上传到巴法云 IoT 平台，用户可通过微信小程序远程查看实时数据。\n\nESP8266 与 STM32 通过 UART 连接（TX/RX 交叉），通信协议使用 AT 指令集。初始化序列为：AT（测试连接）→ AT+CWMODE=2（设置 AP 模式）→ AT+CWSAP 设置 SSID 和密码 → AT+CIPMUX=1（启用多连接）→ AT+CIPSERVER=1,8080（启动 TCP 服务器）。所有 AT 指令均通过 sprintf 拼装命令字符串，USART 发送后使用 strstr 解析响应中的 "OK" 或 "ERROR" 关键字判断执行结果。\n\n云平台通信格式为 HTTP GET 请求的简化版：通过 TCP 连接向巴法云服务器发送 cmd=2&uid={设备ID}&topic={主题}&msg={数据} 格式的字符串。三个数据主题分别上传温度、湿度和烟雾浓度。微信小程序端通过订阅相同主题实时接收数据推送，支持历史数据查询和远程阈值设置。',
+      imageRight: false,
+      code: `// ESP8266 AT command init with retry
+uint8_t ESP8266_Init(void) {
+  char cmd[128];
+  for (int retry = 0; retry < 3; retry++) {
+    UART_Send("AT\\r\\n");
+    if (ESP_WaitOK(2000)) break;
+    if (retry == 2) return 0;
+  }
+
+  sprintf(cmd, "AT+CWSAP=\\"%s\\",\\"%s\\",1,3\\r\\n",
+    WIFI_SSID, WIFI_PASS);
+  UART_Send(cmd);
+  if (!ESP_WaitOK(5000)) return 0;
+
+  UART_Send("AT+CIPSERVER=1,8080\\r\\n");
+  if (!ESP_WaitOK(2000)) return 0;
+  return 1;
+}
+
+// Cloud data upload
+sprintf(buf, "GET /api?cmd=2&uid=%s"
+  "&topic=Temp&msg=%.1f\\r\\n",
+  DEVICE_UID, temperature);
+ESP_SendData(buf);`,
+    },
+  ],
+  'digital-photo-frame': [
+    {
+      title: 'Framebuffer 直接渲染',
+      text: '数码相册的核心渲染通过 Linux framebuffer 设备（/dev/fb0）实现。Lcd_Init() 打开设备文件后调用 mmap() 将 800×480×4 字节的显存映射到进程地址空间，后续所有像素操作退化为普通内存写入——无需任何图形 API。\n\nBMP 图片解析完全手工实现：定义 packed 结构体对齐 BMP 文件头的 54 字节布局，通过 read() 逐字段解析文件大小、像素偏移、宽高和色深。像素数据为 BGR 格式，逐字节读取后通过位操作转换为 ARGB 写入 framebuffer。17 种图片切换动画全部手写像素级算法——百叶窗效果逐列/逐行步进渲染、圆形收缩通过距离公式 (x-w/2)²+(y-h/2)² 与递增半径比较、对角线滑动使用自适应步长实现缓入加速曲线。',
+      imageRight: true,
+      code: `// Framebuffer init + mmap
+int Lcd_Init() {
+  fb_fd = open("/dev/fb0", O_RDWR);
+  if (fb_fd < 0) return -1;
+
+  fb_ptr = (int*)mmap(NULL,
+    800 * 480 * 4, // screen size
+    PROT_READ | PROT_WRITE,
+    MAP_SHARED, fb_fd, 0);
+
+  return (fb_ptr == MAP_FAILED) ? -1 : 0;
+}
+
+// BMP header parsing (packed struct)
+typedef struct {
+  uint16_t type;       // "BM"
+  uint32_t size;
+  uint16_t reserved1, reserved2;
+  uint32_t offbits;    // pixel offset
+} __attribute__((packed)) BmpHeader;`,
+    },
+    {
+      title: '触摸手势与锁屏',
+      text: '触摸输入通过 Linux input 子系统（/dev/input/event0）读取原始 struct input_event 结构体，包含类型（EV_ABS 表示触摸坐标）、代码（ABS_X/ABS_Y）和数值。\n\n手势识别通过记录触摸按下和释放的坐标差值实现：|ΔX| > 50px 且 |ΔX| > |ΔY| 判定为水平滑动（ΔX > 0 右滑上一张、ΔX < 0 左滑下一张），|ΔY| > 100px 且向下则为下滑返回主页。图片浏览支持循环滚动——在第一张左滑跳到末尾，在最后一张右滑回到开头。\n\n锁屏界面在 framebuffer 上直接绘制 3 列×4 行数字键盘（1-9 + 0），每个数字的触摸区域通过硬编码像素边界 if-else 判断。密码验证通过后转入主界面。',
+      imageRight: false,
+      code: `// Touch input parsing
+struct input_event ev;
+int fd = open("/dev/input/event0", O_RDONLY);
+
+while (read(fd, &ev, sizeof(ev)) > 0) {
+  if (ev.type == EV_ABS) {
+    if (ev.code == ABS_X) touch_x = ev.value;
+    if (ev.code == ABS_Y) touch_y = ev.value;
+  }
+  if (ev.type == EV_KEY && ev.code == BTN_TOUCH) {
+    if (ev.value == 1) { // press
+      slide_x1 = touch_x;
+      slide_y1 = touch_y;
+    } else { // release
+      slide_x2 = touch_x;
+      slide_y2 = touch_y;
+      detectSwipe(); // compare deltas
+    }
+  }
+}`,
+    },
+    {
+      title: 'mplayer FIFO 音乐控制',
+      text: '音频播放通过 system() 启动 mplayer 并传入 slave 模式和 FIFO 路径参数。mplayer 在 slave 模式下进入交互控制状态，持续读取 FIFO 的命令行。应用通过 write() 向命名管道写入控制字符串，实现播放、暂停、音量调节、跳转和退出。\n\n7 首 MP3 音乐与图片同步切换——滑动到新图片时自动切换到对应的音乐文件。FIFO 在首次使用时通过 access() 检测是否存在，不存在则调用 mkfifo() 创建。所有 mplayer 输出重定向到 /dev/null 避免干扰终端。',
+      imageRight: true,
+      code: `// mplayer FIFO control
+int Music_Init() {
+  if (access("/tmp/fifo", F_OK) != 0)
+    mkfifo("/tmp/fifo", 0666);
+
+  system("mplayer -slave -quiet"
+    " -input file=/tmp/fifo &");
+
+  fifo_fd = open("/tmp/fifo", O_WRONLY);
+  return (fifo_fd < 0) ? -1 : 0;
+}
+
+void Music_Control(const char* cmd) {
+  write(fifo_fd, cmd, strlen(cmd));
+  write(fifo_fd, "\\n", 1);
+}
+
+// Usage:
+Music_Control("pause");
+Music_Control("volume 50 1");
+Music_Control("seek 10 1");`,
     },
   ],
   'mcpx': [
@@ -445,7 +735,7 @@ export default function TechShowcaseSection({ project }: Props) {
   if (!showcases || showcases.length === 0) return null;
 
   return (
-    <section className="py-24 px-8 border-t border-white/[0.04]">
+    <section className="py-[58px] px-8 border-t border-white/[0.04]">
       <div className="max-w-7xl mx-auto">
         <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-12">技术深挖</p>
 
