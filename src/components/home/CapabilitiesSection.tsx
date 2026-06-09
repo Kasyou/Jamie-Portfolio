@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useState } from 'react';
 import ScrollReveal from '../shared/ScrollReveal';
 
 const capabilities = [
@@ -27,35 +27,44 @@ const capabilities = [
 
 function CapCard({ cap, delay }: { cap: typeof capabilities[0]; delay: number }) {
   const elRef = useRef<HTMLDivElement>(null);
+  const hovered = useRef(false);
+  const [,setTick] = useState(0);
 
-  const onMove = useCallback((e: React.MouseEvent) => {
+  const doTilt = useCallback((e: React.MouseEvent) => {
     const el = elRef.current;
     if (!el) return;
     const rc = el.getBoundingClientRect();
-    // glow position
     el.style.setProperty('--mx', `${e.clientX - rc.left}px`);
     el.style.setProperty('--my', `${e.clientY - rc.top}px`);
-    // tilt
     const x = (e.clientX - rc.left) / rc.width - 0.5;
     const y = (e.clientY - rc.top) / rc.height - 0.5;
-    el.style.transition = 'none';
-    el.style.transform = `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(-2px)`;
+    if (!hovered.current) {
+      hovered.current = true;
+      setTick(t => t + 1);
+      el.style.transition = 'transform 200ms cubic-bezier(0.34,1.56,0.64,1)';
+    } else {
+      el.style.transition = 'transform 100ms ease-out';
+    }
+    el.style.transform = `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(-6px) scale(1.03)`;
+    el.style.zIndex = '20';
   }, []);
 
   const onLeave = useCallback(() => {
     const el = elRef.current;
     if (!el) return;
-    el.style.transition = 'transform 500ms ease-out';
-    el.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+    hovered.current = false;
+    el.style.transition = 'transform 600ms cubic-bezier(0.34,1.56,0.64,1)';
+    el.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0px) scale(1)';
+    el.style.zIndex = '0';
   }, []);
 
   return (
     <ScrollReveal delay={delay}>
-      <div ref={elRef} onMouseMove={onMove} onMouseLeave={onLeave}
+      <div ref={elRef} onMouseMove={doTilt} onMouseLeave={onLeave}
         className="card-base p-8 h-full group relative overflow-hidden"
         style={{'--glow':cap.color, transformStyle:'preserve-3d'} as React.CSSProperties}>
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
-          style={{background: `radial-gradient(circle 200px at var(--mx) var(--my), ${cap.color}12, transparent)`}}/>
+          style={{background:`radial-gradient(circle 200px at var(--mx) var(--my), ${cap.color}12, transparent)`}}/>
         <div className="relative z-10">
           <div className="mb-5" style={{color:cap.color}}>{cap.icon}</div>
           <h3 className="text-lg font-semibold text-text-primary mb-3">{cap.title}</h3>

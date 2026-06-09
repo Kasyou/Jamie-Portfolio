@@ -1,3 +1,4 @@
+import { useRef, useCallback } from 'react';
 import type { Project } from '../../types/project';
 
 interface ShowcaseItem {
@@ -715,8 +716,27 @@ server
 };
 
 function Terminal({ code }: { code: string }) {
+  const elRef = useRef<HTMLDivElement>(null);
+  const onMove = useCallback((e: React.MouseEvent) => {
+    const el = elRef.current;
+    if (!el) return;
+    const rc = el.getBoundingClientRect();
+    const x = (e.clientX - rc.left) / rc.width - 0.5;
+    const y = (e.clientY - rc.top) / rc.height - 0.5;
+    el.style.transition = 'none';
+    el.style.transform = `perspective(800px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg) translateY(-2px)`;
+  }, []);
+  const onLeave = useCallback(() => {
+    const el = elRef.current;
+    if (!el) return;
+    el.style.transition = 'transform 500ms ease-out';
+    el.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+  }, []);
+
   return (
-    <div className="flex-shrink-0 w-full md:w-[420px] rounded-xl overflow-hidden border border-[#30363d]" style={{ backgroundColor: '#0d1117' }}>
+    <div ref={elRef} onMouseMove={onMove} onMouseLeave={onLeave}
+      className="flex-shrink-0 w-full md:w-[420px] rounded-xl overflow-hidden border border-[#30363d]"
+      style={{ backgroundColor: '#0d1117', transformStyle: 'preserve-3d' }}>
       <div className="px-4 py-2 flex items-center gap-2 border-b border-[#30363d]" style={{ backgroundColor: '#161b22' }}>
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ff5f56' }} />
