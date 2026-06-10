@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .superpowers/
+.playwright-mcp/
+public/screenshots-gen/
+homepage-hero.png
+mcpx-detail.png
+projects-page.png
