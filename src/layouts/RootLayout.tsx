@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
+import NameCard from '../components/shared/NameCard';
 
 const navLinks = [
   { to: '/', label: '首页' },
@@ -9,6 +10,7 @@ const navLinks = [
 export default function RootLayout() {
   const location = useLocation();
   const rootRef = useRef<HTMLDivElement>(null);
+  const [cardOpen, setCardOpen] = useState(false);
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -41,10 +43,10 @@ export default function RootLayout() {
       <div className="relative z-[1]">
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/[0.04]" style={{backgroundColor:'rgba(6,8,12,0.85)'}}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-3 group">
+          <button onClick={() => setCardOpen(true)} className="flex items-center gap-3 group">
             <div className="w-7 h-7 rounded-full bg-gradient-to-br from-frontend to-cli flex items-center justify-center text-xs font-semibold text-white">J</div>
             <span className="text-text-primary font-semibold text-sm tracking-tight group-hover:text-frontend transition-colors">Jamie</span>
-          </Link>
+          </button>
           <div className="flex items-center gap-6">
             {navLinks.map((l) => (
               <Link key={l.to} to={l.to} className={`text-sm transition-colors ${location.pathname===l.to?'text-frontend font-medium':'text-text-secondary hover:text-text-primary'}`}>{l.label}</Link>
@@ -63,6 +65,7 @@ export default function RootLayout() {
           <p className="text-text-muted text-xs">基于 React · Vite · Tailwind 构建 · 部署于 Netlify</p>
         </div>
       </footer>
+      <NameCard open={cardOpen} onClose={() => setCardOpen(false)} />
     </div>
   );
 }
