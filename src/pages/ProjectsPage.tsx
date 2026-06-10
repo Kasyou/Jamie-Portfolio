@@ -30,7 +30,7 @@ function WideCard({ project }: { project: Project }) {
             <div className="flex gap-1.5 flex-wrap">{project.techStack.map(t=><span key={t} className="text-[10px] px-2 py-0.5 rounded bg-elevated text-text-secondary">{t}</span>)}</div>
             {project.links.live&&<p className="text-frontend text-[11px] mt-2 font-medium">在线演示 →</p>}
           </div>
-          <div className="flex-shrink-0 text-right"><p className="text-text-muted text-[10px]">{project.meta.timeline}</p><p className="text-xs font-medium mt-0.5" style={{color:project.meta.status==='Live'?'#7ee787':'#8b949e'}}>{project.meta.status}</p></div>
+          <div className="flex-shrink-0 text-right flex flex-col items-end"><p className="text-text-muted text-[10px]">{project.meta.timeline}</p><p className="text-xs font-medium mt-0.5" style={{color:project.meta.status==='Live'?'#7ee787':'#8b949e'}}>{project.meta.status}</p>{project.links.github&&<a href={project.links.github} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()} className="text-[10px] font-medium mt-1.5 transition-colors hover:underline" style={{color:cc}}>在 Github 中查看 →</a>}</div>
         </div>
       </div>
     </Link>
