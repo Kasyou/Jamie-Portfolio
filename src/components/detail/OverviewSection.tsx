@@ -1,17 +1,20 @@
+import { useState } from 'react';
 import type { Project } from '../../types/project';
 import { categoryMeta } from '../../data/projects';
 import ProjectLogo from '../shared/ProjectLogo';
+import ImageViewer from '../shared/ImageViewer';
 
 interface Props { project: Project; }
 export default function OverviewSection({ project }: Props) {
   const catColor = categoryMeta[project.category]?.color ?? '#58a6ff';
+  const [viewer, setViewer] = useState<{src:string;alt:string}|null>(null);
   return (
     <section className="pt-2 pb-24 px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row gap-14 items-start">
           <div className={`flex-shrink-0 w-full ${project.id==='coboard'?'md:w-[435px]':'md:w-[420px]'} flex flex-col gap-3`}>
-            <div className="rounded-xl bg-surface border border-border overflow-hidden" style={project.id==='weather-report'?{boxShadow:`0 0 50px ${catColor}10`,height:'409px',backgroundImage:'radial-gradient(circle,rgba(200,210,240,0.06) 1px,transparent 1px)',backgroundSize:'20px 20px'}:project.id==='coboard'?{boxShadow:`0 0 50px ${catColor}10`,height:'250px'}:project.id==='ccmonitor'?{boxShadow:`0 0 50px ${catColor}10`,height:'300px'}:{boxShadow:`0 0 50px ${catColor}10`,aspectRatio:project.id==='aiwaifu'?'16/9':'3/2'}}>
-              <img src={`/screenshots/${project.id}/${project.id}-${project.id==='ccmonitor'?'menu':'main'}.png`} alt={project.name} className="w-full h-full object-cover"
+            <div className="rounded-xl bg-surface border border-border overflow-hidden cursor-pointer" style={project.id==='weather-report'?{boxShadow:`0 0 50px ${catColor}10`,height:'409px',backgroundImage:'radial-gradient(circle,rgba(200,210,240,0.06) 1px,transparent 1px)',backgroundSize:'20px 20px'}:project.id==='coboard'?{boxShadow:`0 0 50px ${catColor}10`,height:'250px'}:project.id==='ccmonitor'?{boxShadow:`0 0 50px ${catColor}10`,height:'300px'}:{boxShadow:`0 0 50px ${catColor}10`,aspectRatio:project.id==='aiwaifu'?'16/9':'3/2'}} onClick={()=>{const src=`/screenshots/${project.id}/${project.id}-${project.id==='ccmonitor'?'menu':'main'}.png`;setViewer({src,alt:project.name})}}>
+              <img src={`/screenshots/${project.id}/${project.id}-${project.id==='ccmonitor'?'menu':'main'}.png`} alt={project.name} className="w-full h-full object-cover pointer-events-none"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
                 <div className="w-full h-full flex items-center justify-center" style={{background:`linear-gradient(135deg,${catColor}10,transparent 60%)`}}>
@@ -19,11 +22,12 @@ export default function OverviewSection({ project }: Props) {
                 </div>
             </div>
             {project.id === 'coboard' && (
-              <div className="rounded-xl border border-border overflow-hidden" style={{boxShadow:`0 0 50px ${catColor}06`,height:'250px'}}>
-                <img src={`/screenshots/${project.id}/${project.id}-menu.png`} alt={`${project.name} menu`} className="w-full h-full object-cover" />
+              <div className="rounded-xl border border-border overflow-hidden cursor-pointer" style={{boxShadow:`0 0 50px ${catColor}06`,height:'250px'}} onClick={()=>{const src=`/screenshots/${project.id}/${project.id}-menu.png`;setViewer({src,alt:`${project.name} menu`})}}>
+                <img src={`/screenshots/${project.id}/${project.id}-menu.png`} alt={`${project.name} menu`} className="w-full h-full object-cover pointer-events-none" />
               </div>
             )}
           </div>
+          <ImageViewer src={viewer?.src??''} alt={viewer?.alt??''} open={!!viewer} onClose={()=>setViewer(null)}/>
           <div className="flex-1">
             <p className="text-text-secondary text-[11px] tracking-[3px] uppercase mb-6">项目概述</p>
             <div className="mb-8"><h3 className="text-xs font-semibold text-text-muted uppercase tracking-[2px] mb-3">解决的问题</h3><p className="text-text-primary text-xl font-semibold leading-relaxed">{project.problemStatement}</p></div>

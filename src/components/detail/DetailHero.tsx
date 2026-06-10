@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import type { Project } from '../../types/project';
 import { categoryMeta } from '../../data/projects';
+import ImageViewer from '../shared/ImageViewer';
 
 interface Props { project: Project; }
 
 export default function DetailHero({ project }: Props) {
   const catColor = categoryMeta[project.category]?.color ?? '#58a6ff';
+  const [viewer, setViewer] = useState<{src:string;alt:string}|null>(null);
   const catLabel = categoryMeta[project.category]?.label ?? project.category;
   const statusMap: Record<string,string> = {Live:'在线',Complete:'已完成',Prototype:'原型',Paused:'暂停',WIP:'开发中'};
 
@@ -32,14 +35,15 @@ export default function DetailHero({ project }: Props) {
             {project.links.source && <a href={project.links.source} target="_blank" rel="noopener noreferrer" className="text-text-secondary text-sm font-medium border-b border-text-secondary/20 pb-0.5 hover:text-text-primary transition-colors">源代码 →</a>}
           </div>
         </div>
-        <div className={`flex-shrink-0 w-[400px] rounded-xl bg-surface border border-border overflow-hidden self-start mt-[40px] ${project.id==='ccmonitor'?'h-[261px]':'h-[225px]'}`} style={{boxShadow:`0 0 50px ${catColor}10`}}>
-          {project.heroImage || project.logo ? <img src={project.heroImage || project.logo} alt={project.name} className="w-full h-full object-cover" /> : (
+        <div className={`flex-shrink-0 w-[400px] rounded-xl bg-surface border border-border overflow-hidden self-start mt-[40px] cursor-pointer ${project.id==='ccmonitor'?'h-[261px]':'h-[225px]'}`} style={{boxShadow:`0 0 50px ${catColor}10`}} onClick={()=>{if(project.heroImage||project.logo)setViewer({src:(project.heroImage||project.logo)!,alt:project.name})}}>
+          {project.heroImage || project.logo ? <img src={project.heroImage || project.logo} alt={project.name} className="w-full h-full object-cover pointer-events-none" /> : (
             <div className="w-full h-full flex items-center justify-center" style={{background:`linear-gradient(135deg,${catColor}15,transparent 60%)`}}>
               <span className="text-5xl">{project.emoji}</span>
             </div>
           )}
         </div>
       </div>
+      <ImageViewer src={viewer?.src??''} alt={viewer?.alt??''} open={!!viewer} onClose={()=>setViewer(null)}/>
     </section>
   );
 }
