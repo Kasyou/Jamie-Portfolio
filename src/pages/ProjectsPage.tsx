@@ -42,7 +42,7 @@ export default function ProjectsPage() {
     <>
       <StarMap />
       <section className="py-12 px-8"><div className="max-w-7xl mx-auto"><div className="section-divider mb-10"/>
-        {catOrder.map(key=>{const cp=projects.filter(p=>p.category===key);if(!cp.length)return null;const m=categoryMeta[key];return(
+        {catOrder.map(key=>{let cp=projects.filter(p=>p.category===key);if(key==='frontend'){const c=cp.find(p=>p.id==='crossborder-workflow');if(c){cp=[c,...cp.filter(p=>p.id!=='crossborder-workflow')];}}if(!cp.length)return null;const m=categoryMeta[key];return(
           <ScrollReveal key={key}><div className="mb-12"><div className="flex items-baseline gap-3 mb-4"><div className="w-3 h-3 rounded-sm" style={{backgroundColor:m.color}}/><h2 className="text-xl font-semibold" style={{color:m.color}}>{m.label}</h2><span className="text-text-muted text-xs font-mono">{m.count} 个项目</span></div><div className="space-y-2.5">{cp.map(p=><WideCard key={p.id} project={p}/>)}</div></div></ScrollReveal>
         );})}
       </div></section>
